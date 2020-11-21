@@ -1,11 +1,16 @@
-import React from "react";
-import "./App.css";
-import { AppRouter } from "./AppRouter";
+import React from 'react';
+import './App.css';
+import DocumentTitle from 'react-document-title';
+import { AppRouter } from './routes/AppRouter';
 
 function App() {
   return (
     <>
-      <AppRouter />
+      <DocumentTitle title="Easy Accommod">
+        {/* <GoogleAuthProvider> */}
+        <AppRouter />
+        {/* </GoogleAuthProvider> */}
+      </DocumentTitle>
     </>
   );
 }

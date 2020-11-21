@@ -3,7 +3,11 @@ import { Row, Col, Button } from "antd";
 
 function Footer() {
   return (
-    <footer id="footer" className="dark">
+    <footer
+      id="footer"
+      className="dark"
+      style={{ position: "absolute", bottom: 0, width: "100%" }}
+    >
       <Row className="bottom-bar">
         <Col lg={6} sm={24}>
           <div className="translate-button">
