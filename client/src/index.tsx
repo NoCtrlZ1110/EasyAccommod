@@ -1,17 +1,41 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import './index.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import * as moment from 'moment';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'mobx-react';
+import Utils from './utils/utils';
+import abpUserConfigurationService from './services/abpUserConfigurationService';
+import initializeStores from './stores/storeInitializer';
+import registerServiceWorker from './registerServiceWorker';
+
+declare var abp: any;
+
+Utils.setLocalization();
+
+abpUserConfigurationService.getAll().then(data => {
+  Utils.extend(true, abp, data.data.result);
+  abp.clock.provider = Utils.getCurrentClockProvider(data.data.result.clock.provider);
+
+  moment.locale(abp.localization.currentLanguage.name);
+
+  if (abp.clock.provider.supportsMultipleTimezone) {
+    moment.tz.setDefault(abp.timing.timeZoneInfo.iana.timeZoneId);
+  }
+
+  const stores = initializeStores();
+
+  ReactDOM.render(
+    <Provider {...stores}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>,
+    document.getElementById('root') as HTMLElement
+  );
+
+  registerServiceWorker();
+});
