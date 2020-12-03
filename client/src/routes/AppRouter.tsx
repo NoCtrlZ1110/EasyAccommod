@@ -29,20 +29,9 @@ const routes = [
     component: NotFound,
   },
 ];
-const useStateWithLocalStorage = (localStorageKey: string) => {
-  const [value, setValue] = React.useState(
-    localStorage.getItem(localStorageKey) || ''
-  );
-
-  React.useEffect(() => {
-    localStorage.setItem(localStorageKey, value);
-  }, [value]);
-
-  return [value, setValue];
-};
 
 export function AppRouter(props: any) {
-  const [accessToken, setAccessToken] = useStateWithLocalStorage('accessToken');
+  const accessToken = localStorage.getItem('accessToken');
 
   return (
     <Router history={history}>
