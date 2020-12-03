@@ -41,8 +41,8 @@ class Header extends React.Component {
         </Menu.Item>
 
         <Menu.Item key="main">
-          <Link to="/menu1">
-            <span>Menu1</span>
+          <Link to="/accommod">
+            <span>Accommod List</span>
           </Link>
         </Menu.Item>
         <Menu.Item key="menu2">

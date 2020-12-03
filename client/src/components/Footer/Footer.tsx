@@ -1,13 +1,9 @@
-import React from "react";
-import { Row, Col, Button } from "antd";
+import React from 'react';
+import { Row, Col, Button } from 'antd';
 
 function Footer() {
   return (
-    <footer
-      id="footer"
-      className="dark"
-      style={{ position: "absolute", bottom: 0, width: "100%" }}
-    >
+    <footer id="footer" className="dark">
       <Row className="bottom-bar">
         <Col lg={6} sm={24}>
           <div className="translate-button">
@@ -21,10 +17,10 @@ function Footer() {
         <Col lg={18} sm={24}>
           <span
             style={{
-              lineHeight: "16px",
+              lineHeight: '16px',
               paddingRight: 12,
               marginRight: 11,
-              borderRight: "1px solid rgba(255, 255, 255, 0.55)",
+              borderRight: '1px solid rgba(255, 255, 255, 0.55)',
             }}
           >
             <a
