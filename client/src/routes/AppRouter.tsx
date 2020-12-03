@@ -7,6 +7,7 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import { Login } from '../scenes/Login/Login';
 import { TEST } from '../scenes/test';
+import AccommodList from '../scenes/Accommod/AccommodList';
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
   {
     path: '/private',
     component: TEST,
+    private: true,
+  },
+  {
+    path: '/accommod',
+    component: AccommodList,
     private: true,
   },
   {
@@ -54,7 +60,9 @@ export function RouteWithSubRoutes(route: any) {
             return (
               <>
                 <Header />
-                <route.component {...props} routes={route.routes} />
+                <div className="wrapper">
+                  <route.component {...props} routes={route.routes} />
+                </div>
                 <Footer />
               </>
             );
@@ -66,7 +74,9 @@ export function RouteWithSubRoutes(route: any) {
             // pass the sub-routes down to keep nesting
             <>
               <Header />
-              <route.component {...props} routes={route.routes} />
+              <div className="wrapper">
+                <route.component {...props} routes={route.routes} />
+              </div>
               <Footer />
             </>
           );
