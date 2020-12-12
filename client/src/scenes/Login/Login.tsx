@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox, Card, Divider } from 'antd';
 import GoogleLoginBtn from '../../components/GoogleLogin/GoogleLoginButton';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export const Login: React.FC = () => {
   const onFinish = (values: any) => {
@@ -17,14 +17,13 @@ export const Login: React.FC = () => {
     return (
       <div className="container text-center ">
         <div className="align-middle">
-          <h1 className="">LOGIN HERE</h1>
+          <h1 style={{ marginTop: 90 }}>Đăng nhập</h1>
           <Card
             className="mx-auto "
             style={{
               maxWidth: 700,
               padding: 20,
               paddingBottom: 0,
-              marginTop: 100,
             }}
           >
             <Form
@@ -34,7 +33,7 @@ export const Login: React.FC = () => {
               onFinishFailed={onFinishFailed}
             >
               <Form.Item
-                label="Username"
+                label="Tài khoản"
                 name="username"
                 rules={[
                   { required: true, message: 'Please input your username!' },
@@ -44,7 +43,7 @@ export const Login: React.FC = () => {
               </Form.Item>
 
               <Form.Item
-                label="Password"
+                label="Mật khẩu"
                 name="password"
                 rules={[
                   { required: true, message: 'Please input your password!' },
@@ -54,18 +53,21 @@ export const Login: React.FC = () => {
               </Form.Item>
 
               <Form.Item name="remember" valuePropName="checked">
-                <Checkbox>Remember me</Checkbox>
+                <Checkbox>Ghi nhớ</Checkbox>
               </Form.Item>
 
               <Form.Item>
                 <Button type="primary" htmlType="submit">
-                  Submit
+                  Login
                 </Button>
               </Form.Item>
               <Divider plain>or</Divider>
               <Form.Item>
                 <GoogleLoginBtn />
               </Form.Item>
+              <Divider plain>
+                Not a member yet? <Link to="/signup">Create account</Link>
+              </Divider>
             </Form>
           </Card>
         </div>
