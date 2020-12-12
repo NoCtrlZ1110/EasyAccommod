@@ -8,11 +8,17 @@ import Footer from '../components/Footer/Footer';
 import { Login } from '../scenes/Login/Login';
 import { TEST } from '../scenes/test';
 import AccommodList from '../scenes/Accommod/AccommodList';
+import { SignUp } from '../scenes/SignUp/SignUp';
 
 const routes = [
   {
     path: '/login',
     component: Login,
+    exact: true,
+  },
+  {
+    path: '/signup',
+    component: SignUp,
     exact: true,
   },
   {
