@@ -2,7 +2,6 @@ import React from 'react';
 import { Form, Input, Button, Checkbox, Card, Divider } from 'antd';
 import GoogleLoginBtn from '../../components/GoogleLogin/GoogleLoginButton';
 import { Link, Redirect } from 'react-router-dom';
-
 export const Login: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
@@ -17,9 +16,10 @@ export const Login: React.FC = () => {
     return (
       <div className="container text-center ">
         <div className="align-middle">
-          <h1 style={{ marginTop: 90 }}>Đăng nhập</h1>
+          <div style={{ height: 60 }} />
+          <h1>Đăng nhập</h1>
           <Card
-            className="mx-auto "
+            className="mx-auto mt-5"
             style={{
               maxWidth: 700,
               padding: 20,
@@ -36,7 +36,7 @@ export const Login: React.FC = () => {
                 label="Tài khoản"
                 name="username"
                 rules={[
-                  { required: true, message: 'Please input your username!' },
+                  { required: true, message: 'Vui lòng nhập tên người dùng!' },
                 ]}
               >
                 <Input />
@@ -45,9 +45,7 @@ export const Login: React.FC = () => {
               <Form.Item
                 label="Mật khẩu"
                 name="password"
-                rules={[
-                  { required: true, message: 'Please input your password!' },
-                ]}
+                rules={[{ required: true, message: 'Vui lòng nhập mật khẩu!' }]}
               >
                 <Input.Password />
               </Form.Item>
@@ -58,15 +56,15 @@ export const Login: React.FC = () => {
 
               <Form.Item>
                 <Button type="primary" htmlType="submit">
-                  Login
+                  Đăng nhập
                 </Button>
               </Form.Item>
-              <Divider plain>or</Divider>
+              <Divider plain>hoặc</Divider>
               <Form.Item>
                 <GoogleLoginBtn />
               </Form.Item>
               <Divider plain>
-                Not a member yet? <Link to="/signup">Create account</Link>
+                Chưa có tài khoản <Link to="/signup">Tạo tài khoản</Link>
               </Divider>
             </Form>
           </Card>

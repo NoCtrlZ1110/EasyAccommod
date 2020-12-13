@@ -1,5 +1,8 @@
 import React from 'react';
-import { Form, Input, Button, Card } from 'antd';
+import { Form, Input, Button, Card, Tabs } from 'antd';
+
+const { TabPane } = Tabs;
+
 export const SignUp: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
@@ -9,18 +12,10 @@ export const SignUp: React.FC = () => {
     console.log('Failed:', errorInfo);
   };
 
-  return (
-    <div className="sign-up text-center">
-      <h1>Tạo tài khoản mới</h1>
-      <Card
-        className="mx-auto "
-        style={{
-          maxWidth: 700,
-          padding: 20,
-          paddingBottom: 0,
-          marginTop: 50,
-        }}
-      >
+  const signUpForm = (role: string) => {
+    let isOwner = role === 'owner';
+    return (
+      <div className="mt-4">
         <Form
           name="sign_up_form"
           initialValues={{ remember: true }}
@@ -59,43 +54,73 @@ export const SignUp: React.FC = () => {
           >
             <Input.Password />
           </Form.Item>
+          {isOwner && (
+            <>
+              <Form.Item
+                label="Số CCCD"
+                name="id_number"
+                rules={[
+                  { required: true, message: 'Vui lòng điền số CCCD của bạn' },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="Địa chỉ"
+                name="address"
+                rules={[
+                  { required: true, message: 'Vui lòng điền địa chỉ của bạn' },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="SĐT"
+                name="phone_number"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Vui lòng điền số điện thoại của bạn',
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+            </>
+          )}
 
-          <Form.Item
-            label="Số CCCD"
-            name="id_number"
-            rules={[
-              { required: true, message: 'Vui lòng điền số CCCD của bạn' },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            label="Địa chỉ"
-            name="address"
-            rules={[
-              { required: true, message: 'Vui lòng điền địa chỉ của bạn' },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            label="SĐT"
-            name="phone_number"
-            rules={[
-              {
-                required: true,
-                message: 'Vui lòng điền số điện thoại của bạn',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">
               Tạo tài khoản
             </Button>
           </Form.Item>
         </Form>
+      </div>
+    );
+  };
+
+  return (
+    <div className="sign-up text-center">
+      <h1>Tạo tài khoản mới</h1>
+
+      <Card
+        className="mx-auto "
+        style={{
+          maxWidth: 700,
+          padding: 20,
+          paddingBottom: 0,
+          marginTop: 50,
+        }}
+      >
+        <Tabs defaultActiveKey="1" onChange={() => {}}>
+          <TabPane tab="Chủ nhà trọ" key="owner">
+            {signUpForm('owner')}
+          </TabPane>
+          {/* --------------------- */}
+          <TabPane tab="Người thuê trọ" key="renter">
+            {signUpForm('renter')}
+          </TabPane>
+        </Tabs>
       </Card>
     </div>
   );

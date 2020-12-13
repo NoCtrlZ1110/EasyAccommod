@@ -4,17 +4,18 @@
 
 @font-face {
   font-family: 'Quicksand';
-  src: local("Quicksand"), url(./assets/fonts/Quicksand-SemiBold.ttf) format("ttf");
+  src: local("Quicksand"), url(./assets/fonts/Quicksand-Light.ttf) format("ttf");
 }
 
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -23,13 +24,13 @@ code {
 }
 
 #logo {
-  color:#3DCC85;
+  color:#5aaf61;
   font-family: 'Quicksand'!important;
 
 }
 h1 {
   font-family: 'Quicksand'!important;
-  color:#3DCC85;
+  color:#36813c;
 }
 
 .ant-form-item-label {

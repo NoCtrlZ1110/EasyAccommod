@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
-import { Row, Col, Menu, Button, Popover, Modal } from 'antd';
+import { Row, Col, Menu, Button, Popover } from 'antd';
 import Icon from '@ant-design/icons';
 import { enquireScreen } from 'enquire-js';
 import { Link } from 'react-router-dom';
@@ -37,17 +37,16 @@ class Header extends React.Component {
     const menu = (
       <Menu mode={menuMode as any} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link to="/">Home</Link>
+          <Link to="/">Trang chủ</Link>
         </Menu.Item>
-
-        <Menu.Item key="main">
+        <Menu.Item key="accommod">
           <Link to="/accommod">
-            <span>Accommod List</span>
+            <span>Tìm trọ</span>
           </Link>
         </Menu.Item>
-        <Menu.Item key="menu2">
-          <Link to="/menu2">
-            <span>Menu2</span>
+        <Menu.Item key="search">
+          <Link to="/search">
+            <span>Tìm kiếm</span>
           </Link>
         </Menu.Item>
       </Menu>
@@ -55,7 +54,7 @@ class Header extends React.Component {
 
     return (
       <>
-        <div id="header" className="header">
+        <div id="header" className="header container">
           {menuMode === 'inline' ? (
             <Popover
               overlayClassName="popover-menu"
@@ -69,7 +68,7 @@ class Header extends React.Component {
             </Popover>
           ) : null}
           <Row>
-            <Col xxl={4} xl={5} lg={8} md={8} sm={24} xs={24}>
+            <Col xxl={6} xl={6} lg={8} md={8} sm={24} xs={24}>
               <Link to="/">
                 <div id="logo">
                   <img src={logo} alt="logo" />
@@ -77,7 +76,7 @@ class Header extends React.Component {
                 </div>
               </Link>
             </Col>
-            <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
+            <Col xxl={18} xl={18} lg={16} md={16} sm={0} xs={0}>
               <div className="header-meta">
                 <div id="preview">
                   {isLogin ? (
@@ -99,7 +98,7 @@ class Header extends React.Component {
                         window.location.href = '/login';
                       }}
                     >
-                      Login
+                      Đăng nhập
                     </Button>
                   )}
                 </div>
@@ -108,29 +107,6 @@ class Header extends React.Component {
             </Col>
           </Row>
         </div>
-        <Modal
-          title={<div className="text-center">About this project 😎</div>}
-          centered
-          visible={this.state.modalAbout}
-          onOk={() => this.closeModal()}
-          onCancel={() => this.closeModal()}
-          footer={[
-            <div className="text-center">
-              <Button
-                key="submit"
-                type="dashed"
-                onClick={() => this.closeModal()}
-              >
-                🥰🥰🥰
-              </Button>
-            </div>,
-          ]}
-        >
-          <div className="text-center">
-            <p>❤ Bài tập lớn môn "Phát triển ứng dụng Web" ❤</p>
-            <p>Năm học 2020-2021</p>
-          </div>
-        </Modal>
       </>
     );
   }

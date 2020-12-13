@@ -1,0 +1,41 @@
+.search-bar{
+
+    
+
+    .ant-input-affix-wrapper{
+        height: 55px;
+    }
+
+    .ant-input-group-addon{
+        z-index: 1;
+        background-color: unset;
+    }
+
+    .ant-input-affix-wrapper {
+        border-top: 3px solid #4285F4;
+        border-bottom: 3px solid #4285F4;
+        border-left: unset;
+        border-right: unset;
+        z-index: 0;
+    }
+
+    .ant-input{
+        margin-left: 10px;
+        font-size: large;
+    }
+
+    .filter-btn {
+        border: 3px solid #4285F4;
+        border-right: unset;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        transform: translateX(10px);
+
+    }
+
+    .ant-input-search-button{
+        border-top-right-radius: 10px!important;
+        border-bottom-right-radius: 10px!important;
+    }
+
+}
