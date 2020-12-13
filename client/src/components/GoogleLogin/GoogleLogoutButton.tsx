@@ -25,7 +25,7 @@ function GoogleLogoutBtn() {
   return (
     <>
       <Button onClick={signOut} className="button">
-        <span className="buttonText">Sign out</span>
+        <span className="buttonText">Đăng xuất</span>
       </Button>
     </>
   );

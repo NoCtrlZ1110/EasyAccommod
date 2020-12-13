@@ -5,7 +5,6 @@ import { useGoogleLogin } from 'react-google-login';
 import { GOOGLE_CLIENT_ID } from '../../const';
 // refresh token
 import { refreshTokenSetup } from '../../utils/refreshToken';
-import history from '../../services/history';
 
 const clientId = GOOGLE_CLIENT_ID;
 
@@ -16,7 +15,7 @@ function GoogleLoginBtn() {
     console.log('Login Success:', res);
     // alert(`Đăng nhập thành công, xin chào ${res.profileObj.name} 😍`);
     refreshTokenSetup(res);
-    history.push('/');
+    window.location.href = '/';
   };
 
   const onFailure = (res: any) => {
@@ -41,7 +40,7 @@ function GoogleLoginBtn() {
           className="mb-1"
           height={20}
         ></img>
-        <span className="buttonText ml-3">Sign in with Google</span>
+        <span className="buttonText ml-3">Đăng nhập với Google</span>
       </Button>
     </>
   );

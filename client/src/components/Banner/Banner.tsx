@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React from "react";
-import PropTypes from "prop-types";
-import QueueAnim from "rc-queue-anim";
-import TweenOne from "rc-tween-one";
-import { Button } from "antd";
-import GitHubButton from "react-github-button";
-import BannerSVGAnim from "../../scenes/Home/BannerSVGAnim";
+import React from 'react';
+import PropTypes from 'prop-types';
+import QueueAnim from 'rc-queue-anim';
+import TweenOne from 'rc-tween-one';
+import { Button } from 'antd';
+import GitHubButton from 'react-github-button';
+import BannerSVGAnim from '../../scenes/Home/BannerSVGAnim';
 // import history from "../../services/history";
 
 function Banner(props: any) {
@@ -16,7 +16,7 @@ function Banner(props: any) {
           <div className="home-banner-image">
             <img
               alt="banner"
-              src="https://gw.alipayobjects.com/zos/rmsportal/rqKQOpnMxeJKngVvulsF.svg"
+              src="https://gw.alipayobjects.com/os/s/prod/antv/assets/image/home/intro-landscape-3a409.svg"
               width="100%"
             />
           </div>
@@ -24,12 +24,12 @@ function Banner(props: any) {
       )}
       <QueueAnim
         className="banner-title-wrapper"
-        type={props.isMobile ? "bottom" : "right"}
+        type={props.isMobile ? 'bottom' : 'right'}
       >
         <div key="line" className="title-line-wrapper">
           <div
             className="title-line"
-            style={{ transform: "translateX(-64px)" }}
+            style={{ transform: 'translateX(-64px)' }}
           />
         </div>
         <h1 key="h1">
@@ -40,13 +40,13 @@ function Banner(props: any) {
         <div key="button" className="button-wrapper">
           <Button
             type="primary"
-            onClick={() => (window.location.href = "/login")}
+            onClick={() => (window.location.href = '/login')}
           >
             Get Started
           </Button>
 
           <a href="https://github.com/NoCtrlZ1110/EasyAccommod/">
-            <Button style={{ margin: "0 16px" }} type="primary" ghost>
+            <Button style={{ margin: '0 16px' }} type="primary" ghost>
               Source Code
             </Button>
           </a>
