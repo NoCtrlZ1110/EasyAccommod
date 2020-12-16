@@ -10,6 +10,7 @@ import { TEST } from '../scenes/test';
 import AccommodList from '../scenes/Accommod/AccommodList';
 import { SignUp } from '../scenes/SignUp/SignUp';
 import { SearchPage } from '../scenes/Search/Search';
+import { CreatePost } from '../scenes/CreatePost/CreatePost';
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
   {
     path: '/accommod',
     component: AccommodList,
+    private: true,
+  },
+  {
+    path: '/post',
+    component: CreatePost,
     private: true,
   },
   {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Button } from 'antd';
+import { Row, Button } from 'antd';
 
 function Footer() {
   return (
@@ -37,7 +37,7 @@ function Footer() {
                 2020F-INT3306
               </a>
             </span>
-            <span>Copyright © NoCtrlZ</span>
+            <span>Copyright © 2020</span>
           </div>
         </Row>
       </div>
