@@ -1758,6 +1758,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-responsive@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react-responsive/-/react-responsive-8.0.2.tgz#959fdc32f72e38b807e32be617a74be2c315081b"
+  integrity sha512-DTvm3Hb77v0hme7L4GYzRjLQqlZP+zNImFBzdKbSH7CsQ5c7QebGnSQX2Xf3BaA0rm/TQE57eFMhMGLcMe/A9w==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-router-dom@^5.1.6":
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.1.6.tgz#07b14e7ab1893a837c8565634960dc398564b1fb"
@@ -4990,6 +4997,11 @@ execa@^4.0.0:
     onetime "^5.1.0"
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
+
+exenv@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
+  integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
 
 exit@^0.1.2:
   version "0.1.2"
@@ -10132,6 +10144,11 @@ react-error-overlay@^6.0.8:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.8.tgz#474ed11d04fc6bda3af643447d85e9127ed6b5de"
   integrity sha512-HvPuUQnLp5H7TouGq3kzBeioJmXms1wHy9EGjz2OURWBp4qZO6AfGEcnxts1D/CbwPLRAgTMPCEgYhA3sEM4vw==
 
+react-from-dom@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/react-from-dom/-/react-from-dom-0.5.1.tgz#5ab82944209059aded60dc26abf43f8989126fa2"
+  integrity sha512-ki6OGVgSjDCF0Gt4SMl2cUNBA9ZB8g59bwv9ZiSEXQ37Cw9ZGY0s7EgfPFQYDvaiVx22jto7/dYgQeS+Qw1Mfw==
+
 react-github-button@^0.1.11:
   version "0.1.11"
   resolved "https://registry.yarnpkg.com/react-github-button/-/react-github-button-0.1.11.tgz#fc61e1f1e1371169d3618c1ba37306ba04081e56"
@@ -10146,6 +10163,14 @@ react-google-login@^5.1.24:
   dependencies:
     "@types/react" "*"
     prop-types "^15.6.0"
+
+react-inlinesvg@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-inlinesvg/-/react-inlinesvg-2.2.2.tgz#b43ac35ed9d0b6f60274b93049a5d091fd4384b6"
+  integrity sha512-5uXTB0yL9LiRLbN5FhTnL1IK9mLg93kspY2HnKUftzoJDEqZrlscuZxzXStbMBZpNyO359U7QDspM3AqUYUrog==
+  dependencies:
+    exenv "^1.2.2"
+    react-from-dom "^0.5.1"
 
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"

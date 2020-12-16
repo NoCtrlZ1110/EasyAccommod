@@ -1,0 +1,14 @@
+.create-post {
+    .ant-form-item-label {
+        min-width: 120px;
+    }
+
+    .ant-divider-inner-text{
+        padding: unset;
+    }
+
+    .ant-divider-horizontal.ant-divider-with-text-left::before{
+        width: 0%;
+    }
+
+}

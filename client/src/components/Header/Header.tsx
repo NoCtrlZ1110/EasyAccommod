@@ -44,6 +44,11 @@ class Header extends React.Component {
             <span>Tìm trọ</span>
           </Link>
         </Menu.Item>
+        <Menu.Item key="post">
+          <Link to="/post">
+            <span>Đăng bài</span>
+          </Link>
+        </Menu.Item>
         <Menu.Item key="search">
           <Link to="/search">
             <span>Tìm kiếm</span>
@@ -84,7 +89,7 @@ class Header extends React.Component {
                       {
                         <img
                           src={(profile as any).imageUrl}
-                          alt="logo"
+                          alt="avatar"
                           height={25}
                           style={{ borderRadius: 20, marginRight: 20 }}
                         />
