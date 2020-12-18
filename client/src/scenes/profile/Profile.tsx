@@ -1,4 +1,4 @@
 import React from 'react';
 export const Profile: React.FC = () => {
-  return <div>Profile page here!</div>;
+  return <div className='profile container'>Profile page here!</div>;
 };
