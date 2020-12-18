@@ -18,7 +18,7 @@ namespace UET.EasyAccommod.Users.Dto
         [StringLength(AbpUserBase.MaxNameLength)]
         public string Name { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(AbpUserBase.MaxSurnameLength)]
         public string Surname { get; set; }
 
@@ -35,7 +35,11 @@ namespace UET.EasyAccommod.Users.Dto
         [StringLength(AbpUserBase.MaxPlainPasswordLength)]
         [DisableAuditing]
         public string Password { get; set; }
-
+        [Required]
+        public string IdCard { get; set; }
+        [Required]
+        public string Address { get; set; }
+        public string Phone { get; set; }
         public void Normalize()
         {
             if (RoleNames == null)
