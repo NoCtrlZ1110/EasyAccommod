@@ -11,53 +11,76 @@ import {
   Radio,
   Select,
   Space,
+  Spin,
 } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
 
 export const SearchBar: React.FC = () => {
   const height = 55;
   const [visible, setVisible] = useState(false);
+  const [isSearching, setSearching] = useState(false);
   const { Option } = Select;
   const isMobile = useMediaQuery({ query: '(max-width: 1080px)' });
 
   return (
-    <div className="search-bar mx-3">
-      <Search
-        height={height}
-        addonBefore={
-          <Button
-            className="filter-btn"
-            icon={<Filter fill="#508f55" height={30} width={30} />}
-            style={{
-              height: height,
-              width: height,
-              border: '3px solid #508f55;',
+    <>
+      <div className="search-bar mx-3">
+        <Spin spinning={isSearching}>
+          <Search
+            height={height}
+            addonBefore={
+              <Button
+                className="filter-btn"
+                icon={<Filter fill="#508f55" height={30} width={30} />}
+                style={{
+                  height: height,
+                  width: height,
+                  border: '3px solid #508f55;',
+                }}
+                onClick={() => setVisible(true)}
+              ></Button>
+            }
+            placeholder="nhập thông tin tìm kiếm "
+            allowClear
+            enterButton={
+              <Button
+                style={{
+                  height: height,
+                  backgroundColor: '#508f55',
+                  color: 'white',
+                }}
+              >
+                <span style={{ fontSize: 18, marginRight: 10 }}>Tìm kiếm</span>
+                <FontAwesomeIcon icon={faSearch} size="lg" />
+              </Button>
+            }
+            onSearch={() => {
+              setSearching(true);
+              toast.info('🧐 Đang tìm nhà trọ thích hợp 🔎', {
+                autoClose: 3000,
+              });
+              setTimeout(() => {
+                toast.error(' 😪 Không tìm thấy kết quả nào!');
+                setSearching(false);
+              }, 5000);
             }}
-            onClick={() => setVisible(true)}
-          ></Button>
-        }
-        placeholder="nhập thông tin tìm kiếm "
-        allowClear
-        enterButton={
-          <Button
-            style={{
-              height: height,
-              backgroundColor: '#508f55',
-              color: 'white',
-            }}
-          >
-            <span style={{ fontSize: 18, marginRight: 10 }}>Tìm kiếm</span>
-            <FontAwesomeIcon icon={faSearch} size="lg" />
-          </Button>
-        }
-        onSearch={() => {}}
-      ></Search>
+          ></Search>
+        </Spin>
+      </div>
+      <div className="text-center mt-4">
+        {isSearching && (
+          <code style={{ fontSize: 25 }}>🔍 Đang tìm kiếm ~~~</code>
+        )}
+      </div>
       <Modal
         title="Bộ lọc"
         centered
         visible={visible}
+        okText="Lưu"
+        cancelText="Huỷ"
         onOk={() => setVisible(false)}
         onCancel={() => setVisible(false)}
         style={{ minWidth: !isMobile ? 1000 : 'unset' }}
@@ -178,6 +201,6 @@ export const SearchBar: React.FC = () => {
           </Space>
         </Form>
       </Modal>
-    </div>
+    </>
   );
 };

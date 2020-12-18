@@ -37,3 +37,8 @@ h1 {
   min-width: 100px;
   text-align: left;
 }
+
+.Toastify__toast-container--bottom-right{
+  bottom: 4em!important;
+  right: 4em!important;
+}
