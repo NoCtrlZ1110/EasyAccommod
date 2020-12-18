@@ -35,7 +35,11 @@ export const CreatePost: React.FC = () => {
             {!isMobile && <SVG src={'svgs/map.svg'} height={250} />}
             <Card
               title='Thông tin cơ bản'
-              style={{ width: 500, backgroundColor: 'pink', borderRadius: 10 }}
+              style={{
+                width: 500,
+                backgroundColor: '#f075a5',
+                borderRadius: 10,
+              }}
             >
               <Form onValuesChange={() => {}}>
                 <Form.Item label='Tỉnh/ thành phố'>
@@ -86,7 +90,11 @@ export const CreatePost: React.FC = () => {
           <Space direction='horizontal' size={200}>
             <Card
               title='Thông tin mô tả'
-              style={{ width: 500, backgroundColor: 'pink', borderRadius: 10 }}
+              style={{
+                width: 500,
+                backgroundColor: '#f589b3',
+                borderRadius: 10,
+              }}
             >
               <Form.Item label='Tiêu đề'>
                 <Input placeholder='Nhập tiêu đề bài viết' />
@@ -191,7 +199,14 @@ export const CreatePost: React.FC = () => {
         <Divider />
         {/* --------------- */}
         <Row justify='center'>
-          <Card title='Thông tin hình ảnh' style={{ maxWidth: '85%' }}>
+          <Card
+            title='Thông tin hình ảnh'
+            style={{
+              maxWidth: '85%',
+              backgroundColor: '#eb94b6',
+              borderRadius: 10,
+            }}
+          >
             <Space>
               <Card>
                 * Upload ít nhất 3 ảnh cho bài đăng để đạt hiệu quả tốt hơn Tin
@@ -205,7 +220,10 @@ export const CreatePost: React.FC = () => {
         {/* --------------- */}
         <Divider style={{ marginTop: 80, marginBottom: 200 }}>
           <>
-            <Button type='primary' size='large'>
+            <Button
+              size='large'
+              style={{ backgroundColor: '#f075a5', color: 'white' }}
+            >
               Đăng Bài
             </Button>
           </>

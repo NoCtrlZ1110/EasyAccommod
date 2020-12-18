@@ -3,12 +3,31 @@
         min-width: 120px;
     }
 
-    .ant-divider-inner-text{
+    .ant-divider-inner-text {
         padding: unset;
     }
 
-    .ant-divider-horizontal.ant-divider-with-text-left::before{
+    .ant-divider-horizontal.ant-divider-with-text-left::before {
         width: 0%;
+    }
+
+    .ant-card-head-title {
+        font-weight: 700;
+        color: white;
+    }
+
+    .ant-divider-inner-text {
+        color: white;
+    }
+
+    label {
+        font-weight: 500;
+        color: white;
+    }
+
+    .ant-breadcrumb-link {
+        font-weight: 700;
+
     }
 
 }
