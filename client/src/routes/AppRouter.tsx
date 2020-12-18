@@ -1,16 +1,17 @@
 import React from 'react';
 import history from '../services/history';
 import { Router, Switch, Route } from 'react-router-dom';
-import { NotFound } from '../components/NotFound/NotFound';
-import Home from '../scenes/Home/Home';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import { Login } from '../scenes/Login/Login';
+import { NotFound } from '../components/not_found/NotFound';
+import Home from '../scenes/home/Home';
+import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
+import { Login } from '../scenes/login/Login';
 import { TEST } from '../scenes/test';
-import AccommodList from '../scenes/Accommod/AccommodList';
-import { SignUp } from '../scenes/SignUp/SignUp';
-import { SearchPage } from '../scenes/Search/Search';
-import { CreatePost } from '../scenes/CreatePost/CreatePost';
+import AccommodList from '../scenes/accommod/AccommodList';
+import { SignUp } from '../scenes/sign_up/SignUp';
+import { SearchPage } from '../scenes/search/Search';
+import { CreatePost } from '../scenes/create_post/CreatePost';
+import { Profile } from '../scenes/profile/Profile';
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
   {
     path: '/private',
     component: TEST,
+    private: true,
+  },
+  {
+    path: '/profile',
+    component: Profile,
     private: true,
   },
   {
@@ -77,7 +83,7 @@ export function RouteWithSubRoutes(route: any) {
             return (
               <>
                 <Header />
-                <div className="wrapper">
+                <div className='wrapper'>
                   <route.component {...props} routes={route.routes} />
                 </div>
                 <Footer />
@@ -91,7 +97,7 @@ export function RouteWithSubRoutes(route: any) {
             // pass the sub-routes down to keep nesting
             <>
               <Header />
-              <div className="wrapper">
+              <div className='wrapper'>
                 <route.component {...props} routes={route.routes} />
               </div>
               <Footer />
