@@ -1,7 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { enquireScreen } from 'enquire-js';
-import Banner from '../../components/Banner/Banner';
+import Banner from '../../components/banner/Banner';
 
 import '../../static/style.ts';
 
@@ -24,9 +24,9 @@ class Home extends React.PureComponent {
   }
   render() {
     return (
-      <DocumentTitle title="Easy Accommod">
+      <DocumentTitle title='Easy Accommod'>
         <div>
-          <div className="home-wrapper container">
+          <div className='home-wrapper container'>
             <Banner isMobile={this.state.isMobile} />
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox, Card, Divider } from 'antd';
-import GoogleLoginBtn from '../../components/GoogleLogin/GoogleLoginButton';
+import GoogleLoginBtn from '../../components/google_login/GoogleLoginButton';
 import { Link, Redirect } from 'react-router-dom';
 export const Login: React.FC = () => {
   const onFinish = (values: any) => {
@@ -11,15 +11,15 @@ export const Login: React.FC = () => {
     console.log('Failed:', errorInfo);
   };
 
-  if (localStorage.getItem('accessT oken') !== null) return <Redirect to="/" />;
+  if (localStorage.getItem('accessT oken') !== null) return <Redirect to='/' />;
   else
     return (
-      <div className="container text-center ">
-        <div className="align-middle">
+      <div className='container text-center '>
+        <div className='align-middle'>
           <div style={{ height: 60 }} />
           <h1>Đăng nhập</h1>
           <Card
-            className="mx-auto mt-5"
+            className='mx-auto mt-5'
             style={{
               maxWidth: 700,
               padding: 20,
@@ -27,14 +27,14 @@ export const Login: React.FC = () => {
             }}
           >
             <Form
-              name="basic"
+              name='basic'
               initialValues={{ remember: true }}
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
             >
               <Form.Item
-                label="Tài khoản"
-                name="username"
+                label='Tài khoản'
+                name='username'
                 rules={[
                   { required: true, message: 'Vui lòng nhập tên người dùng!' },
                 ]}
@@ -43,19 +43,19 @@ export const Login: React.FC = () => {
               </Form.Item>
 
               <Form.Item
-                label="Mật khẩu"
-                name="password"
+                label='Mật khẩu'
+                name='password'
                 rules={[{ required: true, message: 'Vui lòng nhập mật khẩu!' }]}
               >
                 <Input.Password />
               </Form.Item>
 
-              <Form.Item name="remember" valuePropName="checked">
+              <Form.Item name='remember' valuePropName='checked'>
                 <Checkbox>Ghi nhớ</Checkbox>
               </Form.Item>
 
               <Form.Item>
-                <Button type="primary" htmlType="submit">
+                <Button type='primary' htmlType='submit'>
                   Đăng nhập
                 </Button>
               </Form.Item>
@@ -64,7 +64,7 @@ export const Login: React.FC = () => {
                 <GoogleLoginBtn />
               </Form.Item>
               <Divider plain>
-                Chưa có tài khoản <Link to="/signup">Tạo tài khoản</Link>
+                Chưa có tài khoản <Link to='/signup'>Tạo tài khoản</Link>
               </Divider>
             </Form>
           </Card>
