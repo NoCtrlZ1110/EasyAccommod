@@ -24,7 +24,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace UET.EasyAccommod.Users
 {
-    [AbpAuthorize(PermissionNames.Pages_Users)]
+  //  [AbpAuthorize(PermissionNames.Pages_Users)]
     public class UserAppService : AsyncCrudAppService<User, UserDto, long, PagedUserResultRequestDto, CreateUserDto, UserDto>, IUserAppService
     {
         private readonly UserManager _userManager;
@@ -54,7 +54,7 @@ namespace UET.EasyAccommod.Users
 
         public override async Task<UserDto> CreateAsync(CreateUserDto input)
         {
-            CheckCreatePermission();
+           // CheckCreatePermission();
 
             var user = ObjectMapper.Map<User>(input);
 
