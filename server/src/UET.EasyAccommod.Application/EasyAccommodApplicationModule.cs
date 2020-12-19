@@ -6,13 +6,14 @@ using UET.EasyAccommod.Authorization;
 namespace UET.EasyAccommod
 {
     [DependsOn(
-        typeof(EasyAccommodCoreModule), 
+        typeof(EasyAccommodCoreModule),
         typeof(AbpAutoMapperModule))]
     public class EasyAccommodApplicationModule : AbpModule
     {
         public override void PreInitialize()
         {
             Configuration.Authorization.Providers.Add<EasyAccommodAuthorizationProvider>();
+            Configuration.Modules.AbpAutoMapper().Configurators.Add(CustomDtoMapper.CreateMappings);
         }
 
         public override void Initialize()

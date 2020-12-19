@@ -1,7 +1,7 @@
 ﻿using Abp.Application.Services.Dto;
 using System;
 
-namespace UET.EasyAccommod.Sales.Interface.DTOs.Create.Apartment
+namespace UET.EasyAccommod.Sales.Dto.Create.Apartment
 {
     public class ApartmentCreateInput : EntityDto<long>
     {

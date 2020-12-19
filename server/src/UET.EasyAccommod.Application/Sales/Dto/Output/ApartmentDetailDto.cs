@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UET.EasyAccommod.Sales.Interface.DTOs.Input
+namespace UET.EasyAccommod.Sales.Dto.Output
 {
-    public class ApartmentDetailInput
+    public class ApartmentDetailDto
     {
     }
 }

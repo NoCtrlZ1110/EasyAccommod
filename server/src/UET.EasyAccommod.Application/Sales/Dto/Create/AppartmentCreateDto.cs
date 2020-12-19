@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using UET.EasyAccommod.Sales.Interface.DTOs.Create.Apartment;
+using UET.EasyAccommod.Sales.Dto.Create.Apartment;
 
-namespace UET.EasyAccommod.Sales.Interface.DTOs.Create
+namespace UET.EasyAccommod.Sales.Dto.Create
 {
     public class AppartmentCreateDto
     {
