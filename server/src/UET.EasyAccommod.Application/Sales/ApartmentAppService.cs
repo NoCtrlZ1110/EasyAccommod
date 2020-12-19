@@ -1,15 +1,20 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
-using UET.EasyAccommod.Sales.Interface;
-using UET.EasyAccommod.Sales.Interface.DTOs.Create;
-using UET.EasyAccommod.Sales.Interface.DTOs.Create.Apartment;
-using UET.EasyAccommod.Sales.Interface.DTOs.Input;
-using UET.EasyAccommod.Sales.Interface.DTOs.Output;
+using System.Web.Http;
+using UET.EasyAccommod.Sales.Dto.Create;
+using UET.EasyAccommod.Sales.Dto.Create.Apartment;
+using UET.EasyAccommod.Sales.Dto.Create.Image;
+using UET.EasyAccommod.Sales.Dto.Input;
+using UET.EasyAccommod.Sales.Dto.Output;
 
 namespace UET.EasyAccommod.Sales
 {
@@ -18,6 +23,16 @@ namespace UET.EasyAccommod.Sales
         private readonly IRepository<Apartment, long> _apartmentRepo;
         private readonly IRepository<ApartmentImage, long> _apartmentImageRepo;
         private readonly IRepository<ApartmentPublicPlace, long> _apartmentPublicPlaceRepo;
+
+        public ApartmentAppService(IRepository<Apartment, long> apartmentRepo,
+                                   IRepository<ApartmentImage, long> apartmentImageRepo,
+                                   IRepository<ApartmentPublicPlace, long> apartmentPublicPlaceRepo)
+        {
+            _apartmentRepo = apartmentRepo;
+            _apartmentImageRepo = apartmentImageRepo;
+            _apartmentPublicPlaceRepo = apartmentPublicPlaceRepo;
+        }
+
         public async Task CreateOrEditApartment(AppartmentCreateDto input)
         {
             var apartment = input.Apartment;
@@ -85,6 +100,79 @@ namespace UET.EasyAccommod.Sales
         public PagedResultDto<ApartmentListDto> GetListAppartmentOfOwner(GetListApartmentInput input)
         {
             throw new NotImplementedException();
+        }
+        public async Task<List<ApartmentImageCreateInput>> UploadImageDelivery([FromForm] ImageInput input)
+        {
+            List<ApartmentImageCreateInput> url = new List<ApartmentImageCreateInput>();
+            var img = input.Images;
+
+            if (img == null)
+            {
+                var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format("No Image"))
+
+                };
+
+                throw new HttpResponseException(response);
+            }
+            foreach (var image in input.Images)
+            {
+                var file = image;
+                var ms = new MemoryStream();
+                file.CopyTo(ms);
+
+                string fileName = GetMD5HashFromFile(ms) + DateTime.Now.ToFileTime().ToString() + Path.GetExtension(file.FileName);
+                string urlImage = "/Imgs/" + fileName;
+                if (await SaveImage(file, fileName))
+                {
+                    url.Add(new ApartmentImageCreateInput
+                    {
+                        Id = 0,
+                        ApartmentId = 0,
+                        ImageUrl = urlImage
+                    }); ;
+                }
+                else
+                {
+                    var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+                    {
+                        Content = new StringContent(string.Format("Load image false"))
+
+                    };
+
+                    throw new HttpResponseException(response);
+                }
+            }
+            return url;
+        }
+
+        private async Task<bool> SaveImage(IFormFile file, string fileName)
+        {
+
+            if (file.Length > 0)
+            {
+                var dir = Directory.GetCurrentDirectory() + "/wwwroot/Imgs";
+                var filePath = Path.Combine(dir, fileName);
+
+                using (var stream = File.Create(filePath))
+                {
+
+                    await file.CopyToAsync(stream);
+                }
+                return true;
+            }
+            return false;
+        }
+
+        private static string GetMD5HashFromFile(MemoryStream ms)
+        {
+            using (var md5 = MD5.Create())
+            {
+
+                return BitConverter.ToString(md5.ComputeHash(ms.ToArray())).Replace("-", string.Empty);
+
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UET.EasyAccommod.Sales.Interface.DTOs.Input
+namespace UET.EasyAccommod.Sales.Dto.Input
 {
     public class GetListApartmentInput
     {
