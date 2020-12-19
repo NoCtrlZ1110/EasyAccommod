@@ -45,7 +45,7 @@ const AccommodList = () => {
           onChange: (page) => {
             console.log(page);
           },
-          pageSize: 2,
+          pageSize: 8,
         }}
         dataSource={listData}
         renderItem={(item) => (
