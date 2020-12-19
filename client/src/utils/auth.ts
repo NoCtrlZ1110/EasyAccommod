@@ -2,13 +2,21 @@ import { toast } from 'react-toastify';
 import { API_URL } from './../config';
 import axios from 'axios';
 import API from './api';
-
-export const register = (username: string, email: string, password: string) => {
-  return axios.post(API_URL + 'signup', {
-    username,
-    email,
-    password,
-  });
+import history from '../services/history';
+export const register = (data: any) => {
+  return axios
+    .post(API_URL + 'services/app/User/Create', data)
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('✅ Đăng ký thành công, đăng nhập ngay!');
+        history.push('/login');
+      }
+    })
+    .catch((error) => {
+      const err = error.response.data.error;
+      toast.error(err.message + (err.details ? '\n' + err.details : ''));
+    });
 };
 
 export const login = (
@@ -40,7 +48,7 @@ export const login = (
     })
     .catch((error) => {
       const err = error.response.data.error;
-      toast.error(err.message + '\n' + err.details);
+      toast.error(err.message + (err.details ? '\n' + err.details : ''));
     });
 };
 

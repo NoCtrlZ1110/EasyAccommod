@@ -43,7 +43,6 @@ export const Login: React.FC = () => {
               >
                 <Input />
               </Form.Item>
-
               <Form.Item
                 label="Mật khẩu"
                 name="password"
@@ -51,11 +50,9 @@ export const Login: React.FC = () => {
               >
                 <Input.Password />
               </Form.Item>
-
               <Form.Item name="remember" valuePropName="checked">
                 <Checkbox>Ghi nhớ</Checkbox>
               </Form.Item>
-
               <Form.Item>
                 <Button type="primary" htmlType="submit">
                   Đăng nhập
@@ -65,9 +62,8 @@ export const Login: React.FC = () => {
               <Form.Item>
                 <GoogleLoginBtn />
               </Form.Item> */}
-              <Divider plain>
-                Chưa có tài khoản <Link to="/signup">Tạo tài khoản</Link>
-              </Divider>
+              <Divider plain />
+              Chưa có tài khoản ? <Link to="/signup">Tạo tài khoản</Link>
             </Form>
           </Card>
         </div>

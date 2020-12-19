@@ -1,19 +1,30 @@
 import React from 'react';
 import { Form, Input, Button, Card, Tabs } from 'antd';
+import { register } from '../../utils/auth';
 
 const { TabPane } = Tabs;
 
 export const SignUp: React.FC = () => {
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
-
   const signUpForm = (role: string) => {
-    let isOwner = role === 'owner';
+    let isOwner = role === 'Owner';
+
+    const onFinish = (values: any) => {
+      console.log('Success:', values);
+
+      values.roleNames = [role];
+      if (!isOwner) {
+        values.idCard = '000000000000';
+        values.address = 'Hà Nội';
+        values.isActive = true;
+      }
+
+      register(values);
+    };
+
+    const onFinishFailed = (errorInfo: any) => {
+      console.log('Failed:', errorInfo);
+    };
+
     return (
       <div className="mt-4">
         <Form
@@ -23,8 +34,15 @@ export const SignUp: React.FC = () => {
           onFinishFailed={onFinishFailed}
         >
           <Form.Item
-            label="Họ và tên"
+            label="Tên"
             name="name"
+            rules={[{ required: true, message: 'Vui lòng điền tên của bạn' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Họ"
+            name="surname"
             rules={[{ required: true, message: 'Vui lòng điền tên của bạn' }]}
           >
             <Input />
@@ -32,7 +50,7 @@ export const SignUp: React.FC = () => {
 
           <Form.Item
             label="Username"
-            name="username"
+            name="userName"
             rules={[
               { required: true, message: 'Vui lòng điền tên người dùng' },
             ]}
@@ -41,7 +59,7 @@ export const SignUp: React.FC = () => {
           </Form.Item>
           <Form.Item
             label="Email"
-            name="email"
+            name="emailAddress"
             rules={[{ required: true, message: 'Vui lòng điền email của bạn' }]}
           >
             <Input />
@@ -54,11 +72,23 @@ export const SignUp: React.FC = () => {
           >
             <Input.Password />
           </Form.Item>
+          <Form.Item
+            label="SĐT"
+            name="phone"
+            rules={[
+              {
+                required: true,
+                message: 'Vui lòng điền số điện thoại của bạn',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
           {isOwner && (
             <>
               <Form.Item
                 label="Số CCCD"
-                name="id_number"
+                name="idCard"
                 rules={[
                   { required: true, message: 'Vui lòng điền số CCCD của bạn' },
                 ]}
@@ -70,18 +100,6 @@ export const SignUp: React.FC = () => {
                 name="address"
                 rules={[
                   { required: true, message: 'Vui lòng điền địa chỉ của bạn' },
-                ]}
-              >
-                <Input />
-              </Form.Item>
-              <Form.Item
-                label="SĐT"
-                name="phone_number"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Vui lòng điền số điện thoại của bạn',
-                  },
                 ]}
               >
                 <Input />
@@ -114,11 +132,11 @@ export const SignUp: React.FC = () => {
       >
         <Tabs defaultActiveKey="1" onChange={() => {}}>
           <TabPane tab="Chủ nhà trọ" key="owner">
-            {signUpForm('owner')}
+            {signUpForm('Owner')}
           </TabPane>
           {/* --------------------- */}
           <TabPane tab="Người thuê trọ" key="renter">
-            {signUpForm('renter')}
+            {signUpForm('Renter')}
           </TabPane>
         </Tabs>
       </Card>
