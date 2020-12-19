@@ -60,13 +60,12 @@ const routes = [
 ];
 
 export function AppRouter(props: any) {
-  const accessToken = localStorage.getItem('accessToken');
-
+  const user = localStorage.getItem('user');
   return (
     <Router history={history}>
       <Switch>
         {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route} accessToken={accessToken} />
+          <RouteWithSubRoutes key={i} {...route} accessToken={user} />
         ))}
       </Switch>
     </Router>
@@ -83,7 +82,7 @@ export function RouteWithSubRoutes(route: any) {
             return (
               <>
                 <Header />
-                <div className='wrapper'>
+                <div className="wrapper">
                   <route.component {...props} routes={route.routes} />
                 </div>
                 <Footer />
@@ -97,7 +96,7 @@ export function RouteWithSubRoutes(route: any) {
             // pass the sub-routes down to keep nesting
             <>
               <Header />
-              <div className='wrapper'>
+              <div className="wrapper">
                 <route.component {...props} routes={route.routes} />
               </div>
               <Footer />
