@@ -30,12 +30,26 @@ namespace UET.EasyAccommod.EntityFrameworkCore.Seed.Host
         {
             // Admin role for host
 
-            var adminRoleForHost = _context.Roles.IgnoreQueryFilters().FirstOrDefault(r => r.TenantId == null && r.Name == StaticRoleNames.Host.Admin);
+            var adminRoleForHost = _context.Roles.IgnoreQueryFilters().FirstOrDefault(r => r.TenantId == null && r.Name == StaticRoleNames.Host .Admin);
             if (adminRoleForHost == null)
             {
                 adminRoleForHost = _context.Roles.Add(new Role(null, StaticRoleNames.Host.Admin, StaticRoleNames.Host.Admin) { IsStatic = true, IsDefault = true }).Entity;
                 _context.SaveChanges();
             }
+            var ownerRoleForHost = _context.Roles.IgnoreQueryFilters().FirstOrDefault(r => r.TenantId == null && r.Name == StaticRoleNames.Host.Owner);
+            if (ownerRoleForHost == null)
+            {
+                ownerRoleForHost = _context.Roles.Add(new Role(null, StaticRoleNames.Host.Owner, StaticRoleNames.Host.Owner) { IsStatic = true, IsDefault = false }).Entity;
+                _context.SaveChanges();
+            }
+
+            var renterRoleForHost = _context.Roles.IgnoreQueryFilters().FirstOrDefault(r => r.TenantId == null && r.Name == StaticRoleNames.Host.Renter);
+            if (renterRoleForHost == null)
+            {
+                renterRoleForHost = _context.Roles.Add(new Role(null, StaticRoleNames.Host.Renter, StaticRoleNames.Host.Renter) { IsStatic = true, IsDefault = false }).Entity;
+                _context.SaveChanges();
+            }
+
 
             // Grant all permissions to admin role for host
 
@@ -65,6 +79,57 @@ namespace UET.EasyAccommod.EntityFrameworkCore.Seed.Host
                 _context.SaveChanges();
             }
 
+            var grantedPermissionsOwner = _context.Permissions.IgnoreQueryFilters()
+                .OfType<RolePermissionSetting>()
+                .Where(p => p.TenantId == null && p.RoleId == ownerRoleForHost.Id)
+                .Select(p => p.Name)
+                .ToList();
+
+            var permissionsOwner = PermissionFinder
+                .GetAllPermissions(new EasyAccommodAuthorizationProvider())
+                .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Host) &&
+                            !grantedPermissionsOwner.Contains(p.Name))
+                .ToList();
+
+            if (permissionsOwner.Any())
+            {
+                _context.Permissions.AddRange(
+                   permissions.Where(p => p.Name == "Pages.Owner").Select(permission => new RolePermissionSetting
+                   {
+                       TenantId = null,
+                       Name = permission.Name,
+                       IsGranted = true,
+                       RoleId = ownerRoleForHost.Id
+                   })
+               );
+                _context.SaveChanges();
+            }
+
+            var grantedPermissionsRenter = _context.Permissions.IgnoreQueryFilters()
+                .OfType<RolePermissionSetting>()
+                .Where(p => p.TenantId == null && p.RoleId == renterRoleForHost.Id)
+                .Select(p => p.Name)
+                .ToList();
+
+            var permissionsRenter = PermissionFinder
+                .GetAllPermissions(new EasyAccommodAuthorizationProvider())
+                .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Host) &&
+                            !grantedPermissionsRenter.Contains(p.Name))
+                .ToList();
+
+            if (permissionsRenter.Any())
+            {
+                _context.Permissions.AddRange(
+                   permissions.Where(p => p.Name == "Pages.Renter").Select(permission => new RolePermissionSetting
+                   {
+                       TenantId = null,
+                       Name = permission.Name,
+                       IsGranted = true,
+                       RoleId = renterRoleForHost.Id
+                   })
+               );
+                _context.SaveChanges();
+            }
             // Admin user for host
 
             var adminUserForHost = _context.Users.IgnoreQueryFilters().FirstOrDefault(u => u.TenantId == null && u.UserName == AbpUserBase.AdminUserName);
