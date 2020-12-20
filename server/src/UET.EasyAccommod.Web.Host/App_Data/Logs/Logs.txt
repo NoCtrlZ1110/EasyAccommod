@@ -4324,3 +4324,1068 @@ INFO  2020-12-20 15:11:02,209 [10   ] .Mvc.Infrastructure.ObjectResultExecutor -
 INFO  2020-12-20 15:11:02,216 [10   ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Sales.ApartmentAppService.UploadImageDelivery (UET.EasyAccommod.Application) in 1463.1403ms
 INFO  2020-12-20 15:11:02,219 [10   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Sales.ApartmentAppService.UploadImageDelivery (UET.EasyAccommod.Application)'
 INFO  2020-12-20 15:11:02,223 [10   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 1510.6676ms 200 application/json; charset=utf-8
+DEBUG 2020-12-20 16:59:55,772 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 16:59:55,922 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2020-12-20 16:59:55,946 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule, UET.EasyAccommod.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,948 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodWebCoreModule, UET.EasyAccommod.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,948 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodApplicationModule, UET.EasyAccommod.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,949 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodCoreModule, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,949 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,950 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,950 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,951 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,951 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,951 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,952 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,952 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,952 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,953 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,953 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:55,956 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2020-12-20 16:59:56,072 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 16:59:56,073 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 16:59:56,073 [1    ] o.Configuration.LanguageManagementConfig - Converted EasyAccommod (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 16:59:56,073 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 16:59:56,519 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodDbContext, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 16:59:57,624 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2020-12-20 16:59:57,670 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2020-12-20 16:59:57,682 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2020-12-20 16:59:57,687 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: EasyAccommod
+DEBUG 2020-12-20 16:59:57,698 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2020-12-20 16:59:57,936 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 16:59:58,068 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 16:59:58,130 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2020-12-20 16:59:58,130 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2020-12-20 16:59:58,137 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.CreateUserDto
+DEBUG 2020-12-20 16:59:58,137 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.UserDto
+DEBUG 2020-12-20 16:59:58,138 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2020-12-20 16:59:58,138 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.UserLoginInfoDto
+DEBUG 2020-12-20 16:59:58,138 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Roles.Dto.PermissionDto
+DEBUG 2020-12-20 16:59:58,138 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2020-12-20 16:59:58,138 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.TenantDto
+INFO  2020-12-20 17:00:00,966 [1    ] tCore.Builder.RequestLocalizationOptions - Supported Request Localization Cultures: en,es-MX,fr,de,it,nl,pt-BR,tr,ru,ar,ja,zh-Hans
+INFO  2020-12-20 17:00:01,325 [1    ] taProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\manh\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+WARN  2020-12-20 17:00:01,394 [1    ] Microsoft.AspNetCore.Server.Kestrel      - Overriding address(es) 'http://localhost:21021/'. Binding to endpoints defined in UseKestrel() instead.
+INFO  2020-12-20 17:00:01,931 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2020-12-20 17:00:02,105 [11   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:00:06,159 [11   ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller UET.EasyAccommod.Web.Host.Controllers.HomeController (UET.EasyAccommod.Web.Host).
+INFO  2020-12-20 17:00:07,494 [9    ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2020-12-20 17:00:07,502 [9    ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host) in 1336.9724ms
+INFO  2020-12-20 17:00:07,505 [9    ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:00:07,516 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 5592.5025ms 302 
+INFO  2020-12-20 17:00:07,548 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2020-12-20 17:00:07,734 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 186.7649ms 200 text/html;charset=utf-8
+INFO  2020-12-20 17:00:07,783 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2020-12-20 17:00:07,786 [5    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2020-12-20 17:00:07,799 [5    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.js was not modified
+INFO  2020-12-20 17:00:07,801 [9    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.swagger.js was not modified
+INFO  2020-12-20 17:00:07,806 [5    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 22.8843ms 304 application/javascript
+INFO  2020-12-20 17:00:07,808 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 22.8843ms 304 application/javascript
+INFO  2020-12-20 17:00:07,941 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/AntiForgery/SetCookie  
+INFO  2020-12-20 17:00:07,978 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2020-12-20 17:00:08,086 [4    ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 17:00:08,086 [9    ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 17:00:08,199 [5    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:00:08,210 [5    ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "SetCookie", controller = "AntiForgery", area = ""}. Executing controller action with signature Void SetCookie() on controller UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController (UET.EasyAccommod.Web.Host).
+INFO  2020-12-20 17:00:08,238 [11   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-12-20 17:00:08,255 [11   ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host) in 42.0005ms
+INFO  2020-12-20 17:00:08,257 [11   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:00:08,260 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 323.0582ms 200 application/json; charset=utf-8
+INFO  2020-12-20 17:00:08,390 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 412.3899ms 200 application/json;charset=utf-8
+INFO  2020-12-20 17:02:21,368 [28   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/MstApartmentType/GetListApartmentType  
+INFO  2020-12-20 17:02:21,375 [28   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 17:02:21,379 [28   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.MasterTable.ApartmentType.MstApartmentTypeAppService.GetListApartmentType (UET.EasyAccommod.Application)'
+INFO  2020-12-20 17:02:21,388 [28   ] c.Infrastructure.ControllerActionInvoker - Route matched with {area = "app", action = "GetListApartmentType", controller = "MstApartmentType"}. Executing controller action with signature Abp.Application.Services.Dto.ListResultDto`1[UET.EasyAccommod.MasterTable.ApartmentType.Dto.MstApartmentTypeDto] GetListApartmentType() on controller UET.EasyAccommod.MasterTable.ApartmentType.MstApartmentTypeAppService (UET.EasyAccommod.Application).
+INFO  2020-12-20 17:02:22,290 [15   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-12-20 17:02:22,297 [15   ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.MasterTable.ApartmentType.MstApartmentTypeAppService.GetListApartmentType (UET.EasyAccommod.Application) in 906.3485ms
+INFO  2020-12-20 17:02:22,300 [15   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.MasterTable.ApartmentType.MstApartmentTypeAppService.GetListApartmentType (UET.EasyAccommod.Application)'
+INFO  2020-12-20 17:02:22,304 [15   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 935.2746ms 200 application/json; charset=utf-8
+DEBUG 2020-12-20 17:11:01,000 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 17:11:01,079 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2020-12-20 17:11:01,098 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule, UET.EasyAccommod.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,100 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodWebCoreModule, UET.EasyAccommod.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,100 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodApplicationModule, UET.EasyAccommod.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,101 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodCoreModule, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,101 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,102 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,102 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,102 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,103 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,103 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,104 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,104 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,104 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,105 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,105 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:01,108 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2020-12-20 17:11:01,214 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:11:01,214 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:11:01,214 [1    ] o.Configuration.LanguageManagementConfig - Converted EasyAccommod (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:11:01,214 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:11:01,680 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodDbContext, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:11:02,822 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2020-12-20 17:11:02,859 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2020-12-20 17:11:02,873 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2020-12-20 17:11:02,879 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: EasyAccommod
+DEBUG 2020-12-20 17:11:02,887 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2020-12-20 17:11:03,132 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 17:11:03,262 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 17:11:03,313 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2020-12-20 17:11:03,313 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2020-12-20 17:11:03,320 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.CreateUserDto
+DEBUG 2020-12-20 17:11:03,320 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.UserDto
+DEBUG 2020-12-20 17:11:03,321 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2020-12-20 17:11:03,321 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.UserLoginInfoDto
+DEBUG 2020-12-20 17:11:03,321 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Roles.Dto.PermissionDto
+DEBUG 2020-12-20 17:11:03,321 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2020-12-20 17:11:03,321 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.TenantDto
+INFO  2020-12-20 17:11:05,755 [1    ] tCore.Builder.RequestLocalizationOptions - Supported Request Localization Cultures: en,es-MX,fr,de,it,nl,pt-BR,tr,ru,ar,ja,zh-Hans
+INFO  2020-12-20 17:11:06,026 [1    ] taProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\manh\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+WARN  2020-12-20 17:11:06,084 [1    ] Microsoft.AspNetCore.Server.Kestrel      - Overriding address(es) 'http://localhost:21021/'. Binding to endpoints defined in UseKestrel() instead.
+INFO  2020-12-20 17:11:06,916 [7    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2020-12-20 17:11:07,091 [7    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:11:11,259 [7    ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller UET.EasyAccommod.Web.Host.Controllers.HomeController (UET.EasyAccommod.Web.Host).
+INFO  2020-12-20 17:11:12,628 [4    ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2020-12-20 17:11:12,638 [4    ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host) in 1371.6963ms
+INFO  2020-12-20 17:11:12,641 [4    ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:11:12,652 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 5740.4473ms 302 
+INFO  2020-12-20 17:11:12,680 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2020-12-20 17:11:12,846 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 166.2878ms 200 text/html;charset=utf-8
+INFO  2020-12-20 17:11:13,048 [15   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/AntiForgery/SetCookie  
+INFO  2020-12-20 17:11:13,082 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2020-12-20 17:11:13,204 [11   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 17:11:13,204 [15   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 17:11:13,314 [4    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:11:13,327 [4    ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "SetCookie", controller = "AntiForgery", area = ""}. Executing controller action with signature Void SetCookie() on controller UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController (UET.EasyAccommod.Web.Host).
+INFO  2020-12-20 17:11:13,354 [12   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-12-20 17:11:13,377 [12   ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host) in 46.4883ms
+INFO  2020-12-20 17:11:13,380 [12   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:11:13,383 [12   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 336.7805ms 200 application/json; charset=utf-8
+INFO  2020-12-20 17:11:13,533 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 450.8842ms 200 application/json;charset=utf-8
+DEBUG 2020-12-20 17:17:24,869 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 17:17:25,330 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2020-12-20 17:17:25,355 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule, UET.EasyAccommod.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,359 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodWebCoreModule, UET.EasyAccommod.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,360 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodApplicationModule, UET.EasyAccommod.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,360 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodCoreModule, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,361 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,362 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,362 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,363 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,364 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,365 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,365 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,366 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,366 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,367 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,368 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:25,373 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2020-12-20 17:17:25,645 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:17:25,646 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:17:25,646 [1    ] o.Configuration.LanguageManagementConfig - Converted EasyAccommod (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:17:25,646 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:17:26,536 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodDbContext, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:17:28,088 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2020-12-20 17:17:28,171 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2020-12-20 17:17:28,183 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2020-12-20 17:17:28,188 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: EasyAccommod
+DEBUG 2020-12-20 17:17:28,193 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2020-12-20 17:17:28,459 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 17:17:28,602 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 17:17:28,670 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2020-12-20 17:17:28,670 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2020-12-20 17:17:28,677 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.CreateUserDto
+DEBUG 2020-12-20 17:17:28,678 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.UserDto
+DEBUG 2020-12-20 17:17:28,678 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2020-12-20 17:17:28,679 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.UserLoginInfoDto
+DEBUG 2020-12-20 17:17:28,679 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Roles.Dto.PermissionDto
+DEBUG 2020-12-20 17:17:28,679 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2020-12-20 17:17:28,679 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.TenantDto
+INFO  2020-12-20 17:17:32,889 [1    ] tCore.Builder.RequestLocalizationOptions - Supported Request Localization Cultures: en,es-MX,fr,de,it,nl,pt-BR,tr,ru,ar,ja,zh-Hans
+INFO  2020-12-20 17:17:33,545 [1    ] taProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\manh\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+WARN  2020-12-20 17:17:33,636 [1    ] Microsoft.AspNetCore.Server.Kestrel      - Overriding address(es) 'http://localhost:21021/'. Binding to endpoints defined in UseKestrel() instead.
+INFO  2020-12-20 17:17:34,625 [10   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2020-12-20 17:17:34,971 [10   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:17:39,318 [10   ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller UET.EasyAccommod.Web.Host.Controllers.HomeController (UET.EasyAccommod.Web.Host).
+INFO  2020-12-20 17:17:40,877 [7    ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2020-12-20 17:17:40,887 [7    ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host) in 1561.1417ms
+INFO  2020-12-20 17:17:40,891 [7    ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:17:40,914 [7    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 6290.5164ms 302 
+INFO  2020-12-20 17:17:40,939 [7    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2020-12-20 17:17:41,143 [7    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 203.337ms 200 text/html;charset=utf-8
+INFO  2020-12-20 17:17:41,362 [7    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/AntiForgery/SetCookie  
+INFO  2020-12-20 17:17:41,390 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2020-12-20 17:17:41,554 [7    ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 17:17:41,554 [9    ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 17:17:41,701 [7    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:17:41,711 [7    ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "SetCookie", controller = "AntiForgery", area = ""}. Executing controller action with signature Void SetCookie() on controller UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController (UET.EasyAccommod.Web.Host).
+INFO  2020-12-20 17:17:41,742 [11   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-12-20 17:17:41,760 [11   ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host) in 46.7829ms
+INFO  2020-12-20 17:17:41,762 [11   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:17:41,764 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 403.5556ms 200 application/json; charset=utf-8
+INFO  2020-12-20 17:17:41,898 [10   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 508.4024ms 200 application/json;charset=utf-8
+DEBUG 2020-12-20 17:20:03,254 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 17:20:03,269 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2020-12-20 17:20:03,287 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule, UET.EasyAccommod.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,289 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodWebCoreModule, UET.EasyAccommod.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,289 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodApplicationModule, UET.EasyAccommod.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,289 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodCoreModule, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,290 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,290 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,290 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,290 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,291 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,291 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,291 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,291 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,291 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,292 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,292 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,294 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2020-12-20 17:20:03,330 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:20:03,330 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:20:03,331 [1    ] o.Configuration.LanguageManagementConfig - Converted EasyAccommod (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:20:03,331 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 17:20:03,544 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodDbContext, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 17:20:03,902 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2020-12-20 17:20:03,944 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2020-12-20 17:20:03,959 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2020-12-20 17:20:03,964 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: EasyAccommod
+DEBUG 2020-12-20 17:20:03,970 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2020-12-20 17:20:04,040 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 17:20:04,079 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 17:20:04,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2020-12-20 17:20:04,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2020-12-20 17:20:04,141 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.CreateUserDto
+DEBUG 2020-12-20 17:20:04,142 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.UserDto
+DEBUG 2020-12-20 17:20:04,142 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2020-12-20 17:20:04,142 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.UserLoginInfoDto
+DEBUG 2020-12-20 17:20:04,142 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Roles.Dto.PermissionDto
+DEBUG 2020-12-20 17:20:04,142 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2020-12-20 17:20:04,142 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.TenantDto
+INFO  2020-12-20 17:20:06,376 [1    ] tCore.Builder.RequestLocalizationOptions - Supported Request Localization Cultures: en,es-MX,fr,de,it,nl,pt-BR,tr,ru,ar,ja,zh-Hans
+INFO  2020-12-20 17:20:06,506 [1    ] taProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\manh\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+WARN  2020-12-20 17:20:06,534 [1    ] Microsoft.AspNetCore.Server.Kestrel      - Overriding address(es) 'http://localhost:21021/'. Binding to endpoints defined in UseKestrel() instead.
+INFO  2020-12-20 17:20:07,151 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2020-12-20 17:20:07,275 [4    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:20:08,383 [4    ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller UET.EasyAccommod.Web.Host.Controllers.HomeController (UET.EasyAccommod.Web.Host).
+INFO  2020-12-20 17:20:08,935 [9    ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2020-12-20 17:20:08,940 [9    ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host) in 553.1992ms
+INFO  2020-12-20 17:20:08,940 [9    ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:20:08,947 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 1796.9746ms 302 
+INFO  2020-12-20 17:20:08,952 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2020-12-20 17:20:09,083 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 130.6345ms 200 text/html;charset=utf-8
+INFO  2020-12-20 17:20:09,271 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/AntiForgery/SetCookie  
+INFO  2020-12-20 17:20:09,301 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2020-12-20 17:20:09,372 [11   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 17:20:09,372 [4    ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 17:20:09,434 [11   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:20:09,440 [11   ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "SetCookie", controller = "AntiForgery", area = ""}. Executing controller action with signature Void SetCookie() on controller UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController (UET.EasyAccommod.Web.Host).
+INFO  2020-12-20 17:20:09,469 [7    ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-12-20 17:20:09,485 [7    ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host) in 44.3312ms
+INFO  2020-12-20 17:20:09,485 [7    ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 17:20:09,485 [7    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 214.181ms 200 application/json; charset=utf-8
+INFO  2020-12-20 17:20:09,611 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 310.5528ms 200 application/json;charset=utf-8
+INFO  2020-12-20 17:20:22,467 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/MstSleTimeShown/GetListTimeShown  
+INFO  2020-12-20 17:20:22,470 [4    ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 17:20:22,471 [4    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.MasterTable.TimeShown.MstSleTimeShownAppService.GetListTimeShown (UET.EasyAccommod.Application)'
+INFO  2020-12-20 17:20:22,477 [4    ] c.Infrastructure.ControllerActionInvoker - Route matched with {area = "app", action = "GetListTimeShown", controller = "MstSleTimeShown"}. Executing controller action with signature Abp.Application.Services.Dto.ListResultDto`1[UET.EasyAccommod.MasterTable.TimeShown.Dto.MstTimeShownDto] GetListTimeShown() on controller UET.EasyAccommod.MasterTable.TimeShown.MstSleTimeShownAppService (UET.EasyAccommod.Application).
+INFO  2020-12-20 17:20:22,812 [9    ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-12-20 17:20:22,817 [9    ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.MasterTable.TimeShown.MstSleTimeShownAppService.GetListTimeShown (UET.EasyAccommod.Application) in 340.062ms
+INFO  2020-12-20 17:20:22,817 [9    ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.MasterTable.TimeShown.MstSleTimeShownAppService.GetListTimeShown (UET.EasyAccommod.Application)'
+INFO  2020-12-20 17:20:22,818 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 350.4866ms 200 application/json; charset=utf-8
+DEBUG 2020-12-20 17:30:41,238 [2    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2020-12-20 17:30:41,240 [2    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 17:30:41,240 [2    ] , Culture=neutral, PublicKeyToken=null]] - Stop background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 17:30:41,241 [2    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 17:30:41,241 [2    ] , Culture=neutral, PublicKeyToken=null]] - WaitToStop background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 17:30:41,241 [2    ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2020-12-20 18:29:35,592 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 18:29:35,705 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+FATAL 2020-12-20 18:29:35,834 [1    ] Abp.AbpBootstrapper                      - Castle.MicroKernel.Handlers.HandlerException: Can't create component 'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' as it has dependencies to be satisfied.
+
+'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' is waiting for the following dependencies:
+- Service 'Microsoft.Extensions.Configuration.IConfigurationRoot' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, Arguments additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, Arguments arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, Arguments arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service)
+   at Abp.Dependency.IocManager.Resolve(Type type)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes)
+   at Abp.Modules.AbpModuleManager.LoadAllModules()
+   at Abp.Modules.AbpModuleManager.Initialize(Type startupModule)
+   at Abp.AbpBootstrapper.Initialize()
+Castle.MicroKernel.Handlers.HandlerException: Can't create component 'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' as it has dependencies to be satisfied.
+
+'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' is waiting for the following dependencies:
+- Service 'Microsoft.Extensions.Configuration.IConfigurationRoot' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, Arguments additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, Arguments arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, Arguments arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service)
+   at Abp.Dependency.IocManager.Resolve(Type type)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes)
+   at Abp.Modules.AbpModuleManager.LoadAllModules()
+   at Abp.Modules.AbpModuleManager.Initialize(Type startupModule)
+   at Abp.AbpBootstrapper.Initialize()
+FATAL 2020-12-20 18:29:35,944 [1    ] Microsoft.AspNetCore.Hosting.WebHost     - Application startup exception
+Castle.MicroKernel.Handlers.HandlerException: Can't create component 'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' as it has dependencies to be satisfied.
+
+'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' is waiting for the following dependencies:
+- Service 'Microsoft.Extensions.Configuration.IConfigurationRoot' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, Arguments additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, Arguments arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, Arguments arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service)
+   at Abp.Dependency.IocManager.Resolve(Type type)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes)
+   at Abp.Modules.AbpModuleManager.LoadAllModules()
+   at Abp.Modules.AbpModuleManager.Initialize(Type startupModule)
+   at Abp.AbpBootstrapper.Initialize()
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app)
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction)
+   at UET.EasyAccommod.Web.Host.Startup.Startup.Configure(IApplicationBuilder app, ILoggerFactory loggerFactory) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.Web.Host\Startup\Startup.cs:line 105
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+DEBUG 2020-12-20 18:29:53,325 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 18:29:53,471 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+FATAL 2020-12-20 18:29:53,612 [1    ] Abp.AbpBootstrapper                      - Castle.MicroKernel.Handlers.HandlerException: Can't create component 'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' as it has dependencies to be satisfied.
+
+'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' is waiting for the following dependencies:
+- Service 'Microsoft.Extensions.Configuration.IConfigurationRoot' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, Arguments additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, Arguments arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, Arguments arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service)
+   at Abp.Dependency.IocManager.Resolve(Type type)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes)
+   at Abp.Modules.AbpModuleManager.LoadAllModules()
+   at Abp.Modules.AbpModuleManager.Initialize(Type startupModule)
+   at Abp.AbpBootstrapper.Initialize()
+Castle.MicroKernel.Handlers.HandlerException: Can't create component 'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' as it has dependencies to be satisfied.
+
+'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' is waiting for the following dependencies:
+- Service 'Microsoft.Extensions.Configuration.IConfigurationRoot' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, Arguments additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, Arguments arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, Arguments arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service)
+   at Abp.Dependency.IocManager.Resolve(Type type)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes)
+   at Abp.Modules.AbpModuleManager.LoadAllModules()
+   at Abp.Modules.AbpModuleManager.Initialize(Type startupModule)
+   at Abp.AbpBootstrapper.Initialize()
+FATAL 2020-12-20 18:29:53,725 [1    ] Microsoft.AspNetCore.Hosting.WebHost     - Application startup exception
+Castle.MicroKernel.Handlers.HandlerException: Can't create component 'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' as it has dependencies to be satisfied.
+
+'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' is waiting for the following dependencies:
+- Service 'Microsoft.Extensions.Configuration.IConfigurationRoot' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, Arguments additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, Arguments arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, Arguments arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service)
+   at Abp.Dependency.IocManager.Resolve(Type type)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes)
+   at Abp.Modules.AbpModuleManager.LoadAllModules()
+   at Abp.Modules.AbpModuleManager.Initialize(Type startupModule)
+   at Abp.AbpBootstrapper.Initialize()
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app)
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction)
+   at UET.EasyAccommod.Web.Host.Startup.Startup.Configure(IApplicationBuilder app, ILoggerFactory loggerFactory) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.Web.Host\Startup\Startup.cs:line 105
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+DEBUG 2020-12-20 18:39:53,164 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 18:39:53,379 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+FATAL 2020-12-20 18:39:53,530 [1    ] Abp.AbpBootstrapper                      - Castle.MicroKernel.Handlers.HandlerException: Can't create component 'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' as it has dependencies to be satisfied.
+
+'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' is waiting for the following dependencies:
+- Service 'Microsoft.Extensions.Configuration.IConfigurationRoot' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, Arguments additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, Arguments arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, Arguments arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service)
+   at Abp.Dependency.IocManager.Resolve(Type type)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes)
+   at Abp.Modules.AbpModuleManager.LoadAllModules()
+   at Abp.Modules.AbpModuleManager.Initialize(Type startupModule)
+   at Abp.AbpBootstrapper.Initialize()
+Castle.MicroKernel.Handlers.HandlerException: Can't create component 'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' as it has dependencies to be satisfied.
+
+'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' is waiting for the following dependencies:
+- Service 'Microsoft.Extensions.Configuration.IConfigurationRoot' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, Arguments additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, Arguments arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, Arguments arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service)
+   at Abp.Dependency.IocManager.Resolve(Type type)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes)
+   at Abp.Modules.AbpModuleManager.LoadAllModules()
+   at Abp.Modules.AbpModuleManager.Initialize(Type startupModule)
+   at Abp.AbpBootstrapper.Initialize()
+FATAL 2020-12-20 18:39:53,651 [1    ] Microsoft.AspNetCore.Hosting.WebHost     - Application startup exception
+Castle.MicroKernel.Handlers.HandlerException: Can't create component 'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' as it has dependencies to be satisfied.
+
+'UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule' is waiting for the following dependencies:
+- Service 'Microsoft.Extensions.Configuration.IConfigurationRoot' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, Arguments additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, Arguments arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, Arguments arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service)
+   at Abp.Dependency.IocManager.Resolve(Type type)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes)
+   at Abp.Modules.AbpModuleManager.LoadAllModules()
+   at Abp.Modules.AbpModuleManager.Initialize(Type startupModule)
+   at Abp.AbpBootstrapper.Initialize()
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app)
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction)
+   at UET.EasyAccommod.Web.Host.Startup.Startup.Configure(IApplicationBuilder app, ILoggerFactory loggerFactory) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.Web.Host\Startup\Startup.cs:line 105
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+DEBUG 2020-12-20 18:42:25,241 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 18:42:25,342 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2020-12-20 18:42:25,386 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule, UET.EasyAccommod.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,391 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodWebCoreModule, UET.EasyAccommod.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,392 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodApplicationModule, UET.EasyAccommod.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,392 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodCoreModule, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,393 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,394 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,395 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,396 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,397 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,397 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,398 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,399 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:25,406 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2020-12-20 18:42:25,545 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:42:25,545 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:42:25,545 [1    ] o.Configuration.LanguageManagementConfig - Converted EasyAccommod (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:42:25,545 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:42:26,151 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodDbContext, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:42:27,491 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2020-12-20 18:42:27,531 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2020-12-20 18:42:27,547 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2020-12-20 18:42:27,594 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: EasyAccommod
+DEBUG 2020-12-20 18:42:27,601 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2020-12-20 18:42:27,894 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 18:42:28,085 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 18:42:28,170 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2020-12-20 18:42:28,171 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2020-12-20 18:42:28,180 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.CreateUserDto
+DEBUG 2020-12-20 18:42:28,181 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.UserDto
+DEBUG 2020-12-20 18:42:28,181 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2020-12-20 18:42:28,182 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.UserLoginInfoDto
+DEBUG 2020-12-20 18:42:28,182 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Roles.Dto.PermissionDto
+DEBUG 2020-12-20 18:42:28,182 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2020-12-20 18:42:28,182 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.TenantDto
+INFO  2020-12-20 18:42:31,134 [1    ] tCore.Builder.RequestLocalizationOptions - Supported Request Localization Cultures: en,es-MX,fr,de,it,nl,pt-BR,tr,ru,ar,ja,zh-Hans
+INFO  2020-12-20 18:42:31,545 [1    ] taProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\manh\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+WARN  2020-12-20 18:42:31,618 [1    ] Microsoft.AspNetCore.Server.Kestrel      - Overriding address(es) 'http://localhost:21021/'. Binding to endpoints defined in UseKestrel() instead.
+INFO  2020-12-20 18:42:32,929 [12   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2020-12-20 18:42:33,102 [12   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+DEBUG 2020-12-20 18:57:31,063 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 18:57:31,563 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2020-12-20 18:57:31,581 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule, UET.EasyAccommod.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,585 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodWebCoreModule, UET.EasyAccommod.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,586 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodApplicationModule, UET.EasyAccommod.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,586 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodCoreModule, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,587 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,587 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,588 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,589 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,590 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,592 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,592 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,593 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:31,596 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2020-12-20 18:57:31,922 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:57:31,923 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:57:31,923 [1    ] o.Configuration.LanguageManagementConfig - Converted EasyAccommod (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:57:31,923 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:57:32,465 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodDbContext, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:57:33,505 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2020-12-20 18:57:33,560 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2020-12-20 18:57:33,570 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2020-12-20 18:57:33,580 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: EasyAccommod
+DEBUG 2020-12-20 18:57:33,585 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2020-12-20 18:57:33,826 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 18:57:33,977 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 18:57:34,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2020-12-20 18:57:34,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2020-12-20 18:57:34,040 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.CreateUserDto
+DEBUG 2020-12-20 18:57:34,040 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.UserDto
+DEBUG 2020-12-20 18:57:34,040 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2020-12-20 18:57:34,041 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.UserLoginInfoDto
+DEBUG 2020-12-20 18:57:34,041 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Roles.Dto.PermissionDto
+DEBUG 2020-12-20 18:57:34,041 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2020-12-20 18:57:34,041 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.TenantDto
+WARN  2020-12-20 18:57:46,555 [5    ] Abp.BackgroundJobs.BackgroundJobManager  - Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "EasyAccommodDb" requested by the login. The login failed.
+Login failed for user 'DESKTOP-H2BGP25\manh'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.<>c__DisplayClass26_0.<BeginTransaction>b__0(DatabaseFacade database)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.get_Context()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.<GetQueryable>b__7_0(Type key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetQueryable()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAll()
+   at Castle.Proxies.Invocations.IRepository`2_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.InterceptSynchronous(IInvocation invocation)
+   at Castle.DynamicProxy.AsyncDeterminationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IRepository`2Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobs(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobs_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobs.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.InterceptSynchronous(IInvocation invocation)
+   at Castle.DynamicProxy.AsyncDeterminationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobs(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Castle.Proxies.BackgroundJobManagerProxy.DoWork_callback()
+   at Castle.Proxies.Invocations.BackgroundJobManager_DoWork.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.InterceptSynchronous(IInvocation invocation)
+   at Castle.DynamicProxy.AsyncDeterminationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobManagerProxy.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+ClientConnectionId:9c24d0f5-df4e-4124-a578-406b3cbf9ed1
+Error Number:4060,State:1,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "EasyAccommodDb" requested by the login. The login failed.
+Login failed for user 'DESKTOP-H2BGP25\manh'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.<>c__DisplayClass26_0.<BeginTransaction>b__0(DatabaseFacade database)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.get_Context()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.<GetQueryable>b__7_0(Type key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetQueryable()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAll()
+   at Castle.Proxies.Invocations.IRepository`2_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.InterceptSynchronous(IInvocation invocation)
+   at Castle.DynamicProxy.AsyncDeterminationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IRepository`2Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobs(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobs_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobs.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.InterceptSynchronous(IInvocation invocation)
+   at Castle.DynamicProxy.AsyncDeterminationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobs(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Castle.Proxies.BackgroundJobManagerProxy.DoWork_callback()
+   at Castle.Proxies.Invocations.BackgroundJobManager_DoWork.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.InterceptSynchronous(IInvocation invocation)
+   at Castle.DynamicProxy.AsyncDeterminationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobManagerProxy.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+ClientConnectionId:9c24d0f5-df4e-4124-a578-406b3cbf9ed1
+Error Number:4060,State:1,Class:11
+FATAL 2020-12-20 18:57:46,558 [1    ] Abp.AbpBootstrapper                      - Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "EasyAccommodDb" requested by the login. The login failed.
+Login failed for user 'DESKTOP-H2BGP25\manh'.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.<>c__DisplayClass26_0.<BeginTransaction>b__0(DatabaseFacade database)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide, String name)
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.WithDbContext[TDbContext](IIocResolver iocResolver, Action`1 contextAction) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 39
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(IIocResolver iocResolver) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 18
+   at UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule.PostInitialize() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\EasyAccommodEntityFrameworkModule.cs:line 48
+   at Abp.Modules.AbpModuleManager.<>c.<StartModules>b__15_2(AbpModuleInfo module)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules()
+   at Abp.AbpBootstrapper.Initialize()
+ClientConnectionId:9c24d0f5-df4e-4124-a578-406b3cbf9ed1
+Error Number:4060,State:1,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "EasyAccommodDb" requested by the login. The login failed.
+Login failed for user 'DESKTOP-H2BGP25\manh'.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.<>c__DisplayClass26_0.<BeginTransaction>b__0(DatabaseFacade database)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide, String name)
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.WithDbContext[TDbContext](IIocResolver iocResolver, Action`1 contextAction) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 39
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(IIocResolver iocResolver) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 18
+   at UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule.PostInitialize() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\EasyAccommodEntityFrameworkModule.cs:line 48
+   at Abp.Modules.AbpModuleManager.<>c.<StartModules>b__15_2(AbpModuleInfo module)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules()
+   at Abp.AbpBootstrapper.Initialize()
+ClientConnectionId:9c24d0f5-df4e-4124-a578-406b3cbf9ed1
+Error Number:4060,State:1,Class:11
+FATAL 2020-12-20 18:57:46,640 [1    ] Microsoft.AspNetCore.Hosting.WebHost     - Application startup exception
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "EasyAccommodDb" requested by the login. The login failed.
+Login failed for user 'DESKTOP-H2BGP25\manh'.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.<>c__DisplayClass26_0.<BeginTransaction>b__0(DatabaseFacade database)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide, String name)
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.WithDbContext[TDbContext](IIocResolver iocResolver, Action`1 contextAction) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 39
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(IIocResolver iocResolver) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 18
+   at UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule.PostInitialize() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\EasyAccommodEntityFrameworkModule.cs:line 48
+   at Abp.Modules.AbpModuleManager.<>c.<StartModules>b__15_2(AbpModuleInfo module)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules()
+   at Abp.AbpBootstrapper.Initialize()
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app)
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction)
+   at UET.EasyAccommod.Web.Host.Startup.Startup.Configure(IApplicationBuilder app, ILoggerFactory loggerFactory) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.Web.Host\Startup\Startup.cs:line 105
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+ClientConnectionId:9c24d0f5-df4e-4124-a578-406b3cbf9ed1
+Error Number:4060,State:1,Class:11
+DEBUG 2020-12-20 18:58:57,676 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 18:58:57,811 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2020-12-20 18:58:57,841 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule, UET.EasyAccommod.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,845 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodWebCoreModule, UET.EasyAccommod.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,845 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodApplicationModule, UET.EasyAccommod.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,846 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodCoreModule, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,846 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,846 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,847 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,847 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,848 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,848 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,849 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,849 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,849 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,850 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,850 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:57,853 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2020-12-20 18:58:57,984 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:58:57,984 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:58:57,984 [1    ] o.Configuration.LanguageManagementConfig - Converted EasyAccommod (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:58:57,984 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 18:58:58,349 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodDbContext, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 18:58:59,311 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2020-12-20 18:58:59,346 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2020-12-20 18:58:59,356 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2020-12-20 18:58:59,366 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: EasyAccommod
+DEBUG 2020-12-20 18:58:59,370 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2020-12-20 18:58:59,572 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 18:58:59,715 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 18:58:59,766 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2020-12-20 18:58:59,766 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2020-12-20 18:58:59,772 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.CreateUserDto
+DEBUG 2020-12-20 18:58:59,772 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.UserDto
+DEBUG 2020-12-20 18:58:59,773 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2020-12-20 18:58:59,773 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.UserLoginInfoDto
+DEBUG 2020-12-20 18:58:59,773 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Roles.Dto.PermissionDto
+DEBUG 2020-12-20 18:58:59,773 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2020-12-20 18:58:59,773 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.TenantDto
+FATAL 2020-12-20 18:59:02,061 [1    ] Abp.AbpBootstrapper                      - Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Address'.
+Invalid column name 'IdCard'.
+Invalid column name 'Phone'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.Host.HostRoleAndUserCreator.CreateHostRoleAndUsers() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\Host\HostRoleAndUserCreator.cs:line 135
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.Host.HostRoleAndUserCreator.Create() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\Host\HostRoleAndUserCreator.cs:line 27
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.Host.InitialHostDbBuilder.Create() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\Host\InitialHostDbBuilder.cs:line 17
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(EasyAccommodDbContext context) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 28
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.WithDbContext[TDbContext](IIocResolver iocResolver, Action`1 contextAction) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 43
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(IIocResolver iocResolver) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 18
+   at UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule.PostInitialize() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\EasyAccommodEntityFrameworkModule.cs:line 48
+   at Abp.Modules.AbpModuleManager.<>c.<StartModules>b__15_2(AbpModuleInfo module)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules()
+   at Abp.AbpBootstrapper.Initialize()
+ClientConnectionId:513e2a90-f3a3-45d2-89c0-8595caf82f11
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Address'.
+Invalid column name 'IdCard'.
+Invalid column name 'Phone'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.Host.HostRoleAndUserCreator.CreateHostRoleAndUsers() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\Host\HostRoleAndUserCreator.cs:line 135
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.Host.HostRoleAndUserCreator.Create() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\Host\HostRoleAndUserCreator.cs:line 27
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.Host.InitialHostDbBuilder.Create() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\Host\InitialHostDbBuilder.cs:line 17
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(EasyAccommodDbContext context) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 28
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.WithDbContext[TDbContext](IIocResolver iocResolver, Action`1 contextAction) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 43
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(IIocResolver iocResolver) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 18
+   at UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule.PostInitialize() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\EasyAccommodEntityFrameworkModule.cs:line 48
+   at Abp.Modules.AbpModuleManager.<>c.<StartModules>b__15_2(AbpModuleInfo module)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules()
+   at Abp.AbpBootstrapper.Initialize()
+ClientConnectionId:513e2a90-f3a3-45d2-89c0-8595caf82f11
+Error Number:207,State:1,Class:16
+FATAL 2020-12-20 18:59:02,128 [1    ] Microsoft.AspNetCore.Hosting.WebHost     - Application startup exception
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Address'.
+Invalid column name 'IdCard'.
+Invalid column name 'Phone'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.Host.HostRoleAndUserCreator.CreateHostRoleAndUsers() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\Host\HostRoleAndUserCreator.cs:line 135
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.Host.HostRoleAndUserCreator.Create() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\Host\HostRoleAndUserCreator.cs:line 27
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.Host.InitialHostDbBuilder.Create() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\Host\InitialHostDbBuilder.cs:line 17
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(EasyAccommodDbContext context) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 28
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.WithDbContext[TDbContext](IIocResolver iocResolver, Action`1 contextAction) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 43
+   at UET.EasyAccommod.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(IIocResolver iocResolver) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\Seed\SeedHelper.cs:line 18
+   at UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule.PostInitialize() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.EntityFrameworkCore\EntityFrameworkCore\EasyAccommodEntityFrameworkModule.cs:line 48
+   at Abp.Modules.AbpModuleManager.<>c.<StartModules>b__15_2(AbpModuleInfo module)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules()
+   at Abp.AbpBootstrapper.Initialize()
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app)
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction)
+   at UET.EasyAccommod.Web.Host.Startup.Startup.Configure(IApplicationBuilder app, ILoggerFactory loggerFactory) in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.Web.Host\Startup\Startup.cs:line 105
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+ClientConnectionId:513e2a90-f3a3-45d2-89c0-8595caf82f11
+Error Number:207,State:1,Class:16
+DEBUG 2020-12-20 19:01:31,704 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-12-20 19:01:31,872 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2020-12-20 19:01:31,892 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.Web.Host.Startup.EasyAccommodWebHostModule, UET.EasyAccommod.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,894 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodWebCoreModule, UET.EasyAccommod.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,895 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodApplicationModule, UET.EasyAccommod.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,895 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EasyAccommodCoreModule, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,896 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,896 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,896 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,896 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,897 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodEntityFrameworkModule, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,897 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,897 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,898 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,899 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,899 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,900 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:31,905 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2020-12-20 19:01:32,051 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 19:01:32,051 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 19:01:32,051 [1    ] o.Configuration.LanguageManagementConfig - Converted EasyAccommod (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 19:01:32,051 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-12-20 19:01:32,578 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: UET.EasyAccommod.EntityFrameworkCore.EasyAccommodDbContext, UET.EasyAccommod.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-12-20 19:01:33,662 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2020-12-20 19:01:33,699 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2020-12-20 19:01:33,711 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2020-12-20 19:01:33,724 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: EasyAccommod
+DEBUG 2020-12-20 19:01:33,730 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2020-12-20 19:01:33,982 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 19:01:34,135 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 19:01:34,208 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2020-12-20 19:01:34,208 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2020-12-20 19:01:34,214 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.CreateUserDto
+DEBUG 2020-12-20 19:01:34,215 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Users.Dto.UserDto
+DEBUG 2020-12-20 19:01:34,215 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2020-12-20 19:01:34,216 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Sessions.Dto.UserLoginInfoDto
+DEBUG 2020-12-20 19:01:34,216 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.Roles.Dto.PermissionDto
+DEBUG 2020-12-20 19:01:34,216 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2020-12-20 19:01:34,216 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - UET.EasyAccommod.MultiTenancy.Dto.TenantDto
+INFO  2020-12-20 19:01:38,890 [1    ] tCore.Builder.RequestLocalizationOptions - Supported Request Localization Cultures: en,es-MX,fr,de,it,nl,pt-BR,tr,ru,ar,ja,zh-Hans
+INFO  2020-12-20 19:01:39,194 [1    ] taProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\manh\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+WARN  2020-12-20 19:01:39,250 [1    ] Microsoft.AspNetCore.Server.Kestrel      - Overriding address(es) 'http://localhost:21021/'. Binding to endpoints defined in UseKestrel() instead.
+INFO  2020-12-20 19:01:40,019 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2020-12-20 19:01:40,199 [14   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 19:01:43,875 [14   ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller UET.EasyAccommod.Web.Host.Controllers.HomeController (UET.EasyAccommod.Web.Host).
+INFO  2020-12-20 19:01:45,261 [14   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2020-12-20 19:01:45,271 [14   ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host) in 1387.7062ms
+INFO  2020-12-20 19:01:45,273 [14   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Web.Host.Controllers.HomeController.Index (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 19:01:45,288 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 5271.1541ms 302 
+INFO  2020-12-20 19:01:45,316 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2020-12-20 19:01:45,497 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 181.5206ms 200 text/html;charset=utf-8
+INFO  2020-12-20 19:01:45,552 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2020-12-20 19:01:45,553 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2020-12-20 19:01:45,571 [14   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.swagger.js was not modified
+INFO  2020-12-20 19:01:45,572 [9    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.js was not modified
+INFO  2020-12-20 19:01:45,577 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 28.9319ms 304 application/javascript
+INFO  2020-12-20 19:01:45,579 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 28.8884ms 304 application/javascript
+INFO  2020-12-20 19:01:45,722 [7    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/AntiForgery/SetCookie  
+INFO  2020-12-20 19:01:45,748 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2020-12-20 19:01:45,876 [14   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 19:01:45,876 [7    ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 19:01:45,981 [4    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 19:01:45,988 [4    ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "SetCookie", controller = "AntiForgery", area = ""}. Executing controller action with signature Void SetCookie() on controller UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController (UET.EasyAccommod.Web.Host).
+INFO  2020-12-20 19:01:46,011 [4    ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-12-20 19:01:46,027 [4    ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host) in 36.7263ms
+INFO  2020-12-20 19:01:46,029 [4    ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.Web.Host.Controllers.AntiForgeryController.SetCookie (UET.EasyAccommod.Web.Host)'
+INFO  2020-12-20 19:01:46,031 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 309.6019ms 200 application/json; charset=utf-8
+INFO  2020-12-20 19:01:46,180 [7    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 431.8875ms 200 application/json;charset=utf-8
+INFO  2020-12-20 19:01:51,270 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/MstBathroomType/GetListBathRoomType  
+INFO  2020-12-20 19:01:51,274 [11   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-12-20 19:01:51,278 [11   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'UET.EasyAccommod.MasterTable.BathroomType.MstBathroomTypeAppService.GetListBathRoomType (UET.EasyAccommod.Application)'
+INFO  2020-12-20 19:01:51,290 [11   ] c.Infrastructure.ControllerActionInvoker - Route matched with {area = "app", action = "GetListBathRoomType", controller = "MstBathroomType"}. Executing controller action with signature Abp.Application.Services.Dto.ListResultDto`1[UET.EasyAccommod.MasterTable.BathroomType.Dto.MstBathroomTypeDto] GetListBathRoomType() on controller UET.EasyAccommod.MasterTable.BathroomType.MstBathroomTypeAppService (UET.EasyAccommod.Application).
+ERROR 2020-12-20 19:01:52,184 [10   ] Mvc.ExceptionHandling.AbpExceptionFilter - Invalid object name 'MstBathroomType'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'MstBathroomType'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at UET.EasyAccommod.MasterTable.BathroomType.MstBathroomTypeAppService.GetListBathRoomType() in C:\Users\manh\OneDrive\Documents\Github\EasyAccommod\server\src\UET.EasyAccommod.Application\MasterTable\BathroomType\MstBathroomTypeAppService.cs:line 22
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ClientConnectionId:02d97f93-57f3-4c84-928f-4d68e8bbff40
+Error Number:208,State:1,Class:16
+INFO  2020-12-20 19:01:52,499 [10   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-12-20 19:01:52,504 [10   ] c.Infrastructure.ControllerActionInvoker - Executed action UET.EasyAccommod.MasterTable.BathroomType.MstBathroomTypeAppService.GetListBathRoomType (UET.EasyAccommod.Application) in 1211.2968ms
+INFO  2020-12-20 19:01:52,506 [10   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'UET.EasyAccommod.MasterTable.BathroomType.MstBathroomTypeAppService.GetListBathRoomType (UET.EasyAccommod.Application)'
+INFO  2020-12-20 19:01:52,508 [10   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 1238.2738ms 500 application/json; charset=utf-8
+DEBUG 2020-12-20 19:02:17,608 [2    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2020-12-20 19:02:17,609 [2    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 19:02:17,609 [2    ] , Culture=neutral, PublicKeyToken=null]] - Stop background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 19:02:17,611 [2    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-12-20 19:02:17,611 [2    ] , Culture=neutral, PublicKeyToken=null]] - WaitToStop background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[UET.EasyAccommod.MultiTenancy.Tenant, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[UET.EasyAccommod.Authorization.Users.User, UET.EasyAccommod.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-12-20 19:02:17,611 [2    ] Abp.Modules.AbpModuleManager             - Shutting down completed.

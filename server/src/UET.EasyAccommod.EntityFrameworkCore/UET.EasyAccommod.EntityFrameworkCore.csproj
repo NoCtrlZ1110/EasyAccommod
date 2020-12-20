@@ -15,6 +15,16 @@
     <Compile Remove="Migrations\20190111071724_Upgraded_To_Abp_v4_1_0.cs" />
     <Compile Remove="Migrations\20201218151026_database.cs" />
     <Compile Remove="Migrations\20201218151026_database.Designer.cs" />
+    <Compile Remove="Migrations\20201220084748_tale.cs" />
+    <Compile Remove="Migrations\20201220084748_tale.Designer.cs" />
+    <Compile Remove="Migrations\20201220112736_table.cs" />
+    <Compile Remove="Migrations\20201220112736_table.Designer.cs" />
+    <Compile Remove="Migrations\20201220112850_a.cs" />
+    <Compile Remove="Migrations\20201220112850_a.Designer.cs" />
+    <Compile Remove="Migrations\20201220120247_database20122012.cs" />
+    <Compile Remove="Migrations\20201220120247_database20122012.Designer.cs" />
+    <Compile Remove="Migrations\20201220123913_a.cs" />
+    <Compile Remove="Migrations\20201220123913_a.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace UET.EasyAccommod.Migrations
 {
-    public partial class database : Migration
+    public partial class a : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -35,21 +35,24 @@ namespace UET.EasyAccommod.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeleterUserId = table.Column<long>(nullable: true),
                     DeletionTime = table.Column<DateTime>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
                     ProvinceId = table.Column<long>(nullable: true),
                     DistrictId = table.Column<long>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     ApartmentType = table.Column<long>(nullable: true),
                     NumberRoom = table.Column<long>(nullable: true),
-                    RoonPrice = table.Column<long>(nullable: true),
+                    RoomPrice = table.Column<long>(nullable: true),
                     UnitPriceId = table.Column<long>(nullable: true),
                     RoomArea = table.Column<long>(nullable: true),
                     LiveWithTheOwner = table.Column<bool>(nullable: false),
                     BathroomTypeId = table.Column<long>(nullable: true),
+                    KitchenTypeId = table.Column<long>(nullable: true),
                     AirConditional = table.Column<bool>(nullable: false),
+                    Balcony = table.Column<bool>(nullable: false),
+                    ElectricityPriceType = table.Column<bool>(nullable: false),
                     ElectricityPrice = table.Column<long>(nullable: true),
-                    ElectricityPriceUnitId = table.Column<long>(nullable: true),
+                    WaterPriceType = table.Column<bool>(nullable: false),
                     WaterPrice = table.Column<long>(nullable: true),
-                    WaterPriceUnitId = table.Column<long>(nullable: true),
                     OtherUtility = table.Column<string>(nullable: true),
                     UserOwnerId = table.Column<long>(nullable: true),
                     OwnerName = table.Column<string>(nullable: true),
