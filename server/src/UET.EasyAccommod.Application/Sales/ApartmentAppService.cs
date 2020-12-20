@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Web.Http;
 using UET.EasyAccommod.Sales.Dto.Create;
 using UET.EasyAccommod.Sales.Dto.Create.Apartment;
 using UET.EasyAccommod.Sales.Dto.Create.Image;
@@ -113,7 +114,7 @@ namespace UET.EasyAccommod.Sales
 
                 };
 
-                throw new System.Web.Http.HttpResponseException(response);
+                throw new HttpResponseException(response);
             }
             //foreach (var image in input.Images)
             //{

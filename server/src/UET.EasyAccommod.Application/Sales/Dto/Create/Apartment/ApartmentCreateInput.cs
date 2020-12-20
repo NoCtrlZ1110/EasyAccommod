@@ -5,17 +5,19 @@ namespace UET.EasyAccommod.Sales.Dto.Create.Apartment
 {
     public class ApartmentCreateInput : EntityDto<long>
     {
+        public string Title { get; set; }
         public long? ProvinceId { get; set; }
         public long? DistrictId { get; set; }
         public string Address { get; set; }
         public long? ApartmentType { get; set; }
         public long? NumberRoom { get; set; }
-        public long? RoonPrice { get; set; }
+        public long? RoomPrice { get; set; }
         public long? UnitPriceId { get; set; }
         public long? RoomArea { get; set; }
         public bool LiveWithTheOwner { get; set; }
         public long? BathroomTypeId { get; set; }
         public bool AirConditional { get; set; }
+        public bool Balcony { get; set; }
         public long? ElectricityPrice { get; set; }
         public long? ElectricityPriceUnitId { get; set; }
         public long? WaterPrice { get; set; }

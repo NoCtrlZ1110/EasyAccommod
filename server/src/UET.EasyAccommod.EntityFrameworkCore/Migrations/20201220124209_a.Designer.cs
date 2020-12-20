@@ -10,8 +10,8 @@ using UET.EasyAccommod.EntityFrameworkCore;
 namespace UET.EasyAccommod.Migrations
 {
     [DbContext(typeof(EasyAccommodDbContext))]
-    [Migration("20201219082528_database")]
-    partial class database
+    [Migration("20201220124209_a")]
+    partial class a
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1877,6 +1877,9 @@ namespace UET.EasyAccommod.Migrations
                     b.Property<long?>("ApartmentType")
                         .HasColumnType("bigint");
 
+                    b.Property<bool>("Balcony")
+                        .HasColumnType("bit");
+
                     b.Property<long?>("BathroomTypeId")
                         .HasColumnType("bigint");
 
@@ -1898,8 +1901,8 @@ namespace UET.EasyAccommod.Migrations
                     b.Property<long?>("ElectricityPrice")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("ElectricityPriceUnitId")
-                        .HasColumnType("bigint");
+                    b.Property<bool>("ElectricityPriceType")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("ExpirationDate")
                         .HasColumnType("datetime2");
@@ -1912,6 +1915,9 @@ namespace UET.EasyAccommod.Migrations
 
                     b.Property<bool?>("IsEmpty")
                         .HasColumnType("bit");
+
+                    b.Property<long?>("KitchenTypeId")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("LastModificationTime")
                         .HasColumnType("datetime2");
@@ -1943,11 +1949,14 @@ namespace UET.EasyAccommod.Migrations
                     b.Property<long?>("RoomArea")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("RoonPrice")
+                    b.Property<long?>("RoomPrice")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("TimeShownId")
                         .HasColumnType("bigint");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long?>("UnitPriceId")
                         .HasColumnType("bigint");
@@ -1964,8 +1973,8 @@ namespace UET.EasyAccommod.Migrations
                     b.Property<long?>("WaterPrice")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("WaterPriceUnitId")
-                        .HasColumnType("bigint");
+                    b.Property<bool>("WaterPriceType")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
