@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using System.Web.Http;
 using UET.EasyAccommod.Sales.Dto.Create;
 using UET.EasyAccommod.Sales.Dto.Create.Apartment;
 using UET.EasyAccommod.Sales.Dto.Create.Image;
@@ -104,9 +104,8 @@ namespace UET.EasyAccommod.Sales
         public async Task<List<ApartmentImageCreateInput>> UploadImageDelivery([FromForm] ImageInput input)
         {
             List<ApartmentImageCreateInput> url = new List<ApartmentImageCreateInput>();
-            var img = input.Images;
-
-            if (img == null)
+            //var imagesSize = input.Images.Sum(f => f.Length);
+            if (input == null)
             {
                 var response = new HttpResponseMessage(HttpStatusCode.NotFound)
                 {
@@ -114,36 +113,36 @@ namespace UET.EasyAccommod.Sales
 
                 };
 
-                throw new HttpResponseException(response);
+                throw new System.Web.Http.HttpResponseException(response);
             }
-            foreach (var image in input.Images)
+            //foreach (var image in input.Images)
+            //{
+            var file = input.Images;
+            var ms = new MemoryStream();
+            file.CopyTo(ms);
+
+            string fileName = GetMD5HashFromFile(ms) + DateTime.Now.ToFileTime().ToString() + Path.GetExtension(file.FileName);
+            string urlImage = "/Imgs/" + fileName;
+            if (await SaveImage(file, fileName))
             {
-                var file = image;
-                var ms = new MemoryStream();
-                file.CopyTo(ms);
-
-                string fileName = GetMD5HashFromFile(ms) + DateTime.Now.ToFileTime().ToString() + Path.GetExtension(file.FileName);
-                string urlImage = "/Imgs/" + fileName;
-                if (await SaveImage(file, fileName))
+                url.Add(new ApartmentImageCreateInput
                 {
-                    url.Add(new ApartmentImageCreateInput
-                    {
-                        Id = 0,
-                        ApartmentId = 0,
-                        ImageUrl = urlImage
-                    }); ;
-                }
-                else
-                {
-                    var response = new HttpResponseMessage(HttpStatusCode.NotFound)
-                    {
-                        Content = new StringContent(string.Format("Load image false"))
-
-                    };
-
-                    throw new HttpResponseException(response);
-                }
+                    Id = 0,
+                    ApartmentId = 0,
+                    ImageUrl = urlImage
+                }); ;
             }
+            else
+            {
+                var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format("Load image false"))
+
+                };
+
+                throw new System.Web.Http.HttpResponseException(response);
+            }
+            //}
             return url;
         }
 

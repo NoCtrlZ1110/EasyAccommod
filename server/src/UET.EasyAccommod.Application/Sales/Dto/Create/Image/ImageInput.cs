@@ -7,6 +7,6 @@ namespace UET.EasyAccommod.Sales.Dto.Create.Image
 {
     public class ImageInput
     {
-        public List<IFormFile> Images { get; set; }
+        public IFormFile Images { get; set; }
     }
 }
