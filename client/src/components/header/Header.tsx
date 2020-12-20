@@ -94,7 +94,7 @@ class Header extends React.Component {
                           style={{ borderRadius: 20, marginRight: 20 }}
                         />
                       }
-                      <Link to="/profile">
+                      <Link to='/profile/user-info'>
                         <b className="mr-3">{(profile as any).name}</b>
                       </Link>
                       <Button onClick={logout} className="button">
