@@ -11,7 +11,7 @@ import AccommodList from '../scenes/accommod/AccommodList';
 import { SignUp } from '../scenes/sign_up/SignUp';
 import { SearchPage } from '../scenes/search/Search';
 import { CreatePost } from '../scenes/create_post/CreatePost';
-import { Profile } from '../scenes/profile/Profile';
+import  Profile from '../scenes/profile/Profile';
 
 const routes = [
   {
