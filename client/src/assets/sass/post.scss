@@ -30,4 +30,18 @@
 
     }
 
+    .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before{
+        color: #fff;
+    }
+
+    .ant-form-item-explain.ant-form-item-explain-error {
+        color: #fff;
+    }
+
+    .ant-upload-select-picture-card{
+        margin-top: 20px;
+        width: 100%;
+        height: 80px;
+    }
+
 }

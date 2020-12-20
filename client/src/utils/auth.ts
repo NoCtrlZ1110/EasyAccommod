@@ -1,11 +1,9 @@
 import { toast } from 'react-toastify';
 import { API_URL } from './../config';
-import axios from 'axios';
 import API from './api';
 import history from '../services/history';
 export const register = (data: any) => {
-  return axios
-    .post(API_URL + 'services/app/User/Create', data)
+  return API.post(API_URL + 'services/app/User/Create', data)
     .then((response) => {
       const data = response.data;
       if (data.success) {
