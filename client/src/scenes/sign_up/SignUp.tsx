@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Card, Tabs } from 'antd';
 import { register } from '../../utils/auth';
+import { toast } from 'react-toastify';
 
 const { TabPane } = Tabs;
 
@@ -9,7 +10,7 @@ export const SignUp: React.FC = () => {
     let isOwner = role === 'Owner';
 
     const onFinish = (values: any) => {
-      console.log('Success:', values);
+      // console.log('Success:', values);
 
       values.roleNames = [role];
       if (!isOwner) {
@@ -22,35 +23,36 @@ export const SignUp: React.FC = () => {
     };
 
     const onFinishFailed = (errorInfo: any) => {
-      console.log('Failed:', errorInfo);
+      toast.warn('⚠ Vui lòng nhập đầy đủ các trường');
+      // console.log('Failed:', errorInfo);
     };
 
     return (
-      <div className="mt-4">
+      <div className='mt-4'>
         <Form
-          name="sign_up_form"
+          name='sign_up_form'
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
           <Form.Item
-            label="Tên"
-            name="name"
+            label='Tên'
+            name='name'
             rules={[{ required: true, message: 'Vui lòng điền tên của bạn' }]}
           >
             <Input />
           </Form.Item>
           <Form.Item
-            label="Họ"
-            name="surname"
+            label='Họ'
+            name='surname'
             rules={[{ required: true, message: 'Vui lòng điền tên của bạn' }]}
           >
             <Input />
           </Form.Item>
 
           <Form.Item
-            label="Username"
-            name="userName"
+            label='Username'
+            name='userName'
             rules={[
               { required: true, message: 'Vui lòng điền tên người dùng' },
             ]}
@@ -58,23 +60,23 @@ export const SignUp: React.FC = () => {
             <Input />
           </Form.Item>
           <Form.Item
-            label="Email"
-            name="emailAddress"
+            label='Email'
+            name='emailAddress'
             rules={[{ required: true, message: 'Vui lòng điền email của bạn' }]}
           >
             <Input />
           </Form.Item>
 
           <Form.Item
-            label="Mật khẩu"
-            name="password"
+            label='Mật khẩu'
+            name='password'
             rules={[{ required: true, message: 'Vui lòng nhập mật khẩu' }]}
           >
             <Input.Password />
           </Form.Item>
           <Form.Item
-            label="SĐT"
-            name="phone"
+            label='SĐT'
+            name='phone'
             rules={[
               {
                 required: true,
@@ -87,8 +89,8 @@ export const SignUp: React.FC = () => {
           {isOwner && (
             <>
               <Form.Item
-                label="Số CCCD"
-                name="idCard"
+                label='Số CCCD'
+                name='idCard'
                 rules={[
                   { required: true, message: 'Vui lòng điền số CCCD của bạn' },
                 ]}
@@ -96,8 +98,8 @@ export const SignUp: React.FC = () => {
                 <Input />
               </Form.Item>
               <Form.Item
-                label="Địa chỉ"
-                name="address"
+                label='Địa chỉ'
+                name='address'
                 rules={[
                   { required: true, message: 'Vui lòng điền địa chỉ của bạn' },
                 ]}
@@ -108,7 +110,7 @@ export const SignUp: React.FC = () => {
           )}
 
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button type='primary' htmlType='submit'>
               Tạo tài khoản
             </Button>
           </Form.Item>
@@ -118,11 +120,11 @@ export const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="sign-up text-center">
+    <div className='sign-up text-center'>
       <h1>Tạo tài khoản mới</h1>
 
       <Card
-        className="mx-auto "
+        className='mx-auto '
         style={{
           maxWidth: 700,
           padding: 20,
@@ -130,12 +132,12 @@ export const SignUp: React.FC = () => {
           marginTop: 50,
         }}
       >
-        <Tabs defaultActiveKey="1" onChange={() => {}}>
-          <TabPane tab="Chủ nhà trọ" key="owner">
+        <Tabs defaultActiveKey='1' onChange={() => {}}>
+          <TabPane tab='Chủ nhà trọ' key='owner'>
             {signUpForm('Owner')}
           </TabPane>
           {/* --------------------- */}
-          <TabPane tab="Người thuê trọ" key="renter">
+          <TabPane tab='Người thuê trọ' key='renter'>
             {signUpForm('Renter')}
           </TabPane>
         </Tabs>

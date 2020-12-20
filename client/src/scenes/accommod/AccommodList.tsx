@@ -25,25 +25,25 @@ const AccommodList = () => {
   );
 
   return (
-    <div className="container mb-4">
-      <Breadcrumb className="mb-4">
+    <div className='container mb-4'>
+      <Breadcrumb className='mb-4'>
         <Breadcrumb.Item>
-          <Link to="/">Home</Link>
+          <Link to='/'>Home</Link>
         </Breadcrumb.Item>
         <Breadcrumb.Item>
-          <Link to="#">Accommod</Link>
+          <Link to='#'>Accommod</Link>
         </Breadcrumb.Item>
         <Breadcrumb.Item>
-          <Link to="#">Accommod List</Link>
+          <Link to='#'>Accommod List</Link>
         </Breadcrumb.Item>
       </Breadcrumb>
 
       <List
-        itemLayout="vertical"
-        size="large"
+        itemLayout='vertical'
+        size='large'
         pagination={{
           onChange: (page) => {
-            console.log(page);
+            // console.log(page);
           },
           pageSize: 8,
         }}
@@ -54,26 +54,26 @@ const AccommodList = () => {
             actions={[
               <IconText
                 icon={StarOutlined}
-                text="156"
-                key="list-vertical-star-o"
+                text='156'
+                key='list-vertical-star-o'
               />,
               <IconText
                 icon={LikeOutlined}
-                text="156"
-                key="list-vertical-like-o"
+                text='156'
+                key='list-vertical-like-o'
               />,
               <IconText
                 icon={MessageOutlined}
-                text="2"
-                key="list-vertical-message"
+                text='2'
+                key='list-vertical-message'
               />,
             ]}
             extra={
               <>
-                <div className="my-3">
-                  <img width={272} alt="logo" src="https://bit.ly/2VCho0Q" />
+                <div className='my-3'>
+                  <img width={272} alt='logo' src='https://bit.ly/2VCho0Q' />
                 </div>
-                <b className="ml-5" style={{ fontSize: 18 }}>
+                <b className='ml-5' style={{ fontSize: 18 }}>
                   12.000.000 VNĐ / tháng
                 </b>
               </>

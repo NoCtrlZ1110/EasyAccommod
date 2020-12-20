@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Modal, Upload } from 'antd';
+import { API_URL } from '../../config';
 
 function getBase64(file: any) {
   return new Promise((resolve, reject) => {
@@ -11,11 +12,10 @@ function getBase64(file: any) {
   });
 }
 
-export const UploadImage: React.FC = () => {
+export const UploadImage: React.FC<any> = (fileList, setFileList) => {
   const [previewVisible, setPreviewVisible] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
   const [previewTitle, setPreviewTitle] = useState('');
-  const [fileList, setFileList] = useState<any>([]);
 
   const uploadButton = (
     <div>
@@ -37,17 +37,21 @@ export const UploadImage: React.FC = () => {
     );
   };
 
-  const handleChange = ({ fileList: _fileList }: any) => setFileList(_fileList);
+  const handleChange = ({ fileList: _fileList }: any) => {
+    setFileList(_fileList);
+    // console.log(fileList);
+  };
   return (
     <>
       <Upload
-        action="#"
-        listType="picture-card"
+        action={`${API_URL}services/app/Apartment/UploadImageDelivery`}
+        name='Images'
+        listType='picture-card'
         fileList={fileList}
         onPreview={handlePreview}
         onChange={handleChange}
       >
-        {fileList.length >= 8 ? null : uploadButton}
+        {fileList.length > 20 ? null : uploadButton}
       </Upload>
       <Modal
         visible={previewVisible}
@@ -55,7 +59,7 @@ export const UploadImage: React.FC = () => {
         footer={null}
         onCancel={handleCancel}
       >
-        <img alt="example" style={{ width: '100%' }} src={previewImage} />
+        <img alt='preview' style={{ width: '100%' }} src={previewImage} />
       </Modal>
     </>
   );
