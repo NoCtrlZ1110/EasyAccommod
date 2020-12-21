@@ -10,9 +10,9 @@ namespace UET.EasyAccommod.MasterTable.KitchenType
 {
     public class MstKitchenTypeAppService : EasyAccommodAppServiceBase, IMstKitchenTypeAppService
     { 
-        private readonly IRepository<MstKitchenType, long?> _repository;
+        private readonly IRepository<MstKitchenType, long> _repository;
 
-        public MstKitchenTypeAppService(IRepository<MstKitchenType, long?> repository)
+        public MstKitchenTypeAppService(IRepository<MstKitchenType, long> repository)
         {
             _repository = repository;
         }

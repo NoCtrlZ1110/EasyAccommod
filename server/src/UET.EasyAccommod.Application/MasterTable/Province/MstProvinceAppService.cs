@@ -10,9 +10,9 @@ namespace UET.EasyAccommod.MasterTable.Province
 {
     public class MstProvinceAppService : EasyAccommodAppServiceBase, IMstProvinceAppService
     {
-        private readonly IRepository<MstProvince, long?> _mstProvinceRepo;
+        private readonly IRepository<MstProvince, long> _mstProvinceRepo;
 
-        public MstProvinceAppService(IRepository<MstProvince, long?> mstProvinceRepo)
+        public MstProvinceAppService(IRepository<MstProvince, long> mstProvinceRepo)
         {
             _mstProvinceRepo = mstProvinceRepo;
         }

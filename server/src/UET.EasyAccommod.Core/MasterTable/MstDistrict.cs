@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace UET.EasyAccommod.MasterTable
 {
     [Table("MstDistrict")]
-    public class MstDistrict : FullAuditedEntity<long?>, IEntity<long?>
+    public class MstDistrict : FullAuditedEntity<long>, IEntity<long>
     {
         public long? ProvinceId { get; set; }
         public string Name { get; set; }
