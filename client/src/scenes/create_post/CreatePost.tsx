@@ -44,8 +44,6 @@ export const CreatePost: React.FC = () => {
   const user = getCurrentUser();
 
   const onFinish = (values: any) => {
-    console.log(values);
-    console.log(fileList);
     let data = {
       apartment: values,
       apartmentImages: fileList.map((img: any) => ({
@@ -55,7 +53,6 @@ export const CreatePost: React.FC = () => {
       apartmentPublicPlaces: [],
     };
     submitPost(data);
-    // console.log(fileList);
   };
 
   const onFinishFailed = (errorInfo: any) => {
