@@ -29,10 +29,15 @@
   }
 }
 .active-post {
+  .ant-table-thead > tr > th {
+    background: #1890ff;
+    color: white;
+    font-size: 18px;
+  }
   .like-view-chart {
     width: 70%;
     border-radius: 20px;
-    border-color: #CCEBF7;
+    border-color: #ccebf7;
     border-width: 2px;
   }
   .chart-title {
@@ -43,7 +48,13 @@
   .like-new-post {
     width: 25%;
     border-radius: 20px;
-    border-color: #B9E8B6;
+    border-color: #b9e8b6;
     border-width: 2px;
+  }
+  .item-title {
+    width: 100%;
+  }
+  .item-image {
+    width: 40%;
   }
 }
