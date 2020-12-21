@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SVG from 'react-inlinesvg';
-import { getCurrentUser } from '../../utils/auth';
+import { getUser, updateUser } from '../../utils/auth';
 import { useMediaQuery } from 'react-responsive';
 import { API_URL } from '../../config';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
@@ -25,7 +25,7 @@ export const UserInfo = () => {
   const [avatar, setAvatar] = useState(
     'https://pbs.twimg.com/media/EiHnf16XYAIR-7D.jpg'
   );
-  const user = getCurrentUser();
+  const user = getUser();
 
   useEffect(() => {
     if (user.avatar) {
@@ -47,6 +47,9 @@ export const UserInfo = () => {
   };
   const onFinish = (values: any) => {
     setEdit(false);
+    values.isActive = true;
+    values.id = user.id;
+    updateUser(values);
   };
   const onError = (values: any) => {
     console.log('Finish:', values);
@@ -185,6 +188,14 @@ export const UserInfo = () => {
                   )}
                 </Upload>
               </div>
+            </Form.Item>
+            <Form.Item
+              name='username'
+              label='Tên người dùng'
+              required={true}
+              initialValue={user.userName}
+            >
+              <Input disabled />
             </Form.Item>
             <Form.Item
               name='name'

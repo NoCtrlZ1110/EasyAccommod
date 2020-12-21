@@ -450,7 +450,7 @@ namespace UET.EasyAccommod.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApartmentRate", x => x.Id);
-                })k;
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Apartment_ApartmentTypeId",
