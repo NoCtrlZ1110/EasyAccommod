@@ -2,6 +2,7 @@
 using Abp.Domain.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,6 +12,7 @@ using System.Net.Http;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web.Http;
+using UET.EasyAccommod.Helpers;
 using UET.EasyAccommod.Sales.Dto.Create;
 using UET.EasyAccommod.Sales.Dto.Create.Apartment;
 using UET.EasyAccommod.Sales.Dto.Create.Image;
@@ -21,13 +23,13 @@ namespace UET.EasyAccommod.Sales
 {
     public class ApartmentAppService : EasyAccommodAppServiceBase, IApartmentAppService
     {
-        private readonly IRepository<Apartment, long> _apartmentRepo;
-        private readonly IRepository<ApartmentImage, long> _apartmentImageRepo;
-        private readonly IRepository<ApartmentPublicPlace, long> _apartmentPublicPlaceRepo;
+        private readonly IRepository<Apartment, long?> _apartmentRepo;
+        private readonly IRepository<ApartmentImage, long?> _apartmentImageRepo;
+        private readonly IRepository<ApartmentPublicPlace, long?> _apartmentPublicPlaceRepo;
 
-        public ApartmentAppService(IRepository<Apartment, long> apartmentRepo,
-                                   IRepository<ApartmentImage, long> apartmentImageRepo,
-                                   IRepository<ApartmentPublicPlace, long> apartmentPublicPlaceRepo)
+        public ApartmentAppService(IRepository<Apartment, long?> apartmentRepo,
+                                   IRepository<ApartmentImage, long?> apartmentImageRepo,
+                                   IRepository<ApartmentPublicPlace, long?> apartmentPublicPlaceRepo)
         {
             _apartmentRepo = apartmentRepo;
             _apartmentImageRepo = apartmentImageRepo;
@@ -80,27 +82,95 @@ namespace UET.EasyAccommod.Sales
         private long CreateAppartment(ApartmentCreateInput input)
         {
             var appartment = ObjectMapper.Map<Apartment>(input);
-            return _apartmentRepo.InsertAndGetId(appartment);
+            return (long)_apartmentRepo.InsertAndGetId(appartment);
         }
         private long EditAppartment(ApartmentCreateInput input)
         {
             var apartment = _apartmentRepo.FirstOrDefault(input.Id);
             ObjectMapper.Map(input, apartment);
-            return apartment.Id;
+            return (long)apartment.Id;
         }
-        public Task<ApartmentDetailDto> GetApartmentDetail(ApartmentDetailInput input)
+        public async Task<ApartmentDetailDto> GetApartmentDetail(ApartmentDetailInput input)
         {
-            throw new NotImplementedException();
+            var apartment = await _apartmentRepo.GetAll()
+                                                .Include(a => a.ApartmentType)
+                                                .Include(a => a.BathroomType)
+                                                .Include(a => a.District)
+                                                .Include(a => a.Province)
+                                                .Include(a => a.KitchenType)
+                                                .Include(a => a.TimeShown)
+                                                .Include(a => a.ApartmentImages)
+                                                .Include(a => a.ApartmentRates)
+                                                .Include(a => a.ApartmentComments)
+                                                .Include(a => a.ApartmentPublicPlaces)
+                                                .ThenInclude(ap => ap.PublicPlaceType)
+                                                .Include(a => a.UnitPrice)
+                                                .FirstOrDefaultAsync(a => a.Id == input.ApartmentId);
+            return ObjectMapper.Map<ApartmentDetailDto>(apartment);
         }
 
         public PagedResultDto<ApartmentListDto> GetListAppartment(GetListApartmentInput input)
         {
-            throw new NotImplementedException();
+            var listApartment = _apartmentRepo
+                .GetAll()
+                .Include(a => a.Province)
+                .Include(a => a.District)
+                .Include(a => a.ApartmentType)
+                .Include(a => a.UnitPrice)
+                .AsEnumerable()
+                .Where(a => a.IsApprove == 1 && DateTime.Compare((DateTime)a.ExpirationDate, DateTime.Now) >= 0)
+                .Where(a => StringHelper.ConvertToUnsign(a.Title).Contains(StringHelper.ConvertToUnsign(input.Title))
+                || (a.UnitPriceId == input.UnitPriceId && input.PriceFrom <= a.RoomPrice && a.RoomPrice <= input.PriceTo)
+                || (input.AreaFrom <= a.RoomArea && a.RoomArea <= input.AreaTo)
+                || (input.ProvinceId == a.ProvinceId)
+                || (input.DistrictId == a.DistrictId)
+                || (input.ApartmentTypeId == a.ApartmentTypeId)
+                || (input.StayWithOwner == a.LiveWithTheOwner))
+                .OrderBy(a => a.CreationTime);
+            var totalcount = listApartment.Count();
+            var res = listApartment.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();
+            return new PagedResultDto<ApartmentListDto>(
+                totalcount,
+                ObjectMapper.Map<List<ApartmentListDto>>(res)
+                );
         }
 
-        public PagedResultDto<ApartmentListDto> GetListAppartmentOfOwner(GetListApartmentInput input)
+        public PagedResultDto<ApartmentListDto> GetListAppartmentOfOwner(GetListApartmentOfOwnerInput input)
         {
-            throw new NotImplementedException();
+            var listApartment = _apartmentRepo
+                .GetAll()
+                .Include(a => a.Province)
+                .Include(a => a.District)
+                .Include(a => a.ApartmentType)
+                .Include(a => a.UnitPrice)
+                .AsEnumerable()
+                .Where(a => StringHelper.ConvertToUnsign(a.Title).Contains(StringHelper.ConvertToUnsign(input.Title))
+                || (DateTime.Compare((DateTime)input.DateFrom, a.CreationTime) <= 0 && DateTime.Compare(a.CreationTime, (DateTime)input.DateTo) <= 0)
+                 );
+            // 1 - Approving
+            // 2 - Active
+            // 3 - Expired
+            switch (input.Status)
+            {
+                case 1:
+                    listApartment = listApartment.Where(a => a.IsApprove != 1).OrderBy(a => a.CreationTime);
+                    break;
+                case 2:
+                    listApartment = listApartment.Where(a => a.IsApprove == 1).OrderBy(a => a.CreationTime);
+                    break;
+                case 3:
+                    listApartment = listApartment.Where(a => a.IsApprove == 1 && DateTime.Compare((DateTime)a.ExpirationDate, DateTime.Now) < 0).OrderBy(a => a.CreationTime);
+                    break;
+                default:
+                    listApartment = listApartment.OrderBy(a => a.CreationTime);
+                    break;
+            }
+            var totalcount = listApartment == null ? 0 : listApartment.Count();
+            var res = listApartment.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();
+            return new PagedResultDto<ApartmentListDto>(
+                totalcount,
+                ObjectMapper.Map<List<ApartmentListDto>>(res)
+                );
         }
         public async Task<List<ApartmentImageCreateInput>> UploadImageDelivery([FromForm] ImageInput input)
         {

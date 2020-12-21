@@ -12,6 +12,6 @@ namespace UET.EasyAccommod.Sales
         Task CreateOrEditApartment(AppartmentCreateDto input);
         PagedResultDto<ApartmentListDto> GetListAppartment(GetListApartmentInput input);
         Task<ApartmentDetailDto> GetApartmentDetail(ApartmentDetailInput input);
-        PagedResultDto<ApartmentListDto> GetListAppartmentOfOwner(GetListApartmentInput input);
+        PagedResultDto<ApartmentListDto> GetListAppartmentOfOwner(GetListApartmentOfOwnerInput input);
     }
 }

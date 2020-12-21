@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UET.EasyAccommod.EntityFrameworkCore;
 
 namespace UET.EasyAccommod.Migrations
 {
     [DbContext(typeof(EasyAccommodDbContext))]
-    partial class EasyAccommodDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201220163847_add")]
+    partial class add
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

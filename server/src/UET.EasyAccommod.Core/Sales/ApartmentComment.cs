@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace UET.EasyAccommod.Sales
 {
     [Table("ApartmentComment")]
-    public class ApartmentComment : FullAuditedEntity<long> , IEntity<long>
+    public class ApartmentComment : FullAuditedEntity<long?>, IEntity<long?>
     {
         public long? Rate { get; set; }
         public long? ApartmentId { get; set; }

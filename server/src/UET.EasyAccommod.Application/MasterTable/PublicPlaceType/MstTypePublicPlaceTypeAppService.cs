@@ -11,9 +11,9 @@ namespace UET.EasyAccommod.MasterTable.PublicPlaceType
 {
     public class MstTypePublicPlaceTypeAppService : EasyAccommodAppServiceBase, IMstTypePublicPlaceTypeAppService
     {
-        private readonly IRepository<MstTypePublicPlaceType, long> _repository;
+        private readonly IRepository<MstTypePublicPlaceType, long?> _repository;
 
-        public MstTypePublicPlaceTypeAppService(IRepository<MstTypePublicPlaceType, long> repository)
+        public MstTypePublicPlaceTypeAppService(IRepository<MstTypePublicPlaceType, long?> repository)
         {
             _repository = repository;
         }
