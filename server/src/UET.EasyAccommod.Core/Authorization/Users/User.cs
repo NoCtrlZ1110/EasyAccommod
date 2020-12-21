@@ -7,9 +7,10 @@ namespace UET.EasyAccommod.Authorization.Users
 {
     public class User : AbpUser<User>
     {
-        public string IdCard { get; set; }
-        public string Address { get; set; }
-        public string Phone { get; set; }
+        public string IdCard { get; set; } = "";
+        public string Address { get; set; } = "";
+        public string Phone { get; set; } = "";
+        public string Avatar { get; set; } = "";
         public const string DefaultPassword = "123qwe";
 
         public static string CreateRandomPassword()

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using UET.EasyAccommod.Authorization.Users;
 using UET.EasyAccommod.MasterTable;
 using UET.EasyAccommod.MasterTable.ApartmentType.Dto;
 using UET.EasyAccommod.MasterTable.BathroomType.Dto;
@@ -10,8 +11,11 @@ using UET.EasyAccommod.MasterTable.TimeShown.Dto;
 using UET.EasyAccommod.MasterTable.UnitPrice.Dto;
 using UET.EasyAccommod.Sales;
 using UET.EasyAccommod.Sales.Dto.Create.Apartment;
+using UET.EasyAccommod.Sales.Dto.Create.Comment;
+using UET.EasyAccommod.Sales.Dto.Create.Rate;
 using UET.EasyAccommod.Sales.Dto.Output;
 using UET.EasyAccommod.Sales.Dto.Output.IncludeDto;
+using UET.EasyAccommod.Users.Dto;
 
 namespace UET.EasyAccommod
 {
@@ -36,6 +40,9 @@ namespace UET.EasyAccommod
             configuration.CreateMap<ApartmentRate, ApartmentRateDto>();
             configuration.CreateMap<Apartment, ApartmentDetailDto>();
             configuration.CreateMap<Apartment, ApartmentListDto>();
+            configuration.CreateMap<EditUser, User>();
+            configuration.CreateMap<ApartmentCommentCreateDto, ApartmentComment>();
+            configuration.CreateMap<ApartmentRateCreateDto, ApartmentRate>();
         }
     }
 }
