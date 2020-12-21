@@ -45,7 +45,16 @@ export const CreatePost: React.FC = () => {
 
   const onFinish = (values: any) => {
     console.log(values);
-    submitPost(values);
+    console.log(fileList);
+    let data = {
+      apartment: values,
+      apartmentImages: fileList.map((img: any) => ({
+        imageUrl: img.response.result[0].imageUrl,
+      })),
+
+      apartmentPublicPlaces: [],
+    };
+    submitPost(data);
     // console.log(fileList);
   };
 
@@ -414,7 +423,7 @@ export const CreatePost: React.FC = () => {
           <Card
             title='Thông tin hình ảnh'
             style={{
-              maxWidth: '85%',
+              minWidth: '85%',
               backgroundColor: '#f075a5',
               borderRadius: 10,
             }}

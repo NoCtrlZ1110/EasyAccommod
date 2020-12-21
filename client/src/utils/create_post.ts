@@ -67,7 +67,9 @@ export const submitPost = (data: any) => {
     .then((response) => {
       const data = response.data;
       if (data.success) {
-        toast.success('✅ Đăng ký bài thành công');
+        toast.success(
+          '✅ Tạo bài thành công, bài viết sẽ được hiển thị sau khi được phê duyệt!'
+        );
       }
     })
     .catch((error) => {
