@@ -51,6 +51,14 @@ export const getListUnitPrices = (setUnitPrices: any) => {
   ).then((response: any) => setUnitPrices(response.data.result.items));
 };
 
+// api/services/app/MstSleTimeShown/GetListTimeShown
+
+export const getListTimeShown = (setListTimeShown: any) => {
+  return API.get(
+    `${API_URL}services/app/MstSleTimeShown/GetListTimeShown`
+  ).then((response: any) => setListTimeShown(response.data.result.items));
+};
+
 export const submitPost = (data: any) => {
   return API.post(
     API_URL + 'services/app/Apartment/CreateOrEditApartment',
