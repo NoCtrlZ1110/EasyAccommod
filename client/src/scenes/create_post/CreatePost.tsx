@@ -22,8 +22,10 @@ import {
   getListKitchenTypes,
   getListPublicPlaceTypes,
   getProvinces,
+  getListTimeShown,
   submitPost,
 } from '../../utils/create_post';
+import { getCurrentUser } from '../../utils/auth';
 const { Option } = Select;
 
 export const CreatePost: React.FC = () => {
@@ -34,9 +36,13 @@ export const CreatePost: React.FC = () => {
   const [apartmentTypes, setApartmentTypes] = useState([]);
   const [bathRoomTypes, setBathRoomTypes] = useState([]);
   const [kitchenTypes, setKitchenTypes] = useState([]);
+  const [timeShown, setTimeShown] = useState([]);
   const [publicPlaceTypes, setPublicPlaceTypes] = useState([]);
   const [currentProvince, setCurrentProvinces] = useState<number>();
   const formRef = useRef(null);
+
+  const user = getCurrentUser();
+
   const onFinish = (values: any) => {
     console.log(values);
     submitPost(values);
@@ -54,6 +60,7 @@ export const CreatePost: React.FC = () => {
     getListBathRoomTypes(setBathRoomTypes);
     getListKitchenTypes(setKitchenTypes);
     getListPublicPlaceTypes(setPublicPlaceTypes);
+    getListTimeShown(setTimeShown);
   }, []);
 
   useEffect(() => {
@@ -142,6 +149,26 @@ export const CreatePost: React.FC = () => {
                 <Input placeholder='Nhập tên đường/ thôn, xã/ phường' />
               </Form.Item>
               <Form.Item
+                label='Tên chủ hộ'
+                name='ownerName'
+                rules={[
+                  { required: true, message: 'Vui lòng nhập tên chủ hộ' },
+                ]}
+                initialValue={user.surname + ' ' + user.name}
+              >
+                <Input placeholder='Tên chủ hộ' />
+              </Form.Item>
+              <Form.Item
+                label='SĐT chủ hộ'
+                name='ownerPhone'
+                initialValue={user.phone}
+                rules={[
+                  { required: true, message: 'Vui lòng nhập SĐT chủ hộ' },
+                ]}
+              >
+                <Input placeholder='SĐT chủ hộ' />
+              </Form.Item>
+              <Form.Item
                 name='apartmentPublicPlaces'
                 label='Địa điểm công cộng'
               >
@@ -217,6 +244,7 @@ export const CreatePost: React.FC = () => {
                   ))}
                 </Select>
               </Form.Item>
+
               <Form.Item
                 name='liveWithTheOwner'
                 label='Chung chủ'
@@ -247,6 +275,15 @@ export const CreatePost: React.FC = () => {
                 ]}
               >
                 <Input type='number' placeholder='Nhập diện tích (mét vuông)' />
+              </Form.Item>
+              <Form.Item
+                name='numberRoom'
+                label='Số lượng phòng'
+                rules={[
+                  { required: true, message: 'Vui lòng nhập số lượng phòng' },
+                ]}
+              >
+                <Input type='number' placeholder='Nhập số lượng phòng' />
               </Form.Item>
               <Divider
                 className='mb-4'
@@ -342,8 +379,29 @@ export const CreatePost: React.FC = () => {
               >
                 <Input type='number' placeholder='Giá số nước (m3)' />
               </Form.Item>
-              <Form.Item label='Tiện ích khác' rules={[{ required: true }]}>
+              <Form.Item name='otherUtility' label='Tiện ích khác'>
                 <Input placeholder='tủ lạnh/ máy giặt/giường tủ/...' />
+              </Form.Item>
+              <Divider orientation='left'>Thời gian hiển thị tin</Divider>
+              <Form.Item
+                name='timeShownId'
+                label=''
+                rules={[
+                  {
+                    required: true,
+                    message: 'Vui lòng chọn thời gian hiển thị tin',
+                  },
+                ]}
+              >
+                <Select
+                  showSearch
+                  placeholder='Chọn khoảng thời gian'
+                  allowClear
+                >
+                  {timeShown.map((timeShown: any) => (
+                    <Option value={timeShown.id}>{timeShown.name}</Option>
+                  ))}
+                </Select>
               </Form.Item>
             </Card>
             {!isMobile && <SVG src={'svgs/seo.svg'} height={250} />}
@@ -363,9 +421,10 @@ export const CreatePost: React.FC = () => {
           >
             <Space direction='vertical'>
               <div className='text-white' style={{ fontSize: 18 }}>
-                Upload ít nhất 3 ảnh cho bài đăng để đạt hiệu quả tốt hơn Tin
-                đăng có hình ảnh thường hiệu quả hơn 59% tin đăng không có hình
-                ảnh.
+                Upload ít nhất 3 ảnh cho bài đăng để đạt hiệu quả tốt hơn.
+                <br />
+                Tin đăng có hình ảnh thường hiệu quả hơn 59% tin đăng không có
+                hình ảnh.
               </div>
               {UploadImage(fileList, setFileList)}
             </Space>
