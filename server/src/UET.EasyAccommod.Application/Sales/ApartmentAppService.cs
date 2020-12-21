@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
+using Abp.Authorization;
 using Abp.Domain.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -49,6 +50,7 @@ namespace UET.EasyAccommod.Sales
             _apartmentLikeRepo = apartmentLikeRepo;
         }
 
+        [AbpAuthorize]
         public async Task CreateOrEditApartment(AppartmentCreateDto input)
         {
             var apartment = input.Apartment;
@@ -128,22 +130,30 @@ namespace UET.EasyAccommod.Sales
             }
             return ObjectMapper.Map<ApartmentDetailDto>(apartment);
         }
+        [AbpAuthorize]
         public bool CheckLike(LikeDto input)
         {
             var al = _apartmentLikeRepo.GetAll()
+                .Where(a => a.ApartmentId == input.ApartmentId)
                 .Where(l => l.LikerId == AbpSession.UserId);
             return al.Count() != 0;
         }
-        public PagedResultDto<ApartmentCommentDto> GetListComment(long apartmentId, int SkipCount, int MaxResultCount)
+        [AbpAuthorize]
+        public async Task ApproveNews(long apartmentId, int status)
         {
-            var ListComment = _apartmentCommentRepo.GetAll().Where(c => c.ApartmentId == apartmentId);
-            var total = ListComment.Count();
-            var res = ListComment.Skip(SkipCount).Take(MaxResultCount).ToList();
-            return new PagedResultDto<ApartmentCommentDto>(
-                total,
-                ObjectMapper.Map<List<ApartmentCommentDto>>(res)
-                );
+            var apartment = await _apartmentRepo.GetAll().Include(a => a.TimeShownId).FirstOrDefaultAsync(a => a.Id == apartmentId);
+            apartment.IsApprove = (int?)status;
+            switch (status)
+            {
+                case 1:
+                    apartment.ExpirationDate = DateTime.Now.AddDays(Int32.Parse(apartment.TimeShown.Description));
+                    break;
+                default:
+                    break;
+            }
+            await _apartmentRepo.UpdateAsync(apartment);
         }
+        [AbpAuthorize]
         public async Task LikeNewsApartment(LikeDto input)
         {
             var apartment = await _apartmentRepo.FirstOrDefaultAsync((long)input.ApartmentId);
@@ -152,6 +162,7 @@ namespace UET.EasyAccommod.Sales
             input.LikerId = AbpSession.UserId;
             await _apartmentLikeRepo.InsertAsync(ObjectMapper.Map<ApartmentLike>(input));
         }
+        [AbpAuthorize]
         public async Task DisLikeNewsApartment(LikeDto input)
         {
             var apartment = await _apartmentRepo.FirstOrDefaultAsync((long)input.ApartmentId);
@@ -184,6 +195,7 @@ namespace UET.EasyAccommod.Sales
                 ObjectMapper.Map<List<ApartmentListDto>>(res)
                 );
         }
+        [AbpAuthorize]
         public PagedResultDto<ApartmentListDto> GetListAppartmentOfOwner(GetListApartmentOfOwnerInput input)
         {
             var listApartment = _apartmentRepo
@@ -222,6 +234,7 @@ namespace UET.EasyAccommod.Sales
                 ObjectMapper.Map<List<ApartmentListDto>>(res)
                 );
         }
+        [AbpAuthorize]
         public PagedResultDto<ApartmentListDto> GetListAppartmentOfAdmin(GetListApartmentOfOwnerInput input)
         {
             var listApartment = _apartmentRepo
@@ -240,7 +253,7 @@ namespace UET.EasyAccommod.Sales
             switch (input.Status)
             {
                 case 1:
-                    listApartment = listApartment.Where(a => a.IsApprove != 1).OrderBy(a => a.CreationTime);
+                    listApartment = listApartment.Where(a => a.IsApprove == 0).OrderBy(a => a.CreationTime);
                     break;
                 case 2:
                     listApartment = listApartment.Where(a => a.IsApprove == 1).OrderBy(a => a.CreationTime);
@@ -259,7 +272,18 @@ namespace UET.EasyAccommod.Sales
                 ObjectMapper.Map<List<ApartmentListDto>>(res)
                 );
         }
-        public async Task CreateComment(ApartmentCommentCreateDto input)
+        public PagedResultDto<ApartmentCommentDto> GetListComment(long apartmentId, int SkipCount, int MaxResultCount)
+        {
+            var ListComment = _apartmentCommentRepo.GetAll().Where(c => c.ApartmentId == apartmentId).OrderByDescending(a => a.CreationTime);
+            var total = ListComment.Count();
+            var res = ListComment.Skip(SkipCount).Take(MaxResultCount).ToList();
+            return new PagedResultDto<ApartmentCommentDto>(
+                total,
+                ObjectMapper.Map<List<ApartmentCommentDto>>(res)
+                );
+        }
+        [AbpAuthorize]
+        public async Task CreateOrEditNewsComment(ApartmentCommentCreateDto input)
         {
             input.UserCommentId = AbpSession.UserId;
             if (input.Id == 0)
@@ -273,7 +297,8 @@ namespace UET.EasyAccommod.Sales
                 ObjectMapper.Map(input, comment);
             }
         }
-        public async Task SendRate(ApartmentRateCreateDto input)
+        [AbpAuthorize]
+        public async Task SendNewsRate(ApartmentRateCreateDto input)
         {
             input.AssessorId = AbpSession.UserId;
             if (input.Id == 0)
@@ -286,6 +311,21 @@ namespace UET.EasyAccommod.Sales
                 var rate = await _apartmentRateRepo.FirstOrDefaultAsync(input.Id);
                 ObjectMapper.Map(input, rate);
             }
+        }
+        [AbpAuthorize]
+        public async Task DeleteNewsComment(long commentId)
+        {
+            await _apartmentCommentRepo.DeleteAsync(commentId);
+        }
+        [AbpAuthorize]
+        public async Task DeleteNewsApartment(long apartmentId)
+        {
+            await _apartmentRepo.DeleteAsync(apartmentId);
+            await _apartmentCommentRepo.DeleteAsync(a => a.ApartmentId == apartmentId);
+            await _apartmentImageRepo.DeleteAsync(a => a.ApartmentId == apartmentId);
+            await _apartmentLikeRepo.DeleteAsync(a => a.ApartmentId == apartmentId);
+            await _apartmentPublicPlaceRepo.DeleteAsync(a => a.ApartmentId == apartmentId);
+            await _apartmentRateRepo.DeleteAsync(a => a.ApartmentId == apartmentId);
         }
         public async Task<List<ApartmentImageCreateInput>> UploadImageDelivery([FromForm] ImageInput input)
         {
