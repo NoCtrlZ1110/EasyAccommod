@@ -10,8 +10,8 @@ using UET.EasyAccommod.EntityFrameworkCore;
 namespace UET.EasyAccommod.Migrations
 {
     [DbContext(typeof(EasyAccommodDbContext))]
-    [Migration("20201221113150_add_field")]
-    partial class add_field
+    [Migration("20201221131252_database")]
+    partial class database
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -2140,6 +2140,47 @@ namespace UET.EasyAccommod.Migrations
                     b.ToTable("ApartmentImage");
                 });
 
+            modelBuilder.Entity("UET.EasyAccommod.Sales.ApartmentLike", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long?>("ApartmentId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long?>("CreatorUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("DeleterUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long?>("LastModifierUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("LikerId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApartmentId");
+
+                    b.ToTable("ApartmentLike");
+                });
+
             modelBuilder.Entity("UET.EasyAccommod.Sales.ApartmentPublicPlace", b =>
                 {
                     b.Property<long>("Id")
@@ -2541,6 +2582,13 @@ namespace UET.EasyAccommod.Migrations
                 {
                     b.HasOne("UET.EasyAccommod.Sales.Apartment", null)
                         .WithMany("ApartmentImages")
+                        .HasForeignKey("ApartmentId");
+                });
+
+            modelBuilder.Entity("UET.EasyAccommod.Sales.ApartmentLike", b =>
+                {
+                    b.HasOne("UET.EasyAccommod.Sales.Apartment", null)
+                        .WithMany("ApartmentLikes")
                         .HasForeignKey("ApartmentId");
                 });
 

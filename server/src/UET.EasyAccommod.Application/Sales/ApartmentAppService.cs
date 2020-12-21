@@ -21,6 +21,7 @@ using UET.EasyAccommod.Sales.Dto.Create.Like;
 using UET.EasyAccommod.Sales.Dto.Create.Rate;
 using UET.EasyAccommod.Sales.Dto.Input;
 using UET.EasyAccommod.Sales.Dto.Output;
+using UET.EasyAccommod.Sales.Dto.Output.IncludeDto;
 
 namespace UET.EasyAccommod.Sales
 {
@@ -131,7 +132,17 @@ namespace UET.EasyAccommod.Sales
         {
             var al = _apartmentLikeRepo.GetAll()
                 .Where(l => l.LikerId == AbpSession.UserId);
-            return al.Count() == 0;
+            return al.Count() != 0;
+        }
+        public PagedResultDto<ApartmentCommentDto> GetListComment(long apartmentId, int SkipCount, int MaxResultCount)
+        {
+            var ListComment = _apartmentCommentRepo.GetAll().Where(c => c.ApartmentId == apartmentId);
+            var total = ListComment.Count();
+            var res = ListComment.Skip(SkipCount).Take(MaxResultCount).ToList();
+            return new PagedResultDto<ApartmentCommentDto>(
+                total,
+                ObjectMapper.Map<List<ApartmentCommentDto>>(res)
+                );
         }
         public async Task LikeNewsApartment(LikeDto input)
         {

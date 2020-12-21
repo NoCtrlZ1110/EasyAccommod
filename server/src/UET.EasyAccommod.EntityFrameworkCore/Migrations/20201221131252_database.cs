@@ -13,6 +13,11 @@ namespace UET.EasyAccommod.Migrations
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
+                name: "Avatar",
+                table: "AbpUsers",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
                 name: "IdCard",
                 table: "AbpUsers",
                 nullable: true);
@@ -333,48 +338,6 @@ namespace UET.EasyAccommod.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Apartment", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Apartment_MstApartmentType_ApartmentTypeId",
-                        column: x => x.ApartmentTypeId,
-                        principalTable: "MstApartmentType",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Apartment_MstBathroomType_BathroomTypeId",
-                        column: x => x.BathroomTypeId,
-                        principalTable: "MstBathroomType",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Apartment_MstDistrict_DistrictId",
-                        column: x => x.DistrictId,
-                        principalTable: "MstDistrict",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Apartment_MstKitchenType_KitchenTypeId",
-                        column: x => x.KitchenTypeId,
-                        principalTable: "MstKitchenType",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Apartment_MstProvince_ProvinceId",
-                        column: x => x.ProvinceId,
-                        principalTable: "MstProvince",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Apartment_MstSleTimeShown_TimeShownId",
-                        column: x => x.TimeShownId,
-                        principalTable: "MstSleTimeShown",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Apartment_MstUnitPrice_UnitPriceId",
-                        column: x => x.UnitPriceId,
-                        principalTable: "MstUnitPrice",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -401,12 +364,6 @@ namespace UET.EasyAccommod.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApartmentComment", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ApartmentComment_Apartment_ApartmentId",
-                        column: x => x.ApartmentId,
-                        principalTable: "Apartment",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -428,12 +385,27 @@ namespace UET.EasyAccommod.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApartmentImage", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ApartmentImage_Apartment_ApartmentId",
-                        column: x => x.ApartmentId,
-                        principalTable: "Apartment",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ApartmentLike",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorUserId = table.Column<long>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierUserId = table.Column<long>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeleterUserId = table.Column<long>(nullable: true),
+                    DeletionTime = table.Column<DateTime>(nullable: true),
+                    ApartmentId = table.Column<long>(nullable: true),
+                    LikerId = table.Column<long>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ApartmentLike", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -456,18 +428,6 @@ namespace UET.EasyAccommod.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApartmentPublicPlace", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ApartmentPublicPlace_Apartment_ApartmentId",
-                        column: x => x.ApartmentId,
-                        principalTable: "Apartment",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ApartmentPublicPlace_MstTypePublicPlaceType_PublicPlaceTypeId",
-                        column: x => x.PublicPlaceTypeId,
-                        principalTable: "MstTypePublicPlaceType",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -490,12 +450,6 @@ namespace UET.EasyAccommod.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApartmentRate", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ApartmentRate_Apartment_ApartmentId",
-                        column: x => x.ApartmentId,
-                        principalTable: "Apartment",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -544,6 +498,11 @@ namespace UET.EasyAccommod.Migrations
                 column: "ApartmentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ApartmentLike_ApartmentId",
+                table: "ApartmentLike",
+                column: "ApartmentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ApartmentPublicPlace_ApartmentId",
                 table: "ApartmentPublicPlace",
                 column: "ApartmentId");
@@ -569,6 +528,9 @@ namespace UET.EasyAccommod.Migrations
 
             migrationBuilder.DropTable(
                 name: "ApartmentImage");
+
+            migrationBuilder.DropTable(
+                name: "ApartmentLike");
 
             migrationBuilder.DropTable(
                 name: "ApartmentPublicPlace");
@@ -614,6 +576,10 @@ namespace UET.EasyAccommod.Migrations
 
             migrationBuilder.DropColumn(
                 name: "Address",
+                table: "AbpUsers");
+
+            migrationBuilder.DropColumn(
+                name: "Avatar",
                 table: "AbpUsers");
 
             migrationBuilder.DropColumn(
