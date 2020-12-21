@@ -24,7 +24,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace UET.EasyAccommod.Users
 {
-  //  [AbpAuthorize(PermissionNames.Pages_Users)]
+    //  [AbpAuthorize(PermissionNames.Pages_Users)]
     public class UserAppService : AsyncCrudAppService<User, UserDto, long, PagedUserResultRequestDto, CreateUserDto, UserDto>, IUserAppService
     {
         private readonly UserManager _userManager;
@@ -33,6 +33,7 @@ namespace UET.EasyAccommod.Users
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly IAbpSession _abpSession;
         private readonly LogInManager _logInManager;
+        private readonly IRepository<User, long> _userRepository;
 
         public UserAppService(
             IRepository<User, long> repository,
@@ -41,7 +42,8 @@ namespace UET.EasyAccommod.Users
             IRepository<Role> roleRepository,
             IPasswordHasher<User> passwordHasher,
             IAbpSession abpSession,
-            LogInManager logInManager)
+            LogInManager logInManager,
+            IRepository<User, long> userRepository)
             : base(repository)
         {
             _userManager = userManager;
@@ -50,11 +52,12 @@ namespace UET.EasyAccommod.Users
             _passwordHasher = passwordHasher;
             _abpSession = abpSession;
             _logInManager = logInManager;
+            _userRepository = userRepository;
         }
 
         public override async Task<UserDto> CreateAsync(CreateUserDto input)
         {
-           // CheckCreatePermission();
+            // CheckCreatePermission();
 
             var user = ObjectMapper.Map<User>(input);
 
@@ -74,13 +77,11 @@ namespace UET.EasyAccommod.Users
 
             return MapToEntityDto(user);
         }
-
         public override async Task<UserDto> UpdateAsync(UserDto input)
         {
             CheckUpdatePermission();
 
-            var user = await _userManager.GetUserByIdAsync(input.Id);
-
+            var user = await _userRepository.FirstOrDefaultAsync(input.Id);
             MapToEntity(input, user);
 
             CheckErrors(await _userManager.UpdateAsync(user));
@@ -91,6 +92,19 @@ namespace UET.EasyAccommod.Users
             }
 
             return await GetAsync(input);
+        }
+
+        public async Task ActiveUser(long userId)
+        {
+            var user = await _userRepository.FirstOrDefaultAsync(userId);
+            user.IsActive = true;
+            _userRepository.Update(user);
+        }
+        public async Task BlockUser(long userId)
+        {
+            var user = await _userRepository.FirstOrDefaultAsync(userId);
+            user.IsActive = false;
+            _userRepository.Update(user);
         }
 
         public override async Task DeleteAsync(EntityDto<long> input)
@@ -124,7 +138,14 @@ namespace UET.EasyAccommod.Users
         protected override void MapToEntity(UserDto input, User user)
         {
             ObjectMapper.Map(input, user);
-            user.SetNormalizedNames();
+            try
+            {
+                 user.SetNormalizedNames();
+            }
+            catch
+            {
+
+            }
         }
 
         protected override UserDto MapToEntityDto(User user)

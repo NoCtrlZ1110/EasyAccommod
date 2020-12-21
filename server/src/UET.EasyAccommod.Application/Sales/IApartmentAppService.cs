@@ -13,5 +13,6 @@ namespace UET.EasyAccommod.Sales
         PagedResultDto<ApartmentListDto> GetListAppartment(GetListApartmentInput input);
         Task<ApartmentDetailDto> GetApartmentDetail(ApartmentDetailInput input);
         PagedResultDto<ApartmentListDto> GetListAppartmentOfOwner(GetListApartmentOfOwnerInput input);
+        PagedResultDto<ApartmentListDto> GetListAppartmentOfAdmin(GetListApartmentOfOwnerInput input);
     }
 }
