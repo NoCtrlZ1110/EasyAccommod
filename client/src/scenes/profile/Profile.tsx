@@ -47,7 +47,7 @@ class Profile extends React.Component {
             </Menu.Item>
             <SubMenu key="sub" icon={<BarChartOutlined />} title="Thống kê bài đăng">
               <Menu.Item key="2" onClick={() => history.push("/profile/approving-post")}>Đang chờ duyệt</Menu.Item>
-              <Menu.Item key="sub1">Đang hoạt động
+              <Menu.Item key="sub1" onClick={() => history.push("/profile/active-post")}>Đang hoạt động
               </Menu.Item>
               <Menu.Item key="sub2">Đã hết hạn
               </Menu.Item>
