@@ -8,7 +8,7 @@ using UET.EasyAccommod.MasterTable;
 namespace UET.EasyAccommod.Sales
 {
     [Table("Apartment")]
-    public class Apartment : FullAuditedEntity<long?>, IEntity<long?>
+    public class Apartment : FullAuditedEntity<long>, IEntity<long>
     {
         public string Title { get; set; }
         public string Detail { get; set; }

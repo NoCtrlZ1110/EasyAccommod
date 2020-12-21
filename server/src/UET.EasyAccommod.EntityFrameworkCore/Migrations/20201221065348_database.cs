@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace UET.EasyAccommod.Migrations
 {
-    public partial class a : Migration
+    public partial class database : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,80 +21,6 @@ namespace UET.EasyAccommod.Migrations
                 name: "Phone",
                 table: "AbpUsers",
                 nullable: true);
-
-            migrationBuilder.CreateTable(
-                name: "Apartment",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreationTime = table.Column<DateTime>(nullable: false),
-                    CreatorUserId = table.Column<long>(nullable: true),
-                    LastModificationTime = table.Column<DateTime>(nullable: true),
-                    LastModifierUserId = table.Column<long>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    DeleterUserId = table.Column<long>(nullable: true),
-                    DeletionTime = table.Column<DateTime>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    ProvinceId = table.Column<long>(nullable: true),
-                    DistrictId = table.Column<long>(nullable: true),
-                    Address = table.Column<string>(nullable: true),
-                    ApartmentType = table.Column<long>(nullable: true),
-                    NumberRoom = table.Column<long>(nullable: true),
-                    RoomPrice = table.Column<long>(nullable: true),
-                    UnitPriceId = table.Column<long>(nullable: true),
-                    RoomArea = table.Column<long>(nullable: true),
-                    LiveWithTheOwner = table.Column<bool>(nullable: false),
-                    BathroomTypeId = table.Column<long>(nullable: true),
-                    KitchenTypeId = table.Column<long>(nullable: true),
-                    AirConditional = table.Column<bool>(nullable: false),
-                    Balcony = table.Column<bool>(nullable: false),
-                    ElectricityPriceType = table.Column<bool>(nullable: false),
-                    ElectricityPrice = table.Column<long>(nullable: true),
-                    WaterPriceType = table.Column<bool>(nullable: false),
-                    WaterPrice = table.Column<long>(nullable: true),
-                    OtherUtility = table.Column<string>(nullable: true),
-                    UserOwnerId = table.Column<long>(nullable: true),
-                    OwnerName = table.Column<string>(nullable: true),
-                    OwnerPhone = table.Column<string>(nullable: true),
-                    TimeShownId = table.Column<long>(nullable: true),
-                    ExpirationDate = table.Column<DateTime>(nullable: true),
-                    IsApprove = table.Column<int>(nullable: true),
-                    IsEmpty = table.Column<bool>(nullable: true),
-                    View = table.Column<long>(nullable: true),
-                    Like = table.Column<long>(nullable: true),
-                    UserApproverId = table.Column<long>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Apartment", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ApartmentComment",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreationTime = table.Column<DateTime>(nullable: false),
-                    CreatorUserId = table.Column<long>(nullable: true),
-                    LastModificationTime = table.Column<DateTime>(nullable: true),
-                    LastModifierUserId = table.Column<long>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    DeleterUserId = table.Column<long>(nullable: true),
-                    DeletionTime = table.Column<DateTime>(nullable: true),
-                    Rate = table.Column<long>(nullable: true),
-                    ApartmentId = table.Column<long>(nullable: true),
-                    UserCommentId = table.Column<long>(nullable: true),
-                    CommentDetail = table.Column<string>(nullable: true),
-                    ParentCommentId = table.Column<long>(nullable: true),
-                    Status = table.Column<long>(nullable: true),
-                    Like = table.Column<long>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ApartmentComment", x => x.Id);
-                });
 
             migrationBuilder.CreateTable(
                 name: "ApartmentExtension",
@@ -116,71 +42,6 @@ namespace UET.EasyAccommod.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApartmentExtension", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ApartmentImage",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreationTime = table.Column<DateTime>(nullable: false),
-                    CreatorUserId = table.Column<long>(nullable: true),
-                    LastModificationTime = table.Column<DateTime>(nullable: true),
-                    LastModifierUserId = table.Column<long>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    DeleterUserId = table.Column<long>(nullable: true),
-                    DeletionTime = table.Column<DateTime>(nullable: true),
-                    ApartmentId = table.Column<long>(nullable: true),
-                    ImageUrl = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ApartmentImage", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ApartmentPublicPlace",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreationTime = table.Column<DateTime>(nullable: false),
-                    CreatorUserId = table.Column<long>(nullable: true),
-                    LastModificationTime = table.Column<DateTime>(nullable: true),
-                    LastModifierUserId = table.Column<long>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    DeleterUserId = table.Column<long>(nullable: true),
-                    DeletionTime = table.Column<DateTime>(nullable: true),
-                    ApartmentId = table.Column<long>(nullable: true),
-                    PublicPlaceTypeId = table.Column<long>(nullable: true),
-                    Detail = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ApartmentPublicPlace", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ApartmentRate",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreationTime = table.Column<DateTime>(nullable: false),
-                    CreatorUserId = table.Column<long>(nullable: true),
-                    LastModificationTime = table.Column<DateTime>(nullable: true),
-                    LastModifierUserId = table.Column<long>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    DeleterUserId = table.Column<long>(nullable: true),
-                    DeletionTime = table.Column<DateTime>(nullable: true),
-                    ApartmentId = table.Column<long>(nullable: true),
-                    AssessorId = table.Column<long>(nullable: true),
-                    Rate = table.Column<long>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ApartmentRate", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -424,13 +285,282 @@ namespace UET.EasyAccommod.Migrations
                 {
                     table.PrimaryKey("PK_RenterReport", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Apartment",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorUserId = table.Column<long>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierUserId = table.Column<long>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeleterUserId = table.Column<long>(nullable: true),
+                    DeletionTime = table.Column<DateTime>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Detail = table.Column<string>(nullable: true),
+                    ProvinceId = table.Column<long>(nullable: true),
+                    DistrictId = table.Column<long>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    ApartmentTypeId = table.Column<long>(nullable: true),
+                    NumberRoom = table.Column<long>(nullable: true),
+                    RoomPrice = table.Column<long>(nullable: true),
+                    UnitPriceId = table.Column<long>(nullable: true),
+                    RoomArea = table.Column<long>(nullable: true),
+                    LiveWithTheOwner = table.Column<bool>(nullable: false),
+                    BathroomTypeId = table.Column<long>(nullable: true),
+                    KitchenTypeId = table.Column<long>(nullable: true),
+                    AirConditional = table.Column<bool>(nullable: false),
+                    Balcony = table.Column<bool>(nullable: false),
+                    ElectricityPriceType = table.Column<bool>(nullable: false),
+                    ElectricityPrice = table.Column<long>(nullable: true),
+                    WaterPriceType = table.Column<bool>(nullable: false),
+                    WaterPrice = table.Column<long>(nullable: true),
+                    OtherUtility = table.Column<string>(nullable: true),
+                    UserOwnerId = table.Column<long>(nullable: true),
+                    OwnerName = table.Column<string>(nullable: true),
+                    OwnerPhone = table.Column<string>(nullable: true),
+                    TimeShownId = table.Column<long>(nullable: true),
+                    ExpirationDate = table.Column<DateTime>(nullable: true),
+                    IsApprove = table.Column<int>(nullable: true),
+                    IsEmpty = table.Column<bool>(nullable: true),
+                    View = table.Column<long>(nullable: true),
+                    Like = table.Column<long>(nullable: true),
+                    UserApproverId = table.Column<long>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Apartment", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Apartment_MstApartmentType_ApartmentTypeId",
+                        column: x => x.ApartmentTypeId,
+                        principalTable: "MstApartmentType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Apartment_MstBathroomType_BathroomTypeId",
+                        column: x => x.BathroomTypeId,
+                        principalTable: "MstBathroomType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Apartment_MstDistrict_DistrictId",
+                        column: x => x.DistrictId,
+                        principalTable: "MstDistrict",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Apartment_MstKitchenType_KitchenTypeId",
+                        column: x => x.KitchenTypeId,
+                        principalTable: "MstKitchenType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Apartment_MstProvince_ProvinceId",
+                        column: x => x.ProvinceId,
+                        principalTable: "MstProvince",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Apartment_MstSleTimeShown_TimeShownId",
+                        column: x => x.TimeShownId,
+                        principalTable: "MstSleTimeShown",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Apartment_MstUnitPrice_UnitPriceId",
+                        column: x => x.UnitPriceId,
+                        principalTable: "MstUnitPrice",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ApartmentComment",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorUserId = table.Column<long>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierUserId = table.Column<long>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeleterUserId = table.Column<long>(nullable: true),
+                    DeletionTime = table.Column<DateTime>(nullable: true),
+                    Rate = table.Column<long>(nullable: true),
+                    ApartmentId = table.Column<long>(nullable: true),
+                    UserCommentId = table.Column<long>(nullable: true),
+                    CommentDetail = table.Column<string>(nullable: true),
+                    ParentCommentId = table.Column<long>(nullable: true),
+                    Status = table.Column<long>(nullable: true),
+                    Like = table.Column<long>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ApartmentComment", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ApartmentComment_Apartment_ApartmentId",
+                        column: x => x.ApartmentId,
+                        principalTable: "Apartment",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ApartmentImage",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorUserId = table.Column<long>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierUserId = table.Column<long>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeleterUserId = table.Column<long>(nullable: true),
+                    DeletionTime = table.Column<DateTime>(nullable: true),
+                    ApartmentId = table.Column<long>(nullable: true),
+                    ImageUrl = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ApartmentImage", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ApartmentImage_Apartment_ApartmentId",
+                        column: x => x.ApartmentId,
+                        principalTable: "Apartment",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ApartmentPublicPlace",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorUserId = table.Column<long>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierUserId = table.Column<long>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeleterUserId = table.Column<long>(nullable: true),
+                    DeletionTime = table.Column<DateTime>(nullable: true),
+                    ApartmentId = table.Column<long>(nullable: true),
+                    PublicPlaceTypeId = table.Column<long>(nullable: true),
+                    Detail = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ApartmentPublicPlace", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ApartmentPublicPlace_Apartment_ApartmentId",
+                        column: x => x.ApartmentId,
+                        principalTable: "Apartment",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ApartmentPublicPlace_MstTypePublicPlaceType_PublicPlaceTypeId",
+                        column: x => x.PublicPlaceTypeId,
+                        principalTable: "MstTypePublicPlaceType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ApartmentRate",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorUserId = table.Column<long>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierUserId = table.Column<long>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeleterUserId = table.Column<long>(nullable: true),
+                    DeletionTime = table.Column<DateTime>(nullable: true),
+                    ApartmentId = table.Column<long>(nullable: true),
+                    AssessorId = table.Column<long>(nullable: true),
+                    Rate = table.Column<long>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ApartmentRate", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ApartmentRate_Apartment_ApartmentId",
+                        column: x => x.ApartmentId,
+                        principalTable: "Apartment",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Apartment_ApartmentTypeId",
+                table: "Apartment",
+                column: "ApartmentTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Apartment_BathroomTypeId",
+                table: "Apartment",
+                column: "BathroomTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Apartment_DistrictId",
+                table: "Apartment",
+                column: "DistrictId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Apartment_KitchenTypeId",
+                table: "Apartment",
+                column: "KitchenTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Apartment_ProvinceId",
+                table: "Apartment",
+                column: "ProvinceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Apartment_TimeShownId",
+                table: "Apartment",
+                column: "TimeShownId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Apartment_UnitPriceId",
+                table: "Apartment",
+                column: "UnitPriceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ApartmentComment_ApartmentId",
+                table: "ApartmentComment",
+                column: "ApartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ApartmentImage_ApartmentId",
+                table: "ApartmentImage",
+                column: "ApartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ApartmentPublicPlace_ApartmentId",
+                table: "ApartmentPublicPlace",
+                column: "ApartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ApartmentPublicPlace_PublicPlaceTypeId",
+                table: "ApartmentPublicPlace",
+                column: "PublicPlaceTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ApartmentRate_ApartmentId",
+                table: "ApartmentRate",
+                column: "ApartmentId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Apartment");
-
             migrationBuilder.DropTable(
                 name: "ApartmentComment");
 
@@ -445,6 +575,21 @@ namespace UET.EasyAccommod.Migrations
 
             migrationBuilder.DropTable(
                 name: "ApartmentRate");
+
+            migrationBuilder.DropTable(
+                name: "OwnerAcount");
+
+            migrationBuilder.DropTable(
+                name: "RenterAttention");
+
+            migrationBuilder.DropTable(
+                name: "RenterReport");
+
+            migrationBuilder.DropTable(
+                name: "MstTypePublicPlaceType");
+
+            migrationBuilder.DropTable(
+                name: "Apartment");
 
             migrationBuilder.DropTable(
                 name: "MstApartmentType");
@@ -465,19 +610,7 @@ namespace UET.EasyAccommod.Migrations
                 name: "MstSleTimeShown");
 
             migrationBuilder.DropTable(
-                name: "MstTypePublicPlaceType");
-
-            migrationBuilder.DropTable(
                 name: "MstUnitPrice");
-
-            migrationBuilder.DropTable(
-                name: "OwnerAcount");
-
-            migrationBuilder.DropTable(
-                name: "RenterAttention");
-
-            migrationBuilder.DropTable(
-                name: "RenterReport");
 
             migrationBuilder.DropColumn(
                 name: "Address",

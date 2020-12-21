@@ -8,9 +8,9 @@ namespace UET.EasyAccommod.MasterTable.ApartmentType
 {
     public class MstApartmentTypeAppService : EasyAccommodAppServiceBase, IMstApartmentTypeAppService
     {
-        private readonly IRepository<MstApartmentType, long?> _mstApartmentTypeRepo;
+        private readonly IRepository<MstApartmentType, long> _mstApartmentTypeRepo;
 
-        public MstApartmentTypeAppService(IRepository<MstApartmentType, long?> mstApartmentTypeRepo)
+        public MstApartmentTypeAppService(IRepository<MstApartmentType, long> mstApartmentTypeRepo)
         {
             _mstApartmentTypeRepo = mstApartmentTypeRepo;
         }

@@ -10,8 +10,8 @@ using UET.EasyAccommod.EntityFrameworkCore;
 namespace UET.EasyAccommod.Migrations
 {
     [DbContext(typeof(EasyAccommodDbContext))]
-    [Migration("20201220124209_a")]
-    partial class a
+    [Migration("20201221065348_database")]
+    partial class database
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1874,7 +1874,7 @@ namespace UET.EasyAccommod.Migrations
                     b.Property<bool>("AirConditional")
                         .HasColumnType("bit");
 
-                    b.Property<long?>("ApartmentType")
+                    b.Property<long?>("ApartmentTypeId")
                         .HasColumnType("bigint");
 
                     b.Property<bool>("Balcony")
@@ -1894,6 +1894,9 @@ namespace UET.EasyAccommod.Migrations
 
                     b.Property<DateTime?>("DeletionTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Detail")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long?>("DistrictId")
                         .HasColumnType("bigint");
@@ -1978,6 +1981,20 @@ namespace UET.EasyAccommod.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApartmentTypeId");
+
+                    b.HasIndex("BathroomTypeId");
+
+                    b.HasIndex("DistrictId");
+
+                    b.HasIndex("KitchenTypeId");
+
+                    b.HasIndex("ProvinceId");
+
+                    b.HasIndex("TimeShownId");
+
+                    b.HasIndex("UnitPriceId");
+
                     b.ToTable("Apartment");
                 });
 
@@ -2031,6 +2048,8 @@ namespace UET.EasyAccommod.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApartmentId");
 
                     b.ToTable("ApartmentComment");
                 });
@@ -2113,6 +2132,8 @@ namespace UET.EasyAccommod.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApartmentId");
+
                     b.ToTable("ApartmentImage");
                 });
 
@@ -2155,6 +2176,10 @@ namespace UET.EasyAccommod.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApartmentId");
+
+                    b.HasIndex("PublicPlaceTypeId");
+
                     b.ToTable("ApartmentPublicPlace");
                 });
 
@@ -2196,6 +2221,8 @@ namespace UET.EasyAccommod.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApartmentId");
 
                     b.ToTable("ApartmentRate");
                 });
@@ -2467,6 +2494,69 @@ namespace UET.EasyAccommod.Migrations
                     b.HasOne("UET.EasyAccommod.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
+                });
+
+            modelBuilder.Entity("UET.EasyAccommod.Sales.Apartment", b =>
+                {
+                    b.HasOne("UET.EasyAccommod.MasterTable.MstApartmentType", "ApartmentType")
+                        .WithMany()
+                        .HasForeignKey("ApartmentTypeId");
+
+                    b.HasOne("UET.EasyAccommod.MasterTable.MstBathroomType", "BathroomType")
+                        .WithMany()
+                        .HasForeignKey("BathroomTypeId");
+
+                    b.HasOne("UET.EasyAccommod.MasterTable.MstDistrict", "District")
+                        .WithMany()
+                        .HasForeignKey("DistrictId");
+
+                    b.HasOne("UET.EasyAccommod.MasterTable.MstKitchenType", "KitchenType")
+                        .WithMany()
+                        .HasForeignKey("KitchenTypeId");
+
+                    b.HasOne("UET.EasyAccommod.MasterTable.MstProvince", "Province")
+                        .WithMany()
+                        .HasForeignKey("ProvinceId");
+
+                    b.HasOne("UET.EasyAccommod.MasterTable.MstSleTimeShown", "TimeShown")
+                        .WithMany()
+                        .HasForeignKey("TimeShownId");
+
+                    b.HasOne("UET.EasyAccommod.MasterTable.MstUnitPrice", "UnitPrice")
+                        .WithMany()
+                        .HasForeignKey("UnitPriceId");
+                });
+
+            modelBuilder.Entity("UET.EasyAccommod.Sales.ApartmentComment", b =>
+                {
+                    b.HasOne("UET.EasyAccommod.Sales.Apartment", null)
+                        .WithMany("ApartmentComments")
+                        .HasForeignKey("ApartmentId");
+                });
+
+            modelBuilder.Entity("UET.EasyAccommod.Sales.ApartmentImage", b =>
+                {
+                    b.HasOne("UET.EasyAccommod.Sales.Apartment", null)
+                        .WithMany("ApartmentImages")
+                        .HasForeignKey("ApartmentId");
+                });
+
+            modelBuilder.Entity("UET.EasyAccommod.Sales.ApartmentPublicPlace", b =>
+                {
+                    b.HasOne("UET.EasyAccommod.Sales.Apartment", null)
+                        .WithMany("ApartmentPublicPlaces")
+                        .HasForeignKey("ApartmentId");
+
+                    b.HasOne("UET.EasyAccommod.MasterTable.MstTypePublicPlaceType", "PublicPlaceType")
+                        .WithMany()
+                        .HasForeignKey("PublicPlaceTypeId");
+                });
+
+            modelBuilder.Entity("UET.EasyAccommod.Sales.ApartmentRate", b =>
+                {
+                    b.HasOne("UET.EasyAccommod.Sales.Apartment", null)
+                        .WithMany("ApartmentRates")
+                        .HasForeignKey("ApartmentId");
                 });
 
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>

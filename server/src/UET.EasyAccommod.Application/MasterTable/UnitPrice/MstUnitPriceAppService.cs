@@ -10,9 +10,9 @@ namespace UET.EasyAccommod.MasterTable.UnitPrice
 {
     public class MstUnitPriceAppService : EasyAccommodAppServiceBase, IMstUnitPriceAppService
     {
-        private readonly IRepository<MstUnitPrice, long?> _repository;
+        private readonly IRepository<MstUnitPrice, long> _repository;
 
-        public MstUnitPriceAppService(IRepository<MstUnitPrice, long?> repository)
+        public MstUnitPriceAppService(IRepository<MstUnitPrice, long> repository)
         {
             _repository = repository;
         }

@@ -23,13 +23,13 @@ namespace UET.EasyAccommod.Sales
 {
     public class ApartmentAppService : EasyAccommodAppServiceBase, IApartmentAppService
     {
-        private readonly IRepository<Apartment, long?> _apartmentRepo;
-        private readonly IRepository<ApartmentImage, long?> _apartmentImageRepo;
-        private readonly IRepository<ApartmentPublicPlace, long?> _apartmentPublicPlaceRepo;
+        private readonly IRepository<Apartment, long> _apartmentRepo;
+        private readonly IRepository<ApartmentImage, long> _apartmentImageRepo;
+        private readonly IRepository<ApartmentPublicPlace, long> _apartmentPublicPlaceRepo;
 
-        public ApartmentAppService(IRepository<Apartment, long?> apartmentRepo,
-                                   IRepository<ApartmentImage, long?> apartmentImageRepo,
-                                   IRepository<ApartmentPublicPlace, long?> apartmentPublicPlaceRepo)
+        public ApartmentAppService(IRepository<Apartment, long> apartmentRepo,
+                                   IRepository<ApartmentImage, long> apartmentImageRepo,
+                                   IRepository<ApartmentPublicPlace, long> apartmentPublicPlaceRepo)
         {
             _apartmentRepo = apartmentRepo;
             _apartmentImageRepo = apartmentImageRepo;
