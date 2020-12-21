@@ -8,9 +8,9 @@ namespace UET.EasyAccommod.MasterTable.TimeShown
 {
     public class MstSleTimeShownAppService : EasyAccommodAppServiceBase, IMstSleTimeShownAppService
     {
-        private readonly IRepository<MstSleTimeShown, long> _repository;
+        private readonly IRepository<MstSleTimeShown, long?> _repository;
 
-        public MstSleTimeShownAppService(IRepository<MstSleTimeShown, long> repository)
+        public MstSleTimeShownAppService(IRepository<MstSleTimeShown, long?> repository)
         {
             _repository = repository;
         }

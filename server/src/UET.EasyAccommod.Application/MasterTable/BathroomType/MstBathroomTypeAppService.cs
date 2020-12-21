@@ -10,9 +10,9 @@ namespace UET.EasyAccommod.MasterTable.BathroomType
 {
     public class MstBathroomTypeAppService : EasyAccommodAppServiceBase, IMstBathroomTypeAppService
     {
-        private readonly IRepository<MstBathroomType, long> _repository;
+        private readonly IRepository<MstBathroomType, long?> _repository;
 
-        public MstBathroomTypeAppService(IRepository<MstBathroomType, long> repository)
+        public MstBathroomTypeAppService(IRepository<MstBathroomType, long?> repository)
         {
             _repository = repository;
         }

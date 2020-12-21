@@ -10,9 +10,9 @@ namespace UET.EasyAccommod.MasterTable.District
 {
     public class MstDistrictAppService : EasyAccommodAppServiceBase, IMstDistrictAppService
     {
-        private readonly IRepository<MstDistrict, long> _mstDistriRepo;
+        private readonly IRepository<MstDistrict, long?> _mstDistriRepo;
 
-        public MstDistrictAppService(IRepository<MstDistrict, long> mstDistriRepo)
+        public MstDistrictAppService(IRepository<MstDistrict, long?> mstDistriRepo)
         {
             _mstDistriRepo = mstDistriRepo;
         }

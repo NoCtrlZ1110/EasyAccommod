@@ -10,6 +10,8 @@ using UET.EasyAccommod.MasterTable.TimeShown.Dto;
 using UET.EasyAccommod.MasterTable.UnitPrice.Dto;
 using UET.EasyAccommod.Sales;
 using UET.EasyAccommod.Sales.Dto.Create.Apartment;
+using UET.EasyAccommod.Sales.Dto.Output;
+using UET.EasyAccommod.Sales.Dto.Output.IncludeDto;
 
 namespace UET.EasyAccommod
 {
@@ -28,6 +30,12 @@ namespace UET.EasyAccommod
             configuration.CreateMap<MstTypePublicPlaceType, MstPublicPlaceTypeDto>();
             configuration.CreateMap<MstSleTimeShown, MstTimeShownDto>();
             configuration.CreateMap<MstUnitPrice, MstUnitPriceDto>();
+            configuration.CreateMap<ApartmentComment, ApartmentCommentDto>();
+            configuration.CreateMap<ApartmentPublicPlace, ApartmentPublicPlaceDto>();
+            configuration.CreateMap<ApartmentImage, ApartmentImageDto>();
+            configuration.CreateMap<ApartmentRate, ApartmentRateDto>();
+            configuration.CreateMap<Apartment, ApartmentDetailDto>();
+            configuration.CreateMap<Apartment, ApartmentListDto>();
         }
     }
 }

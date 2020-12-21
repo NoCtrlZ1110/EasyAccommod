@@ -8,5 +8,6 @@ namespace UET.EasyAccommod.Sales.Dto.Input
 {
     public class ApartmentDetailInput
     {
+        public long ApartmentId { get; set; }
     }
 }
