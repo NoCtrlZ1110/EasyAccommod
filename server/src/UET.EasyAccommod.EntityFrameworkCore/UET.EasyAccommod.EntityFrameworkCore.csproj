@@ -29,6 +29,8 @@
     <Compile Remove="Migrations\20201221063455_database.Designer.cs" />
     <Compile Remove="Migrations\20201221064446_database.cs" />
     <Compile Remove="Migrations\20201221064446_database.Designer.cs" />
+    <Compile Remove="Migrations\20201221130937_database.cs" />
+    <Compile Remove="Migrations\20201221130937_database.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

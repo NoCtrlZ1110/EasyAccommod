@@ -54,6 +54,7 @@ namespace UET.EasyAccommod.Sales
         public IList<ApartmentPublicPlace> ApartmentPublicPlaces { get; set; }
         public IList<ApartmentImage> ApartmentImages { get; set; }
         public IList<ApartmentRate> ApartmentRates { get; set; }
+        public IList<ApartmentLike> ApartmentLikes { get; set; }
 
     }
 }

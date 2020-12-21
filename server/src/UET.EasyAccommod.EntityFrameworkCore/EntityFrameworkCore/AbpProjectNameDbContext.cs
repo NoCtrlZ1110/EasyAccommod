@@ -29,6 +29,7 @@ namespace UET.EasyAccommod.EntityFrameworkCore
         public virtual DbSet<ApartmentRate> ApartmentRates { set; get; }
         public virtual DbSet<RenterAttention> RenterAttentions { set; get; }
         public virtual DbSet<RenterReport> RenterReports { set; get; }
+        public virtual DbSet<ApartmentLike> ApartmentLikes{ set; get; }
         public EasyAccommodDbContext(DbContextOptions<EasyAccommodDbContext> options)
             : base(options)
         {
