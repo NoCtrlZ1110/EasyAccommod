@@ -6,7 +6,7 @@ import Icon from '@ant-design/icons';
 import { enquireScreen } from 'enquire-js';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
-import { getCurrentUser, logout } from '../../utils/auth';
+import { getCurrentUser, getUser, logout } from '../../utils/auth';
 
 class Header extends React.Component {
   state = {
@@ -22,7 +22,9 @@ class Header extends React.Component {
       this.setState({ menuMode: b ? 'inline' : 'horizontal' });
     });
     this.setState({ isLogin: localStorage.getItem('accessToken') !== null });
-    this.setState({ profile: getCurrentUser() });
+    this.setState({ profile: getUser() });
+    if (localStorage.getItem('accessToken') !== null)
+      getCurrentUser().then(() => this.setState({ profile: getUser() }));
   }
 
   closeModal() {

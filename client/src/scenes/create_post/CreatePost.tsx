@@ -25,7 +25,7 @@ import {
   getListTimeShown,
   submitPost,
 } from '../../utils/create_post';
-import { getCurrentUser } from '../../utils/auth';
+import { getUser } from '../../utils/auth';
 const { Option } = Select;
 
 export const CreatePost: React.FC = () => {
@@ -41,7 +41,7 @@ export const CreatePost: React.FC = () => {
   const [currentProvince, setCurrentProvinces] = useState<number>();
   const formRef = useRef(null);
 
-  const user = getCurrentUser();
+  const user = getUser();
 
   const onFinish = (values: any) => {
     let data = {

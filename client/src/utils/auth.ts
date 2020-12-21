@@ -55,7 +55,36 @@ export const logout = () => {
   window.location.href = '/';
 };
 
-export const getCurrentUser = () => {
+export const getUser = () => {
   const user = localStorage.getItem('user');
   return user ? JSON.parse(user) : null;
+};
+
+export const getCurrentUser = async () => {
+  await API.get(
+    API_URL +
+      `services/app/User/Get?Id=${JSON.parse(localStorage.getItem('user')!).id}`
+  ).then((response) => {
+    localStorage.setItem('user', JSON.stringify(response.data.result));
+  });
+};
+
+export const updateUser = (data: any) => {
+  API.put(API_URL + `services/app/User/Update`, data)
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        getCurrentUser().then(() => {
+          toast.success('Cập nhật user thành công!');
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+        });
+      }
+      return response.data;
+    })
+    .catch((error) => {
+      const err = error.response.data.error;
+      toast.error(err.message + (err.details ? '\n' + err.details : ''));
+    });
 };
