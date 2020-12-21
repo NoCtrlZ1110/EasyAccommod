@@ -15,7 +15,15 @@ import SVG from 'react-inlinesvg';
 import { UploadImage } from './UploadImage';
 import { useMediaQuery } from 'react-responsive';
 import { toast } from 'react-toastify';
-import { getDistricts, getProvinces } from '../../utils/create_post';
+import {
+  getDistricts,
+  getListApartmentTypes,
+  getListBathRoomTypes,
+  getListKitchenTypes,
+  getListPublicPlaceTypes,
+  getProvinces,
+  submitPost,
+} from '../../utils/create_post';
 const { Option } = Select;
 
 export const CreatePost: React.FC = () => {
@@ -23,10 +31,15 @@ export const CreatePost: React.FC = () => {
   const [fileList, setFileList] = useState<any>([]);
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
+  const [apartmentTypes, setApartmentTypes] = useState([]);
+  const [bathRoomTypes, setBathRoomTypes] = useState([]);
+  const [kitchenTypes, setKitchenTypes] = useState([]);
+  const [publicPlaceTypes, setPublicPlaceTypes] = useState([]);
   const [currentProvince, setCurrentProvinces] = useState<number>();
   const formRef = useRef(null);
   const onFinish = (values: any) => {
-    // console.log(values);
+    console.log(values);
+    submitPost(values);
     // console.log(fileList);
   };
 
@@ -37,6 +50,10 @@ export const CreatePost: React.FC = () => {
 
   useEffect(() => {
     getProvinces(setProvinces);
+    getListApartmentTypes(setApartmentTypes);
+    getListBathRoomTypes(setBathRoomTypes);
+    getListKitchenTypes(setKitchenTypes);
+    getListPublicPlaceTypes(setPublicPlaceTypes);
   }, []);
 
   useEffect(() => {
@@ -83,7 +100,6 @@ export const CreatePost: React.FC = () => {
                 ]}
               >
                 <Select
-                  showSearch
                   style={{ width: '100%' }}
                   placeholder='Chọn tỉnh/ thành phố'
                   onChange={(value: any) => {
@@ -125,6 +141,37 @@ export const CreatePost: React.FC = () => {
               >
                 <Input placeholder='Nhập tên đường/ thôn, xã/ phường' />
               </Form.Item>
+              <Form.Item
+                name='apartmentPublicPlaces'
+                label='Địa điểm công cộng'
+              >
+                <Form.Item
+                  name='publicPlaceTypeId'
+                  rules={[
+                    { required: true, message: 'Vui lòng chọn loại địa điểm' },
+                  ]}
+                >
+                  <Select
+                    onSelect={(value) => {}}
+                    style={{ width: '100%' }}
+                    placeholder='Chọn loại địa điểm'
+                  >
+                    {publicPlaceTypes.map((publicPlace: any) => (
+                      <Option key={publicPlace.id} value={publicPlace.id}>
+                        {publicPlace.name}
+                      </Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+                <Form.Item
+                  name='detail'
+                  rules={[
+                    { required: true, message: 'Vui lòng nhập địa chỉ cụ thể' },
+                  ]}
+                >
+                  <Input placeholder='Tên địa điểm' />
+                </Form.Item>
+              </Form.Item>
             </Card>
           </Space>
         </Row>
@@ -163,10 +210,11 @@ export const CreatePost: React.FC = () => {
                 ]}
               >
                 <Select showSearch placeholder='Chọn loại phòng' allowClear>
-                  <Option value={0}>Phòng trọ</Option>
-                  <Option value={1}>Chung cư mini</Option>
-                  <Option value={2}>Nhà nguyên căn</Option>
-                  <Option value={3}>Chung cư nguyên căn</Option>
+                  {apartmentTypes.map((apartmentType: any) => (
+                    <Option value={apartmentType.id}>
+                      {apartmentType.name}
+                    </Option>
+                  ))}
                 </Select>
               </Form.Item>
               <Form.Item
@@ -213,9 +261,9 @@ export const CreatePost: React.FC = () => {
                 ]}
               >
                 <Select showSearch allowClear placeholder='Chọn loại phòng bếp'>
-                  <Option value={0}>Khu bếp riêng</Option>
-                  <Option value={1}>Khu bếp chung</Option>
-                  <Option value={2}>Không nấu ăn</Option>
+                  {kitchenTypes.map((kitchenType: any) => (
+                    <Option value={kitchenType.id}>{kitchenType.name}</Option>
+                  ))}
                 </Select>
               </Form.Item>
               <Form.Item
@@ -226,10 +274,11 @@ export const CreatePost: React.FC = () => {
                 ]}
               >
                 <Select showSearch allowClear placeholder='Chọn loại phòng tắm'>
-                  <Option value={0}>Chung - Có nóng lạnh</Option>
-                  <Option value={1}>Chung - Không nóng lạnh</Option>
-                  <Option value={2}>Khép kín- Có nóng lạnh</Option>
-                  <Option value={3}>Khép kín- Không nóng lạnh</Option>
+                  {bathRoomTypes.map((bathRoomType: any) => (
+                    <Option key={bathRoomType.id} value={bathRoomType.id}>
+                      {bathRoomType.name}
+                    </Option>
+                  ))}
                 </Select>
               </Form.Item>
 
