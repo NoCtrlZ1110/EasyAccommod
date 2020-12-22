@@ -1,3 +1,19 @@
 .wrapper {
   min-height: 88.4vh;
 }
+
+/* #background-left{
+  background-image: url('./assets/images/leaves.png');
+  background-repeat: repeat-y;
+}
+#background-right{
+  background-image: url('./assets/images/leaves.png');
+  background-repeat: repeat-y;
+  background-position: 78vw 0px, 0px 284px;
+}
+
+#white {
+  background-color: white;
+  min-height: 88.4vh;
+} */
+

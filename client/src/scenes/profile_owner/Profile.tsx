@@ -79,7 +79,11 @@ class Profile extends React.Component {
                 Đã hết hạn
               </Menu.Item>
             </SubMenu>
-            <Menu.Item key='3' icon={<KeyOutlined />}>
+            <Menu.Item
+              key='3'
+              icon={<KeyOutlined />}
+              onClick={() => history.push('/change-password')}
+            >
               Đổi mật khẩu
             </Menu.Item>
           </Menu>
