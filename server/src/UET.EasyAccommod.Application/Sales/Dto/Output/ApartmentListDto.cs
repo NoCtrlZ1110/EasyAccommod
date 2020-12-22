@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abp.Application.Services.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ using UET.EasyAccommod.MasterTable.UnitPrice.Dto;
 
 namespace UET.EasyAccommod.Sales.Dto.Output
 {
-    public class ApartmentListDto
+    public class ApartmentListDto : EntityDto<long>
     {
         public string Title { get; set; }
         public string Detail { get; set; }
