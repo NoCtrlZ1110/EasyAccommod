@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Card, Tabs } from 'antd';
-import { register } from '../../utils/auth';
+import { register } from '../../services/auth';
 import { toast } from 'react-toastify';
 
 const { TabPane } = Tabs;

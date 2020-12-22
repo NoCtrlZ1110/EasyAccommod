@@ -1,13 +1,20 @@
 import { toast } from 'react-toastify';
-import { API_URL } from './../config';
+import { API_URL } from '../config';
 import API from './api';
-import history from '../services/history';
-export const register = (data: any) => {
-  return API.post(API_URL + 'services/app/User/Create', data)
+import history from './history';
+export const register = (values: any) => {
+  return API.post(API_URL + 'services/app/User/Create', values)
     .then((response) => {
       const data = response.data;
       if (data.success) {
-        toast.success('✅ Đăng ký thành công, đăng nhập ngay!');
+        console.log(values.roleNames[0]);
+
+        if (values.roleNames[0] === 'Renter')
+          toast.success('✅ Đăng ký thành công, đăng nhập ngay!');
+        else
+          toast.success(
+            '✅ Gửi yêu cầu đăng ký thành công, hãy chờ người kiểm duyệt phê duyệt tài khoản của bạn!'
+          );
         history.push('/login');
       }
     })
@@ -58,6 +65,10 @@ export const logout = () => {
 export const getUser = () => {
   const user = localStorage.getItem('user');
   return user ? JSON.parse(user) : null;
+};
+export const getAccessToken = () => {
+  const accessToken = localStorage.getItem('accessToken') as string;
+  return accessToken ? JSON.parse(accessToken) : null;
 };
 
 export const getCurrentUser = async () => {

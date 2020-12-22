@@ -1,5 +1,5 @@
 import { UserInfo } from './UserInfo';
-import { ApprovingPost } from './ApprovingPost';
+import { PendingPost } from './PendingPost';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ActivePost } from './ActivePost';
@@ -12,7 +12,7 @@ const routes = [
   },
   {
     path: '/profile/approving-post',
-    component: ApprovingPost,
+    component: PendingPost,
   },
   {
     path: '/profile/active-post',
