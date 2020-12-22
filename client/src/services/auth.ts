@@ -50,8 +50,8 @@ export const login = (
       return response.data;
     })
     .catch((error) => {
-      const err = error.response.data.error;
-      toast.error(err.message + (err.details ? '\n' + err.details : ''));
+      const err = error?.response?.data.error;
+      if ( err) { }
     });
 };
 

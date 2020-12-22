@@ -10,7 +10,9 @@ import TEST from '../scenes/test';
 import AccommodList from '../scenes/accommod/AccommodList';
 import { SignUp } from '../scenes/sign_up/SignUp';
 import { SearchPage } from '../scenes/search/Search';
-import Profile from '../scenes/profile/Profile';
+import { CreatePost } from '../scenes/create_post/CreatePost';
+import  Profile from '../scenes/profile_owner/Profile';
+import { HomeUser } from '../scenes/home_user/HomeUser';
 import { Post } from '../scenes/accommod/Post';
 
 const routes = [
@@ -47,6 +49,10 @@ const routes = [
   {
     path: '/search',
     component: SearchPage,
+  },
+  {
+    path: '/home',
+    component: HomeUser,
   },
   {
     path: '/',

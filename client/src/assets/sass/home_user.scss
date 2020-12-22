@@ -1,0 +1,71 @@
+.home-user {
+  .home-user-search {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    .search-title {
+      font-size: 18px;
+      padding-top: 15px;
+      color: #508f55;
+    }
+  }
+  .slide-card {
+    height: 60%;
+    width: 65%;
+  }
+  .image-post {
+    width: 100%;
+    object-fit: fill;
+  }
+  .next-FontAwesomeIcon,
+  .prev-FontAwesomeIcon {
+    margin-top: 15px;
+  }
+  .prev-icon,
+  .next-icon {
+    height: 60px;
+    width: 30px;
+    background-color: #090707;
+    opacity: 0.3;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+    text-align: center;
+  }
+  .prev-icon {
+    margin-right: 1%;
+  }
+  .slide-image {
+    height: 80%;
+    width: 80%;
+  }
+  .ant-ribbon-wrapper {
+    width: 99%;
+  }
+  .post-title {
+    width: 80%;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    margin-left: 30px;
+  }
+  .post-content {
+    margin-left: 30px;
+    width: 80%;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .suggest-post {
+    margin-bottom: 50px;
+    border-radius: 15px;
+    border-width: 2px;
+    width: 30%;
+    .suggest-post-card {
+      width: 100%;
+      border-color: rgb(198, 238, 236);
+    }
+  }
+  .ant-divider-horizontal.ant-divider-with-text::before, .ant-divider-horizontal.ant-divider-with-text::after{
+    border-top: 2px solid;
+    border-top-color: cadetblue;
+  }
+}
