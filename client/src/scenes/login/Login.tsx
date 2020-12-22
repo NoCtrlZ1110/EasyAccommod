@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Button, Checkbox, Card, Divider } from 'antd';
 // import GoogleLoginBtn from '../../components/google_login/GoogleLoginButton';
 import { Link, Redirect } from 'react-router-dom';
-import { login } from '../../utils/auth';
+import { login } from '../../services/auth';
 import { toast } from 'react-toastify';
 export const Login: React.FC = () => {
   const onFinish = (values: any) => {

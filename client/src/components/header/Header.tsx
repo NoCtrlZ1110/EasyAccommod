@@ -6,7 +6,7 @@ import Icon from '@ant-design/icons';
 import { enquireScreen } from 'enquire-js';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
-import { getCurrentUser, getUser, logout } from '../../utils/auth';
+import { getCurrentUser, getUser, logout } from '../../services/auth';
 
 class Header extends React.Component {
   state = {
@@ -14,6 +14,7 @@ class Header extends React.Component {
     menuMode: 'horizontal',
     modalAbout: false,
     isLogin: false,
+    isOwner: false,
     profile: null,
   };
 
@@ -23,8 +24,11 @@ class Header extends React.Component {
     });
     this.setState({ isLogin: localStorage.getItem('accessToken') !== null });
     this.setState({ profile: getUser() });
-    if (localStorage.getItem('accessToken') !== null)
+
+    if (localStorage.getItem('accessToken') !== null) {
       getCurrentUser().then(() => this.setState({ profile: getUser() }));
+      this.setState({ isOwner: getUser().roleNames[0] === 'OWNER' });
+    }
   }
 
   closeModal() {
@@ -37,24 +41,32 @@ class Header extends React.Component {
 
     const menu = (
       <Menu mode={menuMode as any} id='nav' key='nav'>
-        <Menu.Item key='home'>
-          <Link to='/'>Trang chủ</Link>
-        </Menu.Item>
-        <Menu.Item key='accommod'>
-          <Link to='/accommod'>
-            <span>Tìm trọ</span>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key='post'>
-          <Link to='/post'>
-            <span>Đăng bài</span>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key='search'>
+        {isLogin && (
+          <>
+            <Menu.Item key='home'>
+              <Link to='/'>Trang chủ</Link>
+            </Menu.Item>
+            {!this.state.isOwner && (
+              <Menu.Item key='accommod'>
+                <Link to='/accommod'>
+                  <span>Tìm trọ</span>
+                </Link>
+              </Menu.Item>
+            )}
+            {this.state.isOwner && (
+              <Menu.Item key='post'>
+                <Link to='/post'>
+                  <span>Đăng bài</span>
+                </Link>
+              </Menu.Item>
+            )}
+          </>
+        )}
+        {/* <Menu.Item key='search'>
           <Link to='/search'>
             <span>Tìm kiếm</span>
           </Link>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item>
           {isLogin ? (
             <div>

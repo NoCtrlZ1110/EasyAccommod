@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SVG from 'react-inlinesvg';
-import { getUser, updateUser } from '../../utils/auth';
+import { getUser, updateUser } from '../../services/auth';
 import { useMediaQuery } from 'react-responsive';
 import { API_URL } from '../../config';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';

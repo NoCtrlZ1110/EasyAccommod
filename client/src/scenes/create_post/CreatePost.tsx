@@ -24,8 +24,8 @@ import {
   getProvinces,
   getListTimeShown,
   submitPost,
-} from '../../utils/create_post';
-import { getUser } from '../../utils/auth';
+} from '../../services/post';
+import { getUser } from '../../services/auth';
 const { Option } = Select;
 
 export const CreatePost: React.FC = () => {
@@ -52,7 +52,10 @@ export const CreatePost: React.FC = () => {
 
       apartmentPublicPlaces: [],
     };
-    submitPost(data);
+    submitPost(
+      data
+      // (localStorage.getItem('accessToken') as string).replace(/"/g, '')
+    );
   };
 
   const onFinishFailed = (errorInfo: any) => {

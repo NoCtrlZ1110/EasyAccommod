@@ -1,4 +1,4 @@
-import { API_URL } from './../config';
+import { API_URL } from '../config';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -8,9 +8,9 @@ const axiosInstance = axios.create({
 });
 
 export const setupAxios = () => {
-  const requestHandler = (request: Request) => {
-    // if (authToken) {
-    //   request.headers.Authorization = `Bearer ${authToken}`;
+  const requestHandler = (request: any) => {
+    // if (getAccessToken() !== null) {
+    //   request.headers.Authorization = `Bearer ${getAccessToken()}`;
     // }
 
     // if (language) {
@@ -20,6 +20,7 @@ export const setupAxios = () => {
     // if (tenant) {
     //   request.headers.__tenant = tenant.tenantId;
     // }
+    console.log(request);
 
     return request;
   };

@@ -23,6 +23,7 @@
     "history": "4.10.1",
     "less": "^3.12.2",
     "less-loader": "^7.0.2",
+    "moment": "^2.29.1",
     "node-sass": "4.14.1",
     "rc-queue-anim": "^1.8.5",
     "rc-scroll-anim": "^2.7.5",

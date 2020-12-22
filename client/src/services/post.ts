@@ -1,7 +1,14 @@
 // http://localhost:21021/api/services/app/MstProvince/GetProvince
 import { toast } from 'react-toastify';
-import { API_URL } from './../config';
+import { API_URL } from '../config';
 import API from './api';
+import { getAccessToken } from './auth';
+
+const handleError = (error: any) => {
+  const err = error.response.data.error;
+  toast.error(err.message + (err.details ? '\n' + err.details : ''));
+};
+
 export const getProvinces = (setProvinces: any) => {
   return API.get(
     `${API_URL}services/app/MstProvince/GetProvince`
@@ -62,7 +69,8 @@ export const getListTimeShown = (setListTimeShown: any) => {
 export const submitPost = (data: any) => {
   return API.post(
     API_URL + 'services/app/Apartment/CreateOrEditApartment',
-    data
+    data,
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
   )
     .then((response) => {
       const data = response.data;
@@ -73,7 +81,56 @@ export const submitPost = (data: any) => {
       }
     })
     .catch((error) => {
-      const err = error.response.data.error;
-      toast.error(err.message + (err.details ? '\n' + err.details : ''));
+      handleError(error);
+    });
+};
+
+// api/services/app/Apartment/GetListAppartmentOfOwner?Status=1&MaxResultCount=99
+// GetListAppartmentOfOwner?Title=tr%E1%BB%8D&DateFrom=1%2F1%2F2000&DateTo=1%2F1%2F2020&Status=1&SkipCount=0&MaxResultCount=99
+export const getPendingPost = (
+  setPendingPost: any,
+  filter?: { title?: string; dateFrom?: any; dateTo?: any }
+) => {
+  let filterQuery = '';
+  if (filter?.title) {
+    filterQuery += `&Title=${filter?.title}`;
+  }
+  if (filter?.dateFrom) {
+    filterQuery += `&DateFrom=${filter?.dateFrom}`;
+  }
+  if (filter?.dateTo) {
+    filterQuery += `&DateTo=${filter?.dateTo}`;
+  }
+  return API.get(
+    API_URL +
+      'services/app/Apartment/GetListAppartmentOfOwner?Status=1&MaxResultCount=999' +
+      filterQuery,
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data.result.items;
+      setPendingPost(data);
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+
+// /api/services/app/Apartment/DeleteNewsApartment?apartmentId=
+export const deletePost = (id: any, callback?: any) => {
+  return API.delete(
+    API_URL + `services/app/Apartment/DeleteNewsApartment?apartmentId=${id}`,
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      if (response.data?.success) {
+        toast.success('Xoá post thành công!');
+        if (callback) {
+          callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
     });
 };
