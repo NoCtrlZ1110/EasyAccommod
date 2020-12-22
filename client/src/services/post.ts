@@ -150,5 +150,74 @@ export const getPostDetail = (id: any, setPostDetail: any) => {
     })
     .catch((error) => {
       handleError(error);
+      toast.error('Bài viết không tồn tại!');
+      history.push('/');
+    });
+};
+
+// /api/services/app/Apartment/CreateOrEditNewsComment
+
+/* {
+  "apartmentId": 11,
+  "commentDetail": "test commenttttttt",
+} */
+
+export const commentPost = (id: any, text: string, callback?: any) => {
+  return API.post(
+    API_URL + 'services/app/Apartment/CreateOrEditNewsComment',
+    {
+      apartmentId: id,
+      commentDetail: text,
+    },
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('✅ Comment thành công');
+        if (callback) {
+          callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+
+// api/services/app/Apartment/GetListComment?apartmentId=11&MaxResultCount=22
+
+export const getPostComment = (id: any, setComments: any) => {
+  return API.get(
+    `${API_URL}services/app/Apartment/GetListComment?apartmentId=${id}&MaxResultCount=999`,
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data.result.items;
+      setComments(data);
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+
+export const deletePostComment = (id: any, callback?: any) => {
+  return API.delete(
+    `${API_URL}services/app/Apartment/DeleteNewsComment?commentId=${id}`,
+    {
+      headers: { Authorization: 'Bearer ' + getAccessToken() },
+    }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data?.success) {
+        toast.success('✅ Xoá comment thành công');
+        if (callback) {
+          callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
     });
 };

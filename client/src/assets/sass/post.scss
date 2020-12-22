@@ -45,3 +45,31 @@
     }
 
 }
+
+
+.post-detail {
+    .apartment_preview{
+        border-radius: 20px;
+        height: 400px;
+    }
+
+    .owner-card{
+        // width: 450; 
+        margin-top: 20px;
+    }
+    
+    @media only screen and (max-width: 680px) {
+        .apartment_preview{
+            height: 300px;
+        }
+    }
+    @media only screen and (min-width: 1200px) {
+        .owner-card{
+            margin-left: auto;
+            width: 350px; 
+            height: 400px
+        }
+    }
+
+}
+

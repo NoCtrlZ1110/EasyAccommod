@@ -45,6 +45,11 @@ export const CreatePost: React.FC = () => {
   const user = getUser();
 
   const onFinish = (values: any) => {
+    if (fileList.length < 3) {
+      toast.warn('⚠ Vui lòng upload ít nhất 3 ảnh!');
+      return;
+    }
+
     const publicPlace = {
       publicPlaceTypeId: values.publicPlaceTypeId,
       detail: values.publicDetail,
@@ -63,7 +68,6 @@ export const CreatePost: React.FC = () => {
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    // console.log('Failed:', errorInfo);
     toast.warn('⚠ Vui lòng nhập đầy đủ các trường');
   };
 

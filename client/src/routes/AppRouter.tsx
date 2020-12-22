@@ -10,8 +10,7 @@ import TEST from '../scenes/test';
 import AccommodList from '../scenes/accommod/AccommodList';
 import { SignUp } from '../scenes/sign_up/SignUp';
 import { SearchPage } from '../scenes/search/Search';
-import { CreatePost } from '../scenes/create_post/CreatePost';
-import  Profile from '../scenes/profile_owner/Profile';
+import Profile from '../scenes/profile_owner/Profile';
 import { HomeUser } from '../scenes/home_user/HomeUser';
 import { Post } from '../scenes/accommod/Post';
 
