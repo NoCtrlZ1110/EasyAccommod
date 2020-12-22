@@ -1,7 +1,7 @@
 import { UserInfo } from './UserInfo';
 import { PendingPost } from './PendingPost';
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { ActivePost } from './ActivePost';
 import { ExpiredPost } from './ExpiredPost';
 
@@ -11,7 +11,7 @@ const routes = [
     component: UserInfo,
   },
   {
-    path: '/profile/approving-post',
+    path: '/profile/pending-post',
     component: PendingPost,
   },
   {
@@ -21,7 +21,7 @@ const routes = [
   {
     path: '/profile/expired-post',
     component: ExpiredPost,
-  }
+  },
 ];
 export default function UserProfile() {
   return (
@@ -29,6 +29,9 @@ export default function UserProfile() {
       {routes.map((route, i) => (
         <RouteWithSubRoutes key={i} {...route} />
       ))}
+      <Route path='*'>
+        <Redirect to='/profile/user-info' />
+      </Route>
     </Switch>
   );
 }

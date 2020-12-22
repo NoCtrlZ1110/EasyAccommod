@@ -20,7 +20,6 @@ export const setupAxios = () => {
     // if (tenant) {
     //   request.headers.__tenant = tenant.tenantId;
     // }
-    console.log(request);
 
     return request;
   };

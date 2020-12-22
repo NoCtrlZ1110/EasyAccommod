@@ -26,6 +26,7 @@ import {
   submitPost,
 } from '../../services/post';
 import { getUser } from '../../services/auth';
+import TextArea from 'antd/lib/input/TextArea';
 const { Option } = Select;
 
 export const CreatePost: React.FC = () => {
@@ -44,18 +45,21 @@ export const CreatePost: React.FC = () => {
   const user = getUser();
 
   const onFinish = (values: any) => {
+    const publicPlace = {
+      publicPlaceTypeId: values.publicPlaceTypeId,
+      detail: values.publicDetail,
+    };
+    delete values.publicDetail;
+    delete values.publicPlaceTypeId;
     let data = {
       apartment: values,
       apartmentImages: fileList.map((img: any) => ({
         imageUrl: img.response.result[0].imageUrl,
       })),
 
-      apartmentPublicPlaces: [],
+      apartmentPublicPlaces: [publicPlace],
     };
-    submitPost(
-      data
-      // (localStorage.getItem('accessToken') as string).replace(/"/g, '')
-    );
+    submitPost(data);
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -95,7 +99,7 @@ export const CreatePost: React.FC = () => {
       >
         <Row justify='center'>
           <Space direction='horizontal' size={200}>
-            {!isMobile && <SVG src={'svgs/map.svg'} height={250} />}
+            {!isMobile && <SVG src={'/svgs/map.svg'} height={250} />}
             <Card
               title='Thông tin cơ bản'
               style={{
@@ -200,7 +204,7 @@ export const CreatePost: React.FC = () => {
                   </Select>
                 </Form.Item>
                 <Form.Item
-                  name='detail'
+                  name='publicDetail'
                   rules={[
                     { required: true, message: 'Vui lòng nhập địa chỉ cụ thể' },
                   ]}
@@ -239,7 +243,7 @@ export const CreatePost: React.FC = () => {
                 <Input placeholder='Nhập tiêu đề bài viết' />
               </Form.Item>
               <Form.Item
-                name='apartmentType'
+                name='apartmentTypeId'
                 label='Loại phòng'
                 rules={[
                   { required: true, message: 'Vui lòng chọn loại phòng' },
@@ -391,7 +395,10 @@ export const CreatePost: React.FC = () => {
               <Form.Item name='otherUtility' label='Tiện ích khác'>
                 <Input placeholder='tủ lạnh/ máy giặt/giường tủ/...' />
               </Form.Item>
-              <Divider orientation='left'>Thời gian hiển thị tin</Divider>
+              <Form.Item name='detail' label='Mô tả chung '>
+                <TextArea placeholder='Phòng đẹp, đầy đủ tiện nghi, view đẹp, ...' />
+              </Form.Item>
+              <Divider orientation='left'>* Thời gian hiển thị tin</Divider>
               <Form.Item
                 name='timeShownId'
                 label=''
@@ -413,7 +420,7 @@ export const CreatePost: React.FC = () => {
                 </Select>
               </Form.Item>
             </Card>
-            {!isMobile && <SVG src={'svgs/seo.svg'} height={250} />}
+            {!isMobile && <SVG src={'/svgs/seo.svg'} height={250} />}
           </Space>
         </Row>
         {/* --------------- */}
@@ -423,17 +430,16 @@ export const CreatePost: React.FC = () => {
           <Card
             title='Thông tin hình ảnh'
             style={{
-              minWidth: '85%',
+              maxWidth: '88%',
               backgroundColor: '#f075a5',
               borderRadius: 10,
             }}
           >
             <Space direction='vertical'>
               <div className='text-white' style={{ fontSize: 18 }}>
-                Upload ít nhất 3 ảnh cho bài đăng để đạt hiệu quả tốt hơn.
-                <br />
-                Tin đăng có hình ảnh thường hiệu quả hơn 59% tin đăng không có
-                hình ảnh.
+                Upload ít nhất 3 ảnh cho bài đăng để đạt hiệu quả tốt hơn. Tin
+                đăng có hình ảnh thường hiệu quả hơn 59% tin đăng không có hình
+                ảnh.
               </div>
               {UploadImage(fileList, setFileList)}
             </Space>
