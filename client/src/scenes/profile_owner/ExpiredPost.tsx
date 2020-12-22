@@ -1,12 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import { DatePicker, Modal, Row, Table, Tag } from 'antd';
-import React from 'react';
+import { DatePicker, Modal, Row, Table, Tag, Tooltip } from "antd";
+import React from "react";
 import {
   DeleteOutlined,
   ExclamationCircleOutlined,
   EyeTwoTone,
-} from '@ant-design/icons';
-import Search from 'antd/lib/input/Search';
+  PlusSquareTwoTone,
+} from "@ant-design/icons";
+import Search from "antd/lib/input/Search";
 
 export const ExpiredPost: React.FC = () => {
   const columns = [
@@ -60,14 +60,21 @@ export const ExpiredPost: React.FC = () => {
       key: 'action',
       render: (text: any, record: any) => (
         <>
-          <a href=''>
-            {' '}
+          <Tooltip title="Xem chi tiết" color="#1890ff">
             <EyeTwoTone />
-          </a>
-          <DeleteOutlined
-            style={{ marginLeft: 30, color: 'red' }}
-            onClick={confirmDelete}
-          />
+          </Tooltip>
+          <Tooltip title="Xóa bài viết" color="red  ">
+            <DeleteOutlined
+              style={{ marginLeft: 30, color: "red" }}
+              onClick={confirmDelete}
+            />
+          </Tooltip>
+          <Tooltip title="Gia hạn bài đăng" color="#48E692">
+            <PlusSquareTwoTone
+              twoToneColor="#48E692"
+              style={{ marginLeft: 30 }}
+            />
+          </Tooltip>
         </>
       ),
     },
