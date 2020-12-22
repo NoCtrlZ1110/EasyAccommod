@@ -3,6 +3,7 @@ import { ApprovingPost } from './ApprovingPost';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ActivePost } from './ActivePost';
+import { ExpiredPost } from './ExpiredPost';
 
 const routes = [
   {
@@ -17,6 +18,10 @@ const routes = [
     path: '/profile/active-post',
     component: ActivePost,
   },
+  {
+    path: '/profile/expired-post',
+    component: ExpiredPost,
+  }
 ];
 export default function UserProfile() {
   return (

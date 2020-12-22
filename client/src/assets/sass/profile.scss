@@ -24,6 +24,9 @@
     color: white;
     font-size: 18px;
   }
+  .ant-table-cell {
+    text-align: center;
+  }
   .like-view-chart {
     width: 70%;
     border-radius: 20px;
@@ -46,5 +49,22 @@
   }
   .item-image {
     width: 40%;
+  }
+}
+.expired-post {
+  .ant-table-thead > tr > th {
+    background: #f79789;
+    color: white;
+    font-size: 18px;
+  } 
+  .sort-date {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    .title {
+      font-size: 16px;
+    }
+  }
+  .ant-table-cell {
+    text-align: center;
   }
 }

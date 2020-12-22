@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Card, List, Row, Image, Modal, Table, Tag } from 'antd';
+import { Card, List, Row, Image, Modal, Table, Tag, DatePicker, Divider } from 'antd';
 import React from 'react';
-import Chart from '../../components/chart/Chart';
 import {
   DeleteOutlined,
   EyeTwoTone,
   ExclamationCircleOutlined,
 } from '@ant-design/icons';
+import Search from 'antd/lib/input/Search';
+import LineChart from '../../components/chart/LineChart';
 
 export const ActivePost: React.FC = () => {
   const dataView = [21, 22, 10, 28, 16, 21, 13, 33, 55, 35];
@@ -40,9 +41,9 @@ export const ActivePost: React.FC = () => {
   const listData = [];
   const columns = [
     {
-      title: 'Tiêu đề bài viết',
-      dataIndex: 'name',
-      key: 'name',
+      title: "Tiêu đề bài viết",
+      dataIndex: "name",
+      key: "name",
     },
     {
       title: 'Lượt xem',
@@ -55,25 +56,25 @@ export const ActivePost: React.FC = () => {
       key: 'like',
     },
     {
-      title: 'Ngày tạo bài',
-      dataIndex: 'date',
-      key: 'date',
+      title: "Ngày tạo bài",
+      dataIndex: "date",
+      key: "date",
     },
     {
-      title: 'Địa chỉ',
-      dataIndex: 'address',
-      key: 'address',
+      title: "Địa chỉ",
+      dataIndex: "address",
+      key: "address",
     },
     {
-      title: 'Tình trạng',
-      key: 'tags',
-      dataIndex: 'tags',
+      title: "Tình trạng",
+      key: "tags",
+      dataIndex: "tags",
       render: (tags: any) => (
         <>
           {tags.map((tag: any) => {
-            let color = 'geekblue';
-            if (tag === 'Hết hạn') {
-              color = 'volcano';
+            let color = "geekblue";
+            if (tag === "Đã cho thuê") {
+              color = "volcano";
             }
             return (
               <Tag color={color} key={tag}>
@@ -85,16 +86,16 @@ export const ActivePost: React.FC = () => {
       ),
     },
     {
-      title: 'Thao tác',
-      key: 'action',
+      title: "Thao tác",
+      key: "action",
       render: (text: any, record: any) => (
         <>
-          <a href=''>
-            {' '}
+          <a href="">
+            {" "}
             <EyeTwoTone />
           </a>
           <DeleteOutlined
-            style={{ marginLeft: 30, color: 'red' }}
+            style={{ marginLeft: 30, color: "red" }}
             onClick={confirmDelete}
           />
         </>
@@ -103,49 +104,49 @@ export const ActivePost: React.FC = () => {
   ];
   const data = [
     {
-      key: '1',
-      name: 'Phòng trọ giá dân',
-      date: '10/10/2020',
-      address: 'Xuân Đỉnh, Cầu Giấy',
-      tags: ['Chưa hết hạn'],
-      view: '100',
-      like: '50',
+      key: "1",
+      name: "Phòng trọ giá dân",
+      date: "10/10/2020",
+      address: "Xuân Đỉnh, Cầu Giấy",
+      tags: ["Chưa cho thuê"],
+      view: "100",
+      like: "50",
     },
     {
-      key: '2',
-      name: 'Phòng trọ giá dân',
-      date: '10/10/2020',
-      address: 'Xuân Đỉnh, Cầu Giấy',
-      tags: ['Hết hạn'],
-      view: '100',
-      like: '50',
+      key: "2",
+      name: "Phòng trọ giá dân",
+      date: "10/10/2020",
+      address: "Xuân Đỉnh, Cầu Giấy",
+      tags: ["Đã cho thuê"],
+      view: "100",
+      like: "50",
     },
     {
-      key: '3',
-      name: 'Phòng trọ giá dân',
-      date: '10/10/2020',
-      address: 'Xuân Đỉnh, Cầu Giấy',
-      tags: ['Chưa hết hạn'],
-      view: '100',
-      like: '50',
+      key: "3",
+      name: "Phòng trọ giá dân",
+      date: "10/10/2020",
+      address: "Xuân Đỉnh, Cầu Giấy",
+      tags: ["Chưa cho thuê"],
+      view: "100",
+      like: "50",
     },
     {
-      key: '4',
-      name: 'Phòng trọ giá dân',
-      date: '10/10/2020',
-      address: 'Xuân Đỉnh, Cầu Giấy',
-      tags: ['Chưa hết hạn'],
-      view: '100',
-      like: '50',
+      key: "4",
+      name: "Phòng trọ giá dân",
+      date: "10/10/2020",
+      address: "Xuân Đỉnh, Cầu Giấy",
+      tags: ["Chưa cho thuê"],
+      view: "100",
+      like: "50",
     },
     {
-      key: '5',
-      name: 'Phòng trọ giá dân',
-      date: '10/10/2020',
-      address: 'Xuân Đỉnh, Cầu Giấy',
-      tags: ['Hết hạn'],
-      view: '100',
-      like: '50',
+      key: "5",
+      name: "Phòng trọ giá dân",
+      date: "10/10/2020",
+      address: "Xuân Đỉnh, Cầu Giấy",
+      tags: ["Đã cho thuê"],
+      view: "100",
+      like: "50",
     },
   ];
   for (let i = 0; i < 10; i++) {
@@ -174,7 +175,7 @@ export const ActivePost: React.FC = () => {
           </div>
           <br />
           <Row justify='center'>
-            {Chart(dataLike, dataView, chartHeight, chartWidth)}
+            {LineChart(dataLike, dataView, chartHeight, chartWidth)}
           </Row>
         </Card>
         <Card className='like-new-post'>
@@ -182,7 +183,7 @@ export const ActivePost: React.FC = () => {
           <List
             size='large'
             pagination={{
-              pageSize: 3,
+              pageSize: 4,
               total: 10,
             }}
             dataSource={listData}
@@ -203,11 +204,30 @@ export const ActivePost: React.FC = () => {
         </Card>
       </Row>
       <br />
-      <div className='active-post'>
+      <Divider ><h3>Tất cả các bài viết</h3></Divider>
+      <div className="active-post">
+        <Row justify="center" style={{ marginBottom: 20 }} className="">
+        <Search
+          style={{ marginBottom: 20 }}
+          placeholder="Tìm kiếm"
+          allowClear
+          enterButton="Tìm"
+          size="large"
+          className="col-5"
+        />
+        <div className="col-5">
+          <Row justify="space-around">
+            <p style={{ fontSize: 16 }}>Ngày tạo</p>
+            <DatePicker placeholder="Từ ngày" />
+            <DatePicker placeholder="Đến ngày" />
+          </Row>
+        </div>
+      </Row>
         <Table
+          bordered
           columns={columns}
           dataSource={data}
-          pagination={{ pageSize: 3 }}
+          pagination={{ pageSize: 5 }}
         ></Table>
       </div>
     </div>

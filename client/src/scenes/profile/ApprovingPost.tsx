@@ -111,10 +111,8 @@ export const ApprovingPost: React.FC = () => {
             size="large"
             onSearch={onSearch}
           />
-          <div className="sort-date row" >
-            <p className="title col-2">
-              Ngày tạo
-            </p>
+          <div className="sort-date row">
+            <p className="title col-2">Ngày tạo</p>
             <DatePicker
               placeholder="Từ ngày"
               style={{ marginLeft: 20 }}
@@ -129,12 +127,19 @@ export const ApprovingPost: React.FC = () => {
         </div>
         <div className="create-post col-4">
           <Button type="primary" onClick={() => history.push("/post")}>
-            <span style={{marginRight:10, fontWeight: 500, fontSize: 15 }}>Tạo vài viết mới</span>
+            <span style={{ marginRight: 10, fontWeight: 500, fontSize: 15 }}>
+              Tạo vài viết mới
+            </span>
             <FontAwesomeIcon icon={faPlus} />
           </Button>
         </div>
       </div>
-      <Table columns={columns} dataSource={data}></Table>
+      <Table
+        bordered
+        columns={columns}
+        dataSource={data}
+        pagination={{ position: ["bottomCenter"], pageSize: 6 }}
+      ></Table>
       <Modal
         width={700}
         style={{ top: 20 }}
