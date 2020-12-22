@@ -10,8 +10,8 @@ import TEST from '../scenes/test';
 import AccommodList from '../scenes/accommod/AccommodList';
 import { SignUp } from '../scenes/sign_up/SignUp';
 import { SearchPage } from '../scenes/search/Search';
-import { CreatePost } from '../scenes/create_post/CreatePost';
-import  Profile from '../scenes/profile/Profile';
+import Profile from '../scenes/profile/Profile';
+import { Post } from '../scenes/accommod/Post';
 
 const routes = [
   {
@@ -25,7 +25,12 @@ const routes = [
     exact: true,
   },
   {
-    path: '/private',
+    path: '/post',
+    component: Post,
+    private: true,
+  },
+  {
+    path: '/test',
     component: TEST,
     private: true,
   },
@@ -37,11 +42,6 @@ const routes = [
   {
     path: '/accommod',
     component: AccommodList,
-    private: true,
-  },
-  {
-    path: '/post',
-    component: CreatePost,
     private: true,
   },
   {
@@ -82,7 +82,7 @@ export function RouteWithSubRoutes(route: any) {
             return (
               <>
                 <Header />
-                <div className="wrapper">
+                <div className='wrapper'>
                   <route.component {...props} routes={route.routes} />
                 </div>
                 <Footer />
@@ -96,7 +96,7 @@ export function RouteWithSubRoutes(route: any) {
             // pass the sub-routes down to keep nesting
             <>
               <Header />
-              <div className="wrapper">
+              <div className='wrapper'>
                 <route.component {...props} routes={route.routes} />
               </div>
               <Footer />

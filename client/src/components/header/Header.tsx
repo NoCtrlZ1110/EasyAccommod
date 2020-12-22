@@ -55,7 +55,7 @@ class Header extends React.Component {
             )}
             {this.state.isOwner && (
               <Menu.Item key='post'>
-                <Link to='/post'>
+                <Link to='/post/create'>
                   <span>Đăng bài</span>
                 </Link>
               </Menu.Item>
@@ -79,7 +79,7 @@ class Header extends React.Component {
                   style={{ borderRadius: 20, marginRight: 20 }}
                 />
               }
-              <Link to='/profile/user-info'>
+              <Link to='/profile'>
                 <b className='mr-3'>{(profile as any).name}</b>
               </Link>
               <Button

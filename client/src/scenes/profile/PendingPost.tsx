@@ -1,27 +1,35 @@
-import { DatePicker, Modal, Table, Button } from 'antd';
+import { DatePicker, Modal, Table, Button, Divider, Row, Space } from 'antd';
 import history from '../../services/history';
 import React, { useEffect, useState } from 'react';
 import {
   DeleteOutlined,
   EditTwoTone,
   ExclamationCircleOutlined,
+  InfoCircleOutlined,
 } from '@ant-design/icons';
 import Search from 'antd/lib/input/Search';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { deletePost, getPendingPost } from '../../services/post';
+import { useMediaQuery } from 'react-responsive';
+import moment from 'moment';
 
 export const PendingPost: React.FC = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 1080px)' });
   const [pendingPost, setPendingPost] = useState([]);
-  // const [fromDate, setFromDate] = useState<any>();
-  // const [toDate, setToDate] = useState<any>();
+  const [fromDate, setFromDate] = useState<any>();
+  const [toDate, setToDate] = useState<any>();
 
-  const onSearch = (value: any) => {
-    getPendingPost(setPendingPost, {
-      title: value,
-      // dateFrom: Date(fromDate).toISOString(),
-      // dateTo: Date.parse(toDate).toLocaleString(),
-    });
+  const onSearch = (value: string) => {
+    if (!(value.length > 0)) {
+      getPendingPost(setPendingPost);
+    } else {
+      getPendingPost(setPendingPost, {
+        title: value,
+        dateFrom: fromDate,
+        dateTo: toDate,
+      });
+    }
   };
 
   useEffect(() => {
@@ -59,13 +67,20 @@ export const PendingPost: React.FC = () => {
       dataIndex: 'id',
       key: 'action',
       render: (id: any, record: any) => (
-        <>
-          <EditTwoTone onClick={() => {}} />
-          <DeleteOutlined
-            style={{ marginLeft: 30, color: 'red' }}
-            onClick={() => confirmDelete(id)}
-          />
-        </>
+        <Row justify='center'>
+          <Space size='large'>
+            <InfoCircleOutlined
+              onClick={() => {
+                history.push('/post/detail/' + id);
+              }}
+            />
+            <EditTwoTone onClick={() => {}} />
+            <DeleteOutlined
+              style={{ color: 'red' }}
+              onClick={() => confirmDelete(id)}
+            />
+          </Space>
+        </Row>
       ),
     },
   ];
@@ -85,42 +100,45 @@ export const PendingPost: React.FC = () => {
     });
   };
   return (
-    <div className='approving-post'>
-      <div className='row container'>
-        <div className='col-8'>
-          <Search
-            style={{ marginBottom: 20 }}
-            placeholder='Tìm kiếm'
-            allowClear
-            enterButton='Tìm'
-            size='large'
-            onSearch={onSearch}
-          />
-          <div className='sort-date row'>
-            <p className='title col-2'>Ngày tạo</p>
-            <DatePicker
-              placeholder='Từ ngày'
-              style={{ marginLeft: 20 }}
-              className='col-3'
-              // onChange={(date) => setToDate(date)}
-            />
-            <DatePicker
-              placeholder='Đến ngày'
-              style={{ marginLeft: 20 }}
-              // onChange={(date) => setFromDate(date)}
-              className='col-3'
-            />
+    <div className='pending-post'>
+      <div className=''>
+        <>
+          <div className='row'>
+            <Button
+              className='ml-3'
+              type='primary'
+              onClick={() => history.push('/post/create')}
+            >
+              <span style={{ marginRight: 10, fontWeight: 500, fontSize: 15 }}>
+                Tạo bài viết mới
+              </span>
+              <FontAwesomeIcon icon={faPlus} />
+            </Button>
+            <div className={'ml-auto ' + (!isMobile ? 'd-flex' : '')}>
+              <DatePicker
+                placeholder='Từ'
+                style={{ marginRight: 20, minWidth: 200 }}
+                onChange={(date) => setToDate(moment(date).format('L'))}
+              />
+              <DatePicker
+                placeholder='Đến'
+                style={{ marginRight: 20, minWidth: 200 }}
+                onChange={(date) => setFromDate(moment(date).format('L'))}
+              />
+
+              <Search
+                style={{}}
+                placeholder='Tìm kiếm'
+                allowClear
+                enterButton='Tìm'
+                size='large'
+                onSearch={onSearch}
+              />
+            </div>
           </div>
-        </div>
-        <div className='create-post col-4'>
-          <Button type='primary' onClick={() => history.push('/post')}>
-            <span style={{ marginRight: 10, fontWeight: 500, fontSize: 15 }}>
-              Tạo vài viết mới
-            </span>
-            <FontAwesomeIcon icon={faPlus} />
-          </Button>
-        </div>
+        </>
       </div>
+      <Divider />
       <Table
         bordered
         columns={columns}

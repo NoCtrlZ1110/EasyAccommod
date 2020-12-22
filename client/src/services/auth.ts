@@ -7,8 +7,6 @@ export const register = (values: any) => {
     .then((response) => {
       const data = response.data;
       if (data.success) {
-        console.log(values.roleNames[0]);
-
         if (values.roleNames[0] === 'Renter')
           toast.success('✅ Đăng ký thành công, đăng nhập ngay!');
         else

@@ -1,9 +1,9 @@
-import React from "react";
-import { Card, Layout, Menu } from "antd";
-import history from "../../services/history";
-import { UserOutlined, KeyOutlined, BarChartOutlined } from "@ant-design/icons";
-import { enquireScreen } from "enquire-js";
-import ProfileRouter from "./ProfileRouter";
+import React from 'react';
+import { Card, Layout, Menu } from 'antd';
+import history from '../../services/history';
+import { UserOutlined, KeyOutlined, BarChartOutlined } from '@ant-design/icons';
+import { enquireScreen } from 'enquire-js';
+import ProfileRouter from './ProfileRouter';
 
 let isMobile: any;
 enquireScreen((b: any) => {
@@ -33,59 +33,59 @@ class Profile extends React.Component {
   render() {
     const { collapsed } = this.state;
     return (
-      <Layout style={{ minHeight: "88.4vh" }}>
+      <Layout style={{ minHeight: '88.4vh' }}>
         <Sider
-          theme="light"
+          theme='light'
           width={250}
           collapsible
           collapsed={collapsed}
           onCollapse={this.onCollapse}
         >
-          <div className="avt"></div>
+          <div className='avt'></div>
           <Menu
-            theme="light"
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub"]}
-            mode="inline"
+            theme='light'
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub']}
+            mode='inline'
           >
             <Menu.Item
-              key="1"
+              key='1'
               icon={<UserOutlined />}
-              onClick={() => history.push("/profile/user-info")}
+              onClick={() => history.push('/profile/user-info')}
             >
               Thông tin cá nhân
             </Menu.Item>
             <SubMenu
-              key="sub"
+              key='sub'
               icon={<BarChartOutlined />}
-              title="Thống kê bài đăng"
+              title='Thống kê bài đăng'
             >
               <Menu.Item
-                key="2"
-                onClick={() => history.push("/profile/approving-post")}
+                key='2'
+                onClick={() => history.push('/profile/pending-post')}
               >
                 Đang chờ duyệt
               </Menu.Item>
               <Menu.Item
-                key="sub1"
-                onClick={() => history.push("/profile/active-post")}
+                key='sub1'
+                onClick={() => history.push('/profile/active-post')}
               >
                 Đang hoạt động
               </Menu.Item>
               <Menu.Item
-                key="sub2"
-                onClick={() => history.push("/profile/expired-post")}
+                key='sub2'
+                onClick={() => history.push('/profile/expired-post')}
               >
                 Đã hết hạn
               </Menu.Item>
             </SubMenu>
-            <Menu.Item key="3" icon={<KeyOutlined />}>
+            <Menu.Item key='3' icon={<KeyOutlined />}>
               Đổi mật khẩu
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout className="site-layout mt-4">
-          <Card className="ml-4 mr-4" style={{ minHeight: "83vh" }}>
+        <Layout className='site-layout mt-4'>
+          <Card className='ml-4 mr-4' style={{ minHeight: '83vh' }}>
             <ProfileRouter />
           </Card>
         </Layout>

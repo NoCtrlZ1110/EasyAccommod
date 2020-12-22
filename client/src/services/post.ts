@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { API_URL } from '../config';
 import API from './api';
 import { getAccessToken } from './auth';
+import history from '../services/history';
 
 const handleError = (error: any) => {
   const err = error.response.data.error;
@@ -78,6 +79,7 @@ export const submitPost = (data: any) => {
         toast.success(
           '✅ Tạo bài thành công, bài viết sẽ được hiển thị sau khi được phê duyệt!'
         );
+        history.push('/profile/pending-post');
       }
     })
     .catch((error) => {
@@ -129,6 +131,22 @@ export const deletePost = (id: any, callback?: any) => {
           callback();
         }
       }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+
+// api/services/app/Apartment/GetApartmentDetail?ApartmentId=10
+
+export const getPostDetail = (id: any, setPostDetail: any) => {
+  return API.get(
+    API_URL + 'services/app/Apartment/GetApartmentDetail?ApartmentId=' + id,
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data.result;
+      setPostDetail(data);
     })
     .catch((error) => {
       handleError(error);
