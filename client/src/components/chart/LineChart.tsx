@@ -1,7 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-function Chart(dataLike:any, dataView:any, height:any, width: any) {
+function LineChart(dataLike:any, dataView:any, height:any, width: any) {
   const series = [
     {
       name: "View",
@@ -20,6 +20,22 @@ function Chart(dataLike:any, dataView:any, height:any, width: any) {
     chart: {
       height: 350,
       type: "line",
+      animations: {
+        enabled: true,
+        easing: 'easeinout',
+        speed: 800,
+        animateGradually: {
+            enabled: true,
+            delay: 150
+        },
+        dynamicAnimation: {
+            enabled: true,
+            speed: 350
+        }
+    },
+    toolbar: {
+      show: false
+    }
     },
     stroke: {
       curve: "smooth",
@@ -39,7 +55,6 @@ function Chart(dataLike:any, dataView:any, height:any, width: any) {
       "Bài viết số 8",
       "Bài viết số 9",
       "Bài viết số 10",
-      <style></style>
     ],
     markers: {
       size: 0,
@@ -93,4 +108,4 @@ function Chart(dataLike:any, dataView:any, height:any, width: any) {
   );
 }
 
-export default Chart;
+export default LineChart;
