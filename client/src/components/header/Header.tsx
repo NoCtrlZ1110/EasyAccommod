@@ -54,11 +54,18 @@ class Header extends React.Component {
               </Menu.Item>
             )}
             {this.state.isOwner && (
-              <Menu.Item key='post'>
-                <Link to='/post/create'>
-                  <span>Đăng bài</span>
-                </Link>
-              </Menu.Item>
+              <>
+                <Menu.Item key='post'>
+                  <Link to='/post/create'>
+                    <span>Đăng bài</span>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key='pending-post'>
+                  <Link to='/profile/pending-post'>
+                    <span>Bài viết</span>
+                  </Link>
+                </Menu.Item>
+              </>
             )}
           </>
         )}
@@ -67,10 +74,11 @@ class Header extends React.Component {
             <span>Tìm kiếm</span>
           </Link>
         </Menu.Item> */}
-        <Menu.Item>
-          {isLogin ? (
-            <div>
-              {
+
+        {isLogin ? (
+          <>
+            <Menu.Item>
+              <Link to='/profile'>
                 <img
                   // src={(profile as any).imageUrl}
                   src='https://vnu.edu.vn/upload/2014/11/17202/image/Logo-VNU-1995.jpg'
@@ -78,10 +86,13 @@ class Header extends React.Component {
                   height={25}
                   style={{ borderRadius: 20, marginRight: 20 }}
                 />
-              }
-              <Link to='/profile'>
-                <b className='mr-3'>{(profile as any).name}</b>
+
+                <Link to='/profile'>
+                  <b className='mr-3'>{(profile as any).name}</b>
+                </Link>
               </Link>
+            </Menu.Item>
+            <Menu.Item>
               <Button
                 onClick={logout}
                 className='button'
@@ -89,19 +100,19 @@ class Header extends React.Component {
               >
                 <span className='buttonText'>Đăng xuất</span>
               </Button>
-            </div>
-          ) : (
-            <Button
-              className='buttonText'
-              onClick={() => {
-                window.location.href = '/login';
-              }}
-              style={{ borderRadius: 32 }}
-            >
-              Đăng nhập
-            </Button>
-          )}
-        </Menu.Item>
+            </Menu.Item>
+          </>
+        ) : (
+          <Button
+            className='buttonText'
+            onClick={() => {
+              window.location.href = '/login';
+            }}
+            style={{ borderRadius: 32 }}
+          >
+            Đăng nhập
+          </Button>
+        )}
       </Menu>
     );
 
