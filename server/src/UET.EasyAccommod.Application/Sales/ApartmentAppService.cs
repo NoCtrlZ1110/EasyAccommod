@@ -141,17 +141,24 @@ namespace UET.EasyAccommod.Sales
         [AbpAuthorize]
         public async Task ApproveNews(long apartmentId, int status)
         {
-            var apartment = await _apartmentRepo.GetAll().Include(a => a.TimeShownId).FirstOrDefaultAsync(a => a.Id == apartmentId);
-            apartment.IsApprove = (int?)status;
-            switch (status)
+            try
             {
-                case 1:
-                    apartment.ExpirationDate = DateTime.Now.AddDays(Int32.Parse(apartment.TimeShown.Description));
-                    break;
-                default:
-                    break;
+                var apartment = await _apartmentRepo.GetAll().Include(a => a.TimeShown).FirstOrDefaultAsync(a => a.Id == apartmentId);
+                apartment.IsApprove = (int?)status;
+                switch (status)
+                {
+                    case 1:
+                        apartment.ExpirationDate = DateTime.Now.AddDays(Int32.Parse(apartment.TimeShown.Description));
+                        break;
+                    default:
+                        break;
+                }
+                await _apartmentRepo.UpdateAsync(apartment);
             }
-            await _apartmentRepo.UpdateAsync(apartment);
+            catch
+            {
+                throw new Exception();
+            }
         }
         [AbpAuthorize]
         public async Task LikeNewsApartment(LikeDto input)
