@@ -94,15 +94,15 @@ namespace UET.EasyAccommod.Users
             return await GetAsync(input);
         }
 
-        public async Task ActiveUser(long userId)
+        public async Task ActiveUser(EntityDto<long> input)
         {
-            var user = await _userRepository.FirstOrDefaultAsync(userId);
+            var user = await _userRepository.FirstOrDefaultAsync(input.Id);
             user.IsActive = true;
             _userRepository.Update(user);
         }
-        public async Task BlockUser(long userId)
+        public async Task BlockUser(EntityDto<long> input)
         {
-            var user = await _userRepository.FirstOrDefaultAsync(userId);
+            var user = await _userRepository.FirstOrDefaultAsync(input.Id);
             user.IsActive = false;
             _userRepository.Update(user);
         }

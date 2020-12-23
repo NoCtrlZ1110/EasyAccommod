@@ -8,10 +8,11 @@ using UET.EasyAccommod.MasterTable.ApartmentType.Dto;
 using UET.EasyAccommod.MasterTable.District.Dto;
 using UET.EasyAccommod.MasterTable.Province.Dto;
 using UET.EasyAccommod.MasterTable.UnitPrice.Dto;
+using UET.EasyAccommod.Sales.Dto.Output.IncludeDto;
 
 namespace UET.EasyAccommod.Sales.Dto.Output
 {
-    public class ApartmentListDto : EntityDto<long>
+    public class ApartmentListDto : FullAuditedEntityDto<long>
     {
         public string Title { get; set; }
         public string Detail { get; set; }
@@ -47,5 +48,6 @@ namespace UET.EasyAccommod.Sales.Dto.Output
         public MstApartmentTypeDto ApartmentType { get; set; }
         public MstDistrictDto District { get; set; }
         public MstUnitPriceDto UnitPrice { get; set; }
+        public List<ApartmentImageDto> ApartmentImages { get; set; }
     }
 }

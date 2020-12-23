@@ -23,7 +23,9 @@
     "history": "4.10.1",
     "less": "^3.12.2",
     "less-loader": "^7.0.2",
+    "mobx": "^6.0.4",
     "moment": "^2.29.1",
+    "mobx-react": "^7.0.5",
     "node-sass": "4.14.1",
     "rc-queue-anim": "^1.8.5",
     "rc-scroll-anim": "^2.7.5",
@@ -36,15 +38,19 @@
     "react-github-button": "^0.1.11",
     "react-google-login": "^5.1.24",
     "react-inlinesvg": "^2.2.2",
+    "react-loadable": "^5.5.0",
+    "react-moment": "^1.1.1",
     "react-responsive": "^8.2.0",
     "react-responsive-carousel": "^3.2.11",
     "react-router-dom": "^5.1.2",
     "react-scripts": "4.0.0",
     "react-slick": "^0.27.13",
     "react-toastify": "^6.2.0",
+    "recharts": "^1.8.5",
     "redux": "^4.0.5",
     "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "yarn": "^1.22.10"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -72,6 +78,11 @@
   },
   "devDependencies": {
     "@types/history": "^4.7.8",
-    "@types/react": "^16.9.56"
+    "@types/react": "^16.9.56",
+    "@types/react-loadable": "^5.5.4",
+    "@types/recharts": "^1.8.18",
+    "mobx-react": "^7.0.5",
+    "mobx": "^6.0.4",
+    "recharts": "^1.8.5"
   }
 }

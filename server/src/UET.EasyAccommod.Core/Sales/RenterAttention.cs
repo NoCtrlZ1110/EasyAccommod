@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UET.EasyAccommod.Sales
@@ -9,5 +10,6 @@ namespace UET.EasyAccommod.Sales
     {
         public long? RenterId { get; set; }
         public long? ApartmentId { get; set; }
+        public Apartment Apartment { get; set; }
     }
 }

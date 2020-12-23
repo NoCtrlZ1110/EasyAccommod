@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8f893d43-9612-407c-9ea1-64d9683e6edf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/reactTemplatesPlugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/AppComponentBase/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Footer/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Footer/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Header/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Header/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Layout/AppLayout.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Layout/UserLayout.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Layout/UserLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Loadable/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Loading/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Logout/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Router/NotFoundRoute.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/Router/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/SiderMenu/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/SiderMenu/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/components/banner/AdminBanner.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/images/401.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/images/404.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/images/500.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/images/abp-logo-long.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/images/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/images/userLayout-Backround.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/lib/appconst.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/lib/signalRAspNetCoreHelper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/models/Login/loginModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/models/Roles/permissionModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/models/Roles/roleEditModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/models/Roles/roleModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/models/Tenants/TenantModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/About/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/Dashboard/components/LineChartExample/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/Dashboard/components/ListExample/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/Dashboard/components/ListExample/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/Dashboard/components/PieChartExample/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/Dashboard/components/TinyLineChartExample/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/Dashboard/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/Exception/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/Exception/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/Login/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/Login/index.validation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/NewsApprove/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/scenes/UserApprove/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/abpUserConfigurationService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/account/accountService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/account/dto/isTenantAvailableInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/account/dto/isTenantAvailableOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/account/dto/registerInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/account/dto/registerOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/account/dto/tenantAvailabilityState.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/apartment/apartmentService.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/apartment/dto/apartmentOutput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/apartment/dto/approveNewsInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/apartment/dto/getListApartmentInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/dto/entityDto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/dto/entityId.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/dto/pagedFilterAndSortedRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/dto/pagedResultDto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/dto/PagedRoleResultRequestDto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/dto/createRoleInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/dto/createRoleOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/dto/getAllPermissionsOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/dto/getAllRoleOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/dto/getRoleAsyncOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/dto/getRoleForEditOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/dto/getRolesAsyncInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/dto/updateRoleInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/dto/updateRoleOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/role/roleService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/session/dto/applicationInfoDto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/session/dto/getCurrentLoginInformations.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/session/dto/tenantLoginInfoDto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/session/dto/userLoginInfoDto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/session/sessionService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tenant/dto/PagedTenantResultRequestDto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tenant/dto/createTenantInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tenant/dto/createTenantOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tenant/dto/getAllTenantOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tenant/dto/getTenantOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tenant/dto/updateTenantInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tenant/dto/updateTenantOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tenant/tenantService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tokenAuth/dto/authenticationModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tokenAuth/dto/authenticationResultModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/tokenAuth/tokenAuthService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/user/dto/PagedUserResultRequestDto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/user/dto/changeLanguageInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/user/dto/createOrUpdateUserInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/user/dto/createUserInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/user/dto/createUserOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/user/dto/getAllUserOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/user/dto/getRolesOuput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/user/dto/getUserOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/user/dto/updateUserInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/services/user/dto/updateUserOutput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/stores/accountStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/stores/apartmentStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/stores/authenticationStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/stores/roleStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/stores/sessionStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/stores/tenantStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/stores/userStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/utils/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/registerServiceWorker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/Dto/Create/Renter/RenterFavoriteCreateDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/Dto/Input/GetListApartmentFavoriteInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/Dto/Output/ListAppartmentFavorite.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/components/Layout/AppLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/components/Layout/AppLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/components/Router/ProtectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/components/Router/ProtectedRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/components/Router/router.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/components/Router/router.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/scenes/Dashboard/components/BarChartExample/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/scenes/Dashboard/components/BarChartExample/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/scenes/Dashboard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/scenes/Dashboard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/scenes/Login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/scenes/Login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/scenes/UserActive/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/scenes/UserActive/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/services/httpService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/services/httpService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/services/user/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/services/user/userService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/stores/storeIdentifier.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/stores/storeIdentifier.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/stores/storeInitializer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/stores/storeInitializer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/AppRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/AppRouter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/home.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/home.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/CustomDtoMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/CustomDtoMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/ApartmentAppService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/ApartmentAppService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/Dto/Output/ApartmentDetailDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/Dto/Output/ApartmentDetailDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/Dto/Output/ApartmentListDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/Dto/Output/ApartmentListDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Users/Dto/CreateUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Users/Dto/CreateUserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Users/Dto/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Users/Dto/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Users/UserAppService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Users/UserAppService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Core/Sales/RenterAttention.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Core/Sales/RenterAttention.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Web.Host/App_Data/Logs/Logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Web.Host/App_Data/Logs/Logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Web.Host/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Web.Host/appsettings.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

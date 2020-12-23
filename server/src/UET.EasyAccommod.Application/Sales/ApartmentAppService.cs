@@ -13,6 +13,7 @@ using System.Net.Http;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web.Http;
+using UET.EasyAccommod.Authorization.Users;
 using UET.EasyAccommod.Helpers;
 using UET.EasyAccommod.Sales.Dto.Create;
 using UET.EasyAccommod.Sales.Dto.Create.Apartment;
@@ -20,6 +21,7 @@ using UET.EasyAccommod.Sales.Dto.Create.Comment;
 using UET.EasyAccommod.Sales.Dto.Create.Image;
 using UET.EasyAccommod.Sales.Dto.Create.Like;
 using UET.EasyAccommod.Sales.Dto.Create.Rate;
+using UET.EasyAccommod.Sales.Dto.Create.Renter;
 using UET.EasyAccommod.Sales.Dto.Input;
 using UET.EasyAccommod.Sales.Dto.Output;
 using UET.EasyAccommod.Sales.Dto.Output.IncludeDto;
@@ -34,13 +36,17 @@ namespace UET.EasyAccommod.Sales
         private readonly IRepository<ApartmentComment, long> _apartmentCommentRepo;
         private readonly IRepository<ApartmentRate, long> _apartmentRateRepo;
         private readonly IRepository<ApartmentLike, long> _apartmentLikeRepo;
+        private readonly IRepository<RenterAttention, long> _renterAttentionRepo;
+        private readonly IRepository<User, long> _userRepo;
 
         public ApartmentAppService(IRepository<Apartment, long> apartmentRepo,
                                    IRepository<ApartmentImage, long> apartmentImageRepo,
                                    IRepository<ApartmentPublicPlace, long> apartmentPublicPlaceRepo,
                                    IRepository<ApartmentComment, long> apartmentCommentRepo,
                                    IRepository<ApartmentRate, long> apartmentRateRepo,
-                                   IRepository<ApartmentLike, long> apartmentLikeRepo)
+                                   IRepository<ApartmentLike, long> apartmentLikeRepo,
+                                    IRepository<RenterAttention, long> renterAttentionRepo,
+                                    IRepository<User, long> userRepo)
         {
             _apartmentRepo = apartmentRepo;
             _apartmentImageRepo = apartmentImageRepo;
@@ -48,6 +54,8 @@ namespace UET.EasyAccommod.Sales
             _apartmentCommentRepo = apartmentCommentRepo;
             _apartmentRateRepo = apartmentRateRepo;
             _apartmentLikeRepo = apartmentLikeRepo;
+            _renterAttentionRepo = renterAttentionRepo;
+            _userRepo = userRepo;
         }
 
         [AbpAuthorize]
@@ -139,13 +147,13 @@ namespace UET.EasyAccommod.Sales
             return al.Count() != 0;
         }
         [AbpAuthorize]
-        public async Task ApproveNews(long apartmentId, int status)
+        public async Task ApproveNews(ApproveNewsInput input)
         {
             try
             {
-                var apartment = await _apartmentRepo.GetAll().Include(a => a.TimeShown).FirstOrDefaultAsync(a => a.Id == apartmentId);
-                apartment.IsApprove = (int?)status;
-                switch (status)
+                var apartment = await _apartmentRepo.GetAll().Include(a => a.TimeShown).FirstOrDefaultAsync(a => a.Id == input.apartmentId);
+                apartment.IsApprove = (int?)input.status;
+                switch (input.status)
                 {
                     case 1:
                         apartment.ExpirationDate = DateTime.Now.AddDays(Int32.Parse(apartment.TimeShown.Description));
@@ -163,19 +171,32 @@ namespace UET.EasyAccommod.Sales
         [AbpAuthorize]
         public async Task LikeNewsApartment(LikeDto input)
         {
-            var apartment = await _apartmentRepo.FirstOrDefaultAsync((long)input.ApartmentId);
-            apartment.Like++;
-            await _apartmentRepo.UpdateAsync(apartment);
-            input.LikerId = AbpSession.UserId;
-            await _apartmentLikeRepo.InsertAsync(ObjectMapper.Map<ApartmentLike>(input));
+            var isLike = await _apartmentLikeRepo.GetAll().Where(a => a.LikerId == input.LikerId).ToListAsync();
+            if (isLike.Count() == 0)
+            {
+                var apartment = await _apartmentRepo.FirstOrDefaultAsync((long)input.ApartmentId);
+                if (apartment.Like == null) apartment.Like = 0;
+                apartment.Like++;
+                await _apartmentRepo.UpdateAsync(apartment);
+                input.LikerId = AbpSession.UserId;
+                await _apartmentLikeRepo.InsertAsync(ObjectMapper.Map<ApartmentLike>(input));
+            }
         }
         [AbpAuthorize]
         public async Task DisLikeNewsApartment(LikeDto input)
         {
-            var apartment = await _apartmentRepo.FirstOrDefaultAsync((long)input.ApartmentId);
-            apartment.Like--;
-            await _apartmentRepo.UpdateAsync(apartment);
-            await _apartmentLikeRepo.DeleteAsync(input.Id);
+            var isLike = await _apartmentLikeRepo.GetAll().Where(a => a.LikerId == input.LikerId).ToListAsync();
+            if (isLike.Count() != 0)
+            {
+                var apartment = await _apartmentRepo.FirstOrDefaultAsync((long)input.ApartmentId);
+                if (apartment.Like == null) apartment.Like = 0;
+                apartment.Like--;
+                await _apartmentRepo.UpdateAsync(apartment);
+                foreach (var a in isLike.ToList())
+                {
+                    await _apartmentLikeRepo.DeleteAsync(a.Id);
+                }
+            }
         }
         public PagedResultDto<ApartmentListDto> GetListAppartment(GetListApartmentInput input)
         {
@@ -214,32 +235,69 @@ namespace UET.EasyAccommod.Sales
                 .Include(a => a.UnitPrice)
                 .AsEnumerable()
                 .Where(a => StringHelper.ConvertToUnsign(a.Title).Contains(StringHelper.ConvertToUnsign(input.Title))
-                || (DateTime.Compare((DateTime)input.DateFrom, a.CreationTime) <= 0 && DateTime.Compare(a.CreationTime, (DateTime)input.DateTo) <= 0)
+                || (input.DateFrom != null && (DateTime.Compare((DateTime)input.DateFrom, a.CreationTime) <= 0 && DateTime.Compare(a.CreationTime, (DateTime)input.DateTo) <= 0))
                  );
             // 1 - Approving
             // 2 - Active
             // 3 - Expired
-            switch (input.Status)
+            listApartment = input.Status switch
             {
-                case 1:
-                    listApartment = listApartment.Where(a => a.IsApprove != 1).OrderBy(a => a.CreationTime);
-                    break;
-                case 2:
-                    listApartment = listApartment.Where(a => a.IsApprove == 1).OrderBy(a => a.CreationTime);
-                    break;
-                case 3:
-                    listApartment = listApartment.Where(a => a.IsApprove == 1 && DateTime.Compare((DateTime)(a.ExpirationDate != null ? a.ExpirationDate : DateTime.Now.AddDays(-1)), DateTime.Now) < 0).OrderBy(a => a.CreationTime);
-                    break;
-                default:
-                    listApartment = listApartment.OrderBy(a => a.CreationTime);
-                    break;
-            }
+                1 => listApartment.Where(a => a.IsApprove != 1).OrderBy(a => a.CreationTime),
+                2 => listApartment.Where(a => a.IsApprove == 1).OrderBy(a => a.CreationTime),
+                3 => listApartment.Where(a => a.IsApprove == 1 && DateTime.Compare((DateTime)(a.ExpirationDate != null ? a.ExpirationDate : DateTime.Now.AddDays(-1)), DateTime.Now) < 0).OrderBy(a => a.CreationTime),
+                _ => listApartment.OrderBy(a => a.CreationTime),
+            };
             var totalcount = listApartment == null ? 0 : listApartment.Count();
             var res = listApartment.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();
             return new PagedResultDto<ApartmentListDto>(
                 totalcount,
                 ObjectMapper.Map<List<ApartmentListDto>>(res)
                 );
+        }
+        [AbpAuthorize]
+        public async Task MarkIsRented(bool status, long apartmentId)
+        {
+            var apartment = await _apartmentRepo.FirstOrDefaultAsync(apartmentId);
+            apartment.IsEmpty = status;
+            _apartmentRepo.Update(apartment);
+        }
+        [AbpAuthorize]
+        public async Task<long> MarkIsFavorite(RenterFavoriteCreateDto input)
+        {
+            if (input.Id == 0)
+            {
+                var ar = await _renterAttentionRepo.GetAll().Where(r => r.RenterId == input.RenterId).ToListAsync();
+                if (ar.Count > 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    var apartmentFavorite = ObjectMapper.Map<RenterAttention>(input);
+                    await _renterAttentionRepo.InsertAsync(apartmentFavorite);
+                    return 1;
+                }
+            }
+            else
+            {
+                await _renterAttentionRepo.DeleteAsync(input.Id);
+                return 1;
+            }
+        }
+        public PagedResultDto<ListAppartmentFavorite> GetListApartmentFavorite(GetListApartmentFavoriteInput input)
+        {
+            var listApartmentFavorite = _renterAttentionRepo.GetAll()
+                                                           .Where(a => a.RenterId == AbpSession.UserId)
+                                                           .Include(a => a.Apartment)
+                                                           .ThenInclude(ap => ap.ApartmentImages)
+                                                           .Where(a => a.Apartment.IsApprove == 1 && DateTime.Compare((DateTime)(a.Apartment.ExpirationDate != null ? a.Apartment.ExpirationDate : DateTime.Now.AddDays(-1)), DateTime.Now) >= 0)
+                                                           .OrderBy(a => a.CreationTime);
+            var totalCount = listApartmentFavorite.Count();
+            var res = listApartmentFavorite.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();
+
+            return new PagedResultDto<ListAppartmentFavorite>(
+                totalCount,
+                ObjectMapper.Map<List<ListAppartmentFavorite>>(res));
         }
         [AbpAuthorize]
         public PagedResultDto<ApartmentListDto> GetListAppartmentOfAdmin(GetListApartmentOfOwnerInput input)
@@ -252,26 +310,18 @@ namespace UET.EasyAccommod.Sales
                 .Include(a => a.UnitPrice)
                 .AsEnumerable()
                 .Where(a => StringHelper.ConvertToUnsign(a.Title).Contains(StringHelper.ConvertToUnsign(input.Title))
-                || (DateTime.Compare((DateTime)input.DateFrom, a.CreationTime) <= 0 && DateTime.Compare(a.CreationTime, (DateTime)input.DateTo) <= 0)
+                || (input.DateFrom != null && DateTime.Compare((DateTime)input.DateFrom, a.CreationTime) <= 0 && DateTime.Compare(a.CreationTime, (DateTime)input.DateTo) <= 0)
                  );
             // 1 - Approving
             // 2 - Active
             // 3 - Expired
-            switch (input.Status)
+            listApartment = input.Status switch
             {
-                case 1:
-                    listApartment = listApartment.Where(a => a.IsApprove == 0).OrderBy(a => a.CreationTime);
-                    break;
-                case 2:
-                    listApartment = listApartment.Where(a => a.IsApprove == 1).OrderBy(a => a.CreationTime);
-                    break;
-                case 3:
-                    listApartment = listApartment.Where(a => a.IsApprove == 1 && DateTime.Compare((DateTime)a.ExpirationDate, DateTime.Now) < 0).OrderBy(a => a.CreationTime);
-                    break;
-                default:
-                    listApartment = listApartment.OrderBy(a => a.CreationTime);
-                    break;
-            }
+                1 => listApartment.Where(a => a.IsApprove == 0).OrderBy(a => a.CreationTime),
+                2 => listApartment.Where(a => a.IsApprove == 1).OrderBy(a => a.CreationTime),
+                3 => listApartment.Where(a => a.IsApprove == 1 && DateTime.Compare((DateTime)a.ExpirationDate, DateTime.Now) < 0).OrderBy(a => a.CreationTime),
+                _ => listApartment.OrderBy(a => a.CreationTime),
+            };
             var totalcount = listApartment == null ? 0 : listApartment.Count();
             var res = listApartment.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();
             return new PagedResultDto<ApartmentListDto>(
@@ -422,7 +472,16 @@ namespace UET.EasyAccommod.Sales
             }
             return url;
         }
+        public DashboardOutput GetDashboard()
+        {
+            DashboardOutput output = new DashboardOutput();
 
+            output.TotalUser = _userRepo.GetAll().Count();
+            output.TotalNewUser = _userRepo.GetAll().Where(u => u.IsActive == false).Count();
+            output.TotalNews = _apartmentRepo.GetAll().Count();
+            output.TotalNewNews = _apartmentRepo.GetAll().Where(a => a.IsApprove == 0).Count();
+            return output;
+        }
         private async Task<bool> SaveImage(IFormFile file, string fileName)
         {
 
@@ -450,5 +509,19 @@ namespace UET.EasyAccommod.Sales
 
             }
         }
+    }
+
+    public class DashboardOutput
+    {
+        public long TotalUser { get; set; }
+        public long TotalNewUser { get; set; }
+        public long TotalNews { get; set; }
+        public long TotalNewNews { get; set; }
+    }
+
+    public class ApproveNewsInput
+    {
+        public long apartmentId { get; set; }
+        public int status { get; set; }
     }
 }
