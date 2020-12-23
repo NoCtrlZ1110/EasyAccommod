@@ -1,4 +1,13 @@
-import { DatePicker, Modal, Table, Button, Divider, Row, Space } from 'antd';
+import {
+  DatePicker,
+  Modal,
+  Table,
+  Button,
+  Divider,
+  Row,
+  Space,
+  Tag,
+} from 'antd';
 import history from '../../services/history';
 import React, { useEffect, useState } from 'react';
 import {
@@ -10,7 +19,7 @@ import {
 import Search from 'antd/lib/input/Search';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { deletePost, getPendingPost } from '../../services/post';
+import { deletePost, getPendingPosts } from '../../services/post';
 import { useMediaQuery } from 'react-responsive';
 import moment from 'moment';
 
@@ -22,9 +31,9 @@ export const PendingPost: React.FC = () => {
 
   const onSearch = (value: string) => {
     if (!(value.length > 0)) {
-      getPendingPost(setPendingPost);
+      getPendingPosts(setPendingPost);
     } else {
-      getPendingPost(setPendingPost, {
+      getPendingPosts(setPendingPost, {
         title: value,
         dateFrom: fromDate,
         dateTo: toDate,
@@ -33,7 +42,7 @@ export const PendingPost: React.FC = () => {
   };
 
   useEffect(() => {
-    getPendingPost(setPendingPost);
+    getPendingPosts(setPendingPost);
   }, []);
 
   const columns = [
@@ -60,6 +69,18 @@ export const PendingPost: React.FC = () => {
       key: 'roomPrice',
       render: (text: any) => (
         <>{text.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')} VNĐ</>
+      ),
+    },
+    {
+      title: 'Trạng thái',
+      dataIndex: '',
+      key: 'roomPrice',
+      render: (tag: any) => (
+        <>
+          <Tag color={'geekblue'} key={tag}>
+            {'Đang chờ phê duyệt'}
+          </Tag>
+        </>
       ),
     },
     {
@@ -94,7 +115,7 @@ export const PendingPost: React.FC = () => {
       cancelText: 'Không',
       onOk: () => {
         deletePost(id, () => {
-          getPendingPost(setPendingPost);
+          getPendingPosts(setPendingPost);
         });
       },
     });
@@ -138,7 +159,11 @@ export const PendingPost: React.FC = () => {
           </div>
         </>
       </div>
-      <Divider />
+      <Divider
+        children='Các bài viết đang chờ phê duyệt'
+        orientation='left'
+        style={{ marginTop: 20, marginBottom: 20 }}
+      />
       <Table
         bordered
         columns={columns}

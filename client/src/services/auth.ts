@@ -2,6 +2,12 @@ import { toast } from 'react-toastify';
 import { API_URL } from '../config';
 import API from './api';
 import history from './history';
+
+const handleError = (error: any) => {
+  const err = error.response.data.error;
+  toast.error(err.message + (err.details ? '\n' + err.details : ''));
+};
+
 export const register = (values: any) => {
   return API.post(API_URL + 'services/app/User/Create', values)
     .then((response) => {
@@ -50,9 +56,7 @@ export const login = (
       return response.data;
     })
     .catch((error) => {
-      const err = error?.response?.data.error;
-      if (err) {
-      }
+      handleError(error);
     });
 };
 

@@ -56,6 +56,8 @@ export const CreatePost: React.FC = () => {
     };
     delete values.publicDetail;
     delete values.publicPlaceTypeId;
+    values.like = 0;
+    values.view = 0;
     let data = {
       apartment: values,
       apartmentImages: fileList.map((img: any) => ({
