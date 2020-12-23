@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abp.Application.Services.Dto;
+using System;
 using System.Collections.Generic;
 using UET.EasyAccommod.MasterTable.ApartmentType.Dto;
 using UET.EasyAccommod.MasterTable.BathroomType.Dto;
@@ -11,7 +12,7 @@ using UET.EasyAccommod.Sales.Dto.Output.IncludeDto;
 
 namespace UET.EasyAccommod.Sales.Dto.Output
 {
-    public class ApartmentDetailDto
+    public class ApartmentDetailDto : FullAuditedEntityDto<long>
     {
         public string Title { get; set; }
         public string Detail { get; set; }

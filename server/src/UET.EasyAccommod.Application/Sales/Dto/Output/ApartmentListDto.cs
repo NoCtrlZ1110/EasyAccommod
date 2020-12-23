@@ -12,7 +12,7 @@ using UET.EasyAccommod.Sales.Dto.Output.IncludeDto;
 
 namespace UET.EasyAccommod.Sales.Dto.Output
 {
-    public class ApartmentListDto : EntityDto<long>
+    public class ApartmentListDto : FullAuditedEntityDto<long>
     {
         public string Title { get; set; }
         public string Detail { get; set; }

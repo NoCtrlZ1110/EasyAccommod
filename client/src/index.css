@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Quicksand';
-  src: local("Quicksand"), url(./assets/fonts/Quicksand-Medium.ttf) format("ttf");
+  src: local("Quicksand"), url(./assets/fonts/Quicksand-Regular.ttf) format("ttf");
 }
 
 

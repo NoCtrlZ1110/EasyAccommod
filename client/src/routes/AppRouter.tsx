@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import history from '../services/history';
-import { Router, Switch, Route } from 'react-router-dom';
-import { NotFound } from '../components/not_found/NotFound';
+import {Route, Router, Switch} from 'react-router-dom';
+import {NotFound} from '../components/not_found/NotFound';
 import Home from '../scenes/home/Home';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import { Login } from '../scenes/login/Login';
-import { TEST } from '../scenes/test';
+import TEST from '../scenes/test';
 import AccommodList from '../scenes/accommod/AccommodList';
 import { SignUp } from '../scenes/sign_up/SignUp';
 import { SearchPage } from '../scenes/search/Search';
@@ -19,6 +19,8 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { firestore } from '../services/firebase';
 import { getUser } from '../services/auth';
 import firebase from 'firebase';
+import ProtectedRoute from '../admin/components/Router/ProtectedRoute';
+import utils from "../admin/utils/utils";
 
 const routes = [
   {
@@ -78,6 +80,8 @@ const routes = [
 export function AppRouter(props: any) {
   const user = localStorage.getItem('user');
   const isLogged = localStorage.getItem('accessToken') !== null;
+  const AppLayout = utils.getRoute('/admin').component;
+  const UserLayout = utils.getRoute('/admin/user').component;
 
   const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createAt').limit(25);
@@ -111,8 +115,16 @@ export function AppRouter(props: any) {
           subtitle='Nhận sự trợ giúp nhanh chóng từ quản trị viên'
         />
       )}
+      <div id='sidebar-left' />
+      <div id='sidebar-right' />
       <Router history={history}>
         <Switch>
+          <Route path={'/admin'}>
+            <Switch>
+              <Route path="/admin/user" render={(props: any) => <UserLayout {...props} />}/>
+              <ProtectedRoute path="/admin" render={(props: any) => <AppLayout {...props} exact/>}/>
+            </Switch>
+          </Route>
           {routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} accessToken={user} />
           ))}
