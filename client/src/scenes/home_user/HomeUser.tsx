@@ -18,7 +18,7 @@ import { SearchBar } from "../../components/search_bar/SearchBar";
 import { LikeOutlined, CommentOutlined, PlusOutlined } from "@ant-design/icons";
 import Meta from "antd/lib/card/Meta";
 
-export const HomeUser: React.FC = () => {
+export const  HomeUser: React.FC = () => {
   const imagePostList = [
     "https://cdn.thongtinduan.com/uploads/posts/2019-07/1562040097_nhung-kien-thuc-co-ban-can-biet-truoc-khi-ki-hop-dong-thue-nha-tro2.jpg",
     "https://vnn-imgs-f.vgcloud.vn/2018/12/13/15/nha-tro.jpg",
@@ -43,15 +43,28 @@ export const HomeUser: React.FC = () => {
     "Phòng trọ giá rẻ",
     "Phòng cho nữ",
   ];
+  const listPriceSuggestPost = [
+    '1 Triệu',
+    '2 Triệu', 
+    '10 Triệu',
+    '3.2 Triệu',
+    '1 Triệu',
+    '2 Triệu', 
+    '1 Triệu',
+    '2 Triệu',
+    '1 Triệu',
+    '2 Triệu', 
+  ]
   for (let i = 0; i < 10; i++) {
     listSuggestPost.push({
       href: "",
-      title: listSuggestPostTitle[i],
+      title: listPriceSuggestPost[i],
+      content: listSuggestPostTitle[i]
     });
   }
   return (
     <div className="home-user container">
-      <div className="home-user-search row">
+      <div className="home-user-search row text-center">
         <div className="search-title col-3">Tìm kiếm tại đây</div>
         <div className="col-9">
           <SearchBar></SearchBar>
@@ -72,7 +85,7 @@ export const HomeUser: React.FC = () => {
               <Carousel draggable ref={carousel} dotPosition="bottom">
                 {imagePostList.map((image) => (
                   <div className="">
-                    <Badge.Ribbon text="Nhiều lượt xem nhất" color="red">
+                    <Badge.Ribbon text="Được xem nhiều nhất" color="red">
                       <Image className="image-post" src={image} />
                     </Badge.Ribbon>
                   </div>
@@ -147,7 +160,7 @@ export const HomeUser: React.FC = () => {
                   ]}
                   onClick={() => {}}
                 >
-                  <Meta title={item.title} />
+                  <Meta title={item.title} description={item.content} />
                 </Card>
               </List.Item>
             )}
