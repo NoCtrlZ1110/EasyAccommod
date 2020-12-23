@@ -8,23 +8,53 @@ import {
   Divider,
   Space,
   Tag,
+  Button,
+  Rate,
 } from 'antd';
+import { LikeOutlined } from '@ant-design/icons';
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
 import { PostComment } from '../../components/comment/comment';
 import { BASE_URL } from '../../config';
 import { Apartment } from '../../models/PostDetailModel';
-import { getPostDetail } from '../../services/post';
+import { getPostDetail, ratePost } from '../../services/post';
 
 export const PostDetail: React.FC = () => {
   const { id } = useParams<any>();
+  const [likes, setLikes] = useState(0);
+  const [rate, setRate] = useState<any>();
+  const [liked, setLiked] = useState(false);
   const isMobile = useMediaQuery({ query: '(max-width: 680px)' });
   const responsive = useMediaQuery({ query: '(max-width: 1199px)' });
   const [postDetail, setPostDetail] = useState<Apartment>();
 
+  const like = () => {
+    if (!liked) {
+      setLikes(likes + 1);
+    } else {
+      setLikes(likes - 1);
+    }
+    setLiked(!liked);
+  };
+
+  const avarage = (arr: any) => {
+    if (!arr) return;
+    let sum = 0;
+    arr.forEach((e: any) => {
+      sum += e.rate;
+    });
+    return sum / arr.length;
+  };
+
+  useEffect(() => {
+    setRate(avarage(postDetail?.apartmentRates));
+    setLikes(postDetail?.like ? postDetail?.like : 0);
+  }, [postDetail]);
+
   useEffect(() => {
     getPostDetail(id, setPostDetail);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (
@@ -45,7 +75,7 @@ export const PostDetail: React.FC = () => {
         <code className='ml-auto mr-5' style={{ fontSize: isMobile ? 20 : 25 }}>
           {postDetail?.roomPrice
             .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' VNĐ'}
+            .replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' VNĐ / tháng'}
         </code>
       </Row>
       <Divider />
@@ -81,16 +111,34 @@ export const PostDetail: React.FC = () => {
               }
             />
             <h4>{postDetail?.ownerName}</h4>
-            {!isMobile && (
+            {postDetail?.isApprove !== 1 && !isMobile && (
               <Tag color='#2db7f5'>
                 <span style={{ fontSize: 16 }}>
-                  {postDetail?.isApprove ? 'Đã được duyệt' : 'Chưa được duyệt'}
+                  {postDetail?.isApprove === 0
+                    ? 'Chưa được duyệt'
+                    : postDetail?.isApprove === 2
+                    ? 'Đã bị từ chối'
+                    : ''}
                 </span>
               </Tag>
             )}
             <Tag color='blue'>
               <span style={{ fontSize: 16 }}>{postDetail?.ownerPhone} </span>
             </Tag>
+            <Button onClick={like}>
+              <LikeOutlined />
+              Likes: {likes}
+            </Button>
+            <Rate
+              value={rate}
+              onChange={(value: any) => {
+                setRate(value);
+                ratePost(value, id, () => {
+                  getPostDetail(id, setPostDetail);
+                });
+              }}
+            />
+            <span>{postDetail?.apartmentRates.length} đánh giá</span>
           </Space>
         </Card>
       </Row>

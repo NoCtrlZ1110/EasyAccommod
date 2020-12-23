@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import history from '../services/history';
 import { Router, Switch, Route } from 'react-router-dom';
 import { NotFound } from '../components/not_found/NotFound';
@@ -19,6 +19,7 @@ import { Widget, addResponseMessage } from 'react-chat-widget';
 const handleNewUserMessage = (newMessage: any) => {
   console.log(`New message incoming! ${newMessage}`);
   // Now send the message throught the backend API
+  addResponseMessage(newMessage);
 };
 
 const routes = [
