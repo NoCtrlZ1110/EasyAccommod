@@ -81,7 +81,7 @@ class Header extends React.Component {
               <Link to='/profile'>
                 <img
                   // src={(profile as any).imageUrl}
-                  src='https://vnu.edu.vn/upload/2014/11/17202/image/Logo-VNU-1995.jpg'
+                  src='https://upload.wikimedia.org/wikipedia/commons/c/ca/VNU.logo.jpg'
                   alt='avatar'
                   height={25}
                   style={{ borderRadius: 20, marginRight: 20 }}

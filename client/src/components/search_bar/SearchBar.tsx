@@ -1,10 +1,12 @@
 import Search from 'antd/lib/input/Search';
 import React, { useEffect, useRef, useState } from 'react';
 import { ReactComponent as Filter } from '../../assets/svgs/filter.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
+import history from '../../services/history';
 import {
   Button,
-  Card,
-  Divider,
   Form,
   Input,
   Modal,
@@ -14,35 +16,37 @@ import {
   Spin,
   Tag,
 } from 'antd';
-import { useMediaQuery } from 'react-responsive';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { toast } from 'react-toastify';
+
 import {
+  FilterSearch,
   getDistricts,
   getListApartmentTypes,
   getProvinces,
 } from '../../services/post';
+import { useLocation } from 'react-router-dom';
 
-export const SearchBar: React.FC = () => {
+export const SearchBar: React.FC<FilterSearch> = (filter?: FilterSearch) => {
   const height = 55;
   const [visible, setVisible] = useState(false);
   const [isSearching, setSearching] = useState(false);
   const { Option } = Select;
-  const isMobile = useMediaQuery({ query: '(max-width: 1080px)' });
   const [apartmentTypes, setApartmentTypes] = useState([]);
   const [currentProvince, setCurrentProvinces] = useState<number>();
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
-  const [Title, setTitle] = useState();
-  const [ProvinceId, setProvinceId] = useState();
-  const [DistrictId, setDistrictId] = useState();
-  const [ApartmentTypeId, setApartmentTypeId] = useState();
-  const [StayWithTheOwner, setStayWithTheOwner] = useState(null);
-  const [PriceFrom, setPriceFrom] = useState();
-  const [AreaFrom, setAreaFrom] = useState();
-  const [AreaTo, setAreaTo] = useState();
+  const [ProvinceId, setProvinceId] = useState(filter?.ProvinceId);
+  const [DistrictId, setDistrictId] = useState(filter?.DistrictId);
+  const [ApartmentTypeId, setApartmentTypeId] = useState(
+    filter?.ApartmentTypeId
+  );
+  const [StayWithOwner, setStayWithOwner] = useState(
+    filter?.StayWithOwner != null ? filter?.StayWithOwner : null
+  );
+  const [PriceFrom, setPriceFrom] = useState(filter?.PriceFrom);
+  const [AreaFrom, setAreaFrom] = useState(filter?.AreaFrom);
+  const [AreaTo, setAreaTo] = useState(filter?.AreaTo);
   const formRef = useRef(null);
+  let location = useLocation();
 
   useEffect(() => {
     getProvinces(setProvinces);
@@ -69,15 +73,53 @@ export const SearchBar: React.FC = () => {
     }
   };
 
+  const onSearch = (_title: string) => {
+    let filterQuery = '';
+    filterQuery += `?Title=${_title}`;
+
+    if (ProvinceId) {
+      filterQuery += `&ProvinceId=${ProvinceId}`;
+    }
+    if (DistrictId) {
+      filterQuery += `&DistrictId=${DistrictId}`;
+    }
+    if (ApartmentTypeId) {
+      filterQuery += `&ApartmentTypeId=${ApartmentTypeId}`;
+    }
+    if (StayWithOwner != null) {
+      filterQuery += `&StayWithOwner=${StayWithOwner}`;
+    }
+    if (PriceFrom) {
+      filterQuery += `&PriceFrom=${PriceFrom}`;
+    }
+    if (AreaFrom) {
+      filterQuery += `&AreaFrom=${AreaFrom}`;
+    }
+    if (AreaTo) {
+      filterQuery += `&AreaTo=${AreaTo}`;
+    }
+
+    setSearching(true);
+    toast.info('🧐 Đang tìm nhà trọ thích hợp 🔎', {
+      autoClose: 3000,
+    });
+    if (location.pathname === '/search/result') {
+      window.location.href = '/search/result' + filterQuery;
+    } else
+      setTimeout(() => {
+        setSearching(false);
+        history.push('/search/result' + filterQuery);
+      }, 2000);
+  };
+
   const handleSave = (values: any) => {
     setProvinceId(values.ProvinceId);
     setDistrictId(values.DistrictId);
     setApartmentTypeId(values.ApartmentTypeId);
-    setStayWithTheOwner(values.StayWithTheOwner);
+    setStayWithOwner(values.StayWithOwner);
     setPriceFrom(values.PriceFrom);
     setAreaFrom(values.AreaFrom);
     setAreaTo(values.AreaTo);
-    console.log(values);
   };
 
   return (
@@ -115,32 +157,38 @@ export const SearchBar: React.FC = () => {
             onChange={(value) => {
               console.log(value.target.value);
             }}
-            onSearch={(value) => {
-              setSearching(true);
-              toast.info('🧐 Đang tìm nhà trọ thích hợp 🔎', {
-                autoClose: 3000,
-              });
-              setTimeout(() => {
-                toast.error(' 😪 Không tìm thấy kết quả nào!');
-                setSearching(false);
-              }, 5000);
-            }}
+            defaultValue={filter?.Title ? filter?.Title : ''}
+            onSearch={onSearch}
+            // onSearch={(value) => {
+            //   setSearching(true);
+            //   toast.info('🧐 Đang tìm nhà trọ thích hợp 🔎', {
+            //     autoClose: 3000,
+            //   });
+            //   setTimeout(() => {
+            //     toast.error(' 😪 Không tìm thấy kết quả nào!');
+            //     setSearching(false);
+            //   }, 5000);
+            // }}
           ></Search>
         </Spin>
       </div>
 
-      <div className='ml-5 mt-3'>
+      <div className='ml-4 mt-3'>
         {ProvinceId && <Tag color='#55acee'>ProvinceId: {ProvinceId}</Tag>}
         {DistrictId && <Tag color='#cd201f'>DistrictId: {DistrictId}</Tag>}
         {ApartmentTypeId && (
           <Tag color='#cd201f'>Loại nhà: {apartmentType(ApartmentTypeId)}</Tag>
         )}
-        {StayWithTheOwner !== null && (
+        {StayWithOwner !== null && (
           <Tag color='#3b5999'>
-            {StayWithTheOwner ? 'Chung chủ' : 'Không chung chủ'}
+            {StayWithOwner ? 'Chung chủ' : 'Không chung chủ'}
           </Tag>
         )}
-        {PriceFrom && <Tag color='#55acee'>giá từ {PriceFrom}</Tag>}
+        {PriceFrom && (
+          <Tag color='#55acee'>
+            giá từ {PriceFrom.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+          </Tag>
+        )}
         {AreaFrom && (
           <Tag color='#55acee'>
             diện tích từ {AreaFrom}
@@ -206,7 +254,7 @@ export const SearchBar: React.FC = () => {
                   ))}
                 </Select>
               </Form.Item>
-              <Form.Item name='StayWithTheOwner' label='Chung chủ'>
+              <Form.Item name='StayWithOwner' label='Chung chủ'>
                 <Radio.Group>
                   <Radio value={true}>Chung chủ</Radio>
                   <Radio value={false}>Không chung chủ</Radio>

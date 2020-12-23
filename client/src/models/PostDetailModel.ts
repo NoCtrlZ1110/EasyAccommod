@@ -84,6 +84,7 @@ export interface Apartment {
   expirationDate?: any;
   isApprove: number;
   isEmpty?: any;
+  id?: any;
   view?: any;
   like?: any;
   userApproverId?: any;

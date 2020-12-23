@@ -11,34 +11,44 @@ import {
   Button,
   Rate,
 } from 'antd';
-import { LikeOutlined } from '@ant-design/icons';
+import {
+  LikeOutlined,
+  ExclamationCircleOutlined,
+  HeartTwoTone,
+} from '@ant-design/icons';
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
 import { PostComment } from '../../components/comment/comment';
 import { BASE_URL } from '../../config';
 import { Apartment } from '../../models/PostDetailModel';
-import { getPostDetail, ratePost } from '../../services/post';
+import {
+  addPostToFavorite,
+  getPostDetail,
+  likePost,
+  ratePost,
+} from '../../services/post';
+import { toast } from 'react-toastify';
 
 export const PostDetail: React.FC = () => {
   const { id } = useParams<any>();
   const [likes, setLikes] = useState(0);
   const [rate, setRate] = useState<any>();
   const [liked, setLiked] = useState(false);
+  const [loadingReport, setLoadingReport] = useState(false);
+  const [loadingFavorite, setLoadingFavorite] = useState(false);
   const isMobile = useMediaQuery({ query: '(max-width: 680px)' });
   const responsive = useMediaQuery({ query: '(max-width: 1199px)' });
   const [postDetail, setPostDetail] = useState<Apartment>();
 
   const like = () => {
-    if (!liked) {
-      setLikes(likes + 1);
-    } else {
-      setLikes(likes - 1);
-    }
-    setLiked(!liked);
+    likePost(id, () => {
+      setLiked(!liked);
+      getPostDetail(id, setPostDetail);
+    });
   };
 
-  const avarage = (arr: any) => {
+  const average = (arr: any) => {
     if (!arr) return;
     let sum = 0;
     arr.forEach((e: any) => {
@@ -47,8 +57,22 @@ export const PostDetail: React.FC = () => {
     return sum / arr.length;
   };
 
+  const report = () => {
+    setLoadingReport(true);
+    setTimeout(() => {
+      setLoadingReport(false);
+      toast.warn('⛔ Đã báo cáo bài viết thành công ');
+    }, 2000);
+  };
+  const favorite = () => {
+    setLoadingFavorite(true);
+    addPostToFavorite(id, () => {
+      setLoadingFavorite(false);
+    });
+  };
+
   useEffect(() => {
-    setRate(avarage(postDetail?.apartmentRates));
+    setRate(average(postDetail?.apartmentRates));
     setLikes(postDetail?.like ? postDetail?.like : 0);
   }, [postDetail]);
 
@@ -71,7 +95,25 @@ export const PostDetail: React.FC = () => {
       </Breadcrumb>
       <Divider />
       <Row>
-        <h3>{postDetail?.title}</h3>
+        <h3>
+          {postDetail?.title}
+          {postDetail?.isEmpty && (
+            <Tag color='red' style={{ fontSize: 16, marginLeft: 20 }}>
+              Đã cho thuê
+            </Tag>
+          )}
+          {postDetail?.isApprove !== 1 && (
+            <Tag color='#2db7f5' style={{ marginLeft: 20 }}>
+              <span style={{ fontSize: 16 }}>
+                {postDetail?.isApprove === 0
+                  ? 'Chưa được duyệt'
+                  : postDetail?.isApprove === 2
+                  ? 'Đã bị từ chối'
+                  : ''}
+              </span>
+            </Tag>
+          )}
+        </h3>
         <code className='ml-auto mr-5' style={{ fontSize: isMobile ? 20 : 25 }}>
           {postDetail?.roomPrice
             .toString()
@@ -111,24 +153,37 @@ export const PostDetail: React.FC = () => {
               }
             />
             <h4>{postDetail?.ownerName}</h4>
-            {postDetail?.isApprove !== 1 && !isMobile && (
-              <Tag color='#2db7f5'>
-                <span style={{ fontSize: 16 }}>
-                  {postDetail?.isApprove === 0
-                    ? 'Chưa được duyệt'
-                    : postDetail?.isApprove === 2
-                    ? 'Đã bị từ chối'
-                    : ''}
-                </span>
-              </Tag>
-            )}
+
             <Tag color='blue'>
               <span style={{ fontSize: 16 }}>{postDetail?.ownerPhone} </span>
             </Tag>
-            <Button onClick={like}>
-              <LikeOutlined />
-              Likes: {likes}
-            </Button>
+            <div className='d-flex'>
+              <Button disabled={liked} type='primary' onClick={like}>
+                <LikeOutlined />
+                Thích: {likes}
+              </Button>
+              <Button
+                loading={loadingReport}
+                type='primary'
+                danger
+                className='ml-2'
+                onClick={report}
+              >
+                <ExclamationCircleOutlined />
+                Báo cáo
+              </Button>
+            </div>
+            <div className='d-flex'>
+              <Button
+                loading={loadingFavorite}
+                type='primary'
+                danger
+                onClick={favorite}
+              >
+                <HeartTwoTone twoToneColor='#eb2f96' />
+                Thêm vào yêu thích
+              </Button>
+            </div>
             <Rate
               value={rate}
               onChange={(value: any) => {
@@ -205,6 +260,12 @@ export const PostDetail: React.FC = () => {
         </Descriptions.Item>
         <Descriptions.Item label='Tiện ích khác'>
           {postDetail?.otherUtility}
+        </Descriptions.Item>
+        <Descriptions.Item label='Thời gian hiển thị tin'>
+          {postDetail?.timeShown.name}
+        </Descriptions.Item>
+        <Descriptions.Item label='Ngày hết hạn tin'>
+          {postDetail?.expirationDate}
         </Descriptions.Item>
       </Descriptions>
 

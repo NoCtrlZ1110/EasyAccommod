@@ -1,34 +1,63 @@
-import { DatePicker, Modal, Row, Table, Tag, Tooltip } from "antd";
-import React from "react";
+import { DatePicker, Modal, Row, Table, Tag, Tooltip } from 'antd';
+import React, { useEffect, useState } from 'react';
 import {
   DeleteOutlined,
   ExclamationCircleOutlined,
   EyeTwoTone,
   PlusSquareTwoTone,
-} from "@ant-design/icons";
-import Search from "antd/lib/input/Search";
+} from '@ant-design/icons';
+import Search from 'antd/lib/input/Search';
+import { deletePost, getExpiredPost } from '../../services/post';
+import { toast } from 'react-toastify';
 
 export const ExpiredPost: React.FC = () => {
+  const [expiredPost, setExpiredPost] = useState([]);
+
+  const extendRequest = () => {
+    setTimeout(() => {
+      toast.success('Gửi yêu cầu gia hạn bài viết thành công!');
+    }, 2000);
+  };
+
+  useEffect(() => {
+    getExpiredPost(setExpiredPost);
+  }, []);
+
   const columns = [
     {
       title: 'Tiêu đề bài viết',
-      dataIndex: 'name',
-      key: 'name',
+      dataIndex: 'title',
+      key: 'title',
     },
     {
       title: 'Lượt xem',
       dataIndex: 'view',
       key: 'view',
+      render: (view: any) => {
+        return view ? view : 0;
+      },
     },
     {
       title: 'Lượt thích',
       dataIndex: 'like',
       key: 'like',
+      render: (like: any) => {
+        return like ? like : 0;
+      },
     },
     {
-      title: 'Ngày tạo bài',
-      dataIndex: 'date',
-      key: 'date',
+      title: 'Diện tích',
+      dataIndex: 'roomArea',
+      key: 'roomArea',
+      render: (text: any) => <>{text} m&sup2;</>,
+    },
+    {
+      title: 'Giá thuê',
+      dataIndex: 'roomPrice',
+      key: 'roomPrice',
+      render: (text: any) => (
+        <>{text.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')} VNĐ</>
+      ),
     },
     {
       title: 'Địa chỉ',
@@ -41,17 +70,7 @@ export const ExpiredPost: React.FC = () => {
       dataIndex: 'tags',
       render: (tags: any) => (
         <>
-          {tags.map((tag: any) => {
-            let color = 'geekblue';
-            if (tag === 'Đã cho thuê') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
+          <Tag color='red'>Đã hết hạn</Tag>
         </>
       ),
     },
@@ -60,82 +79,44 @@ export const ExpiredPost: React.FC = () => {
       key: 'action',
       render: (text: any, record: any) => (
         <>
-          <Tooltip title="Xem chi tiết" color="#1890ff">
+          <Tooltip title='Xem chi tiết' color='#1890ff'>
             <EyeTwoTone />
           </Tooltip>
-          <Tooltip title="Xóa bài viết" color="red  ">
+          <Tooltip title='Xóa bài viết' color='red  '>
             <DeleteOutlined
-              style={{ marginLeft: 30, color: "red" }}
+              style={{ marginLeft: 30, color: 'red' }}
               onClick={confirmDelete}
             />
           </Tooltip>
-          <Tooltip title="Gia hạn bài đăng" color="#48E692">
+          <Tooltip title='Gia hạn bài đăng' color='#48E692'>
             <PlusSquareTwoTone
-              twoToneColor="#48E692"
+              twoToneColor='#48E692'
               style={{ marginLeft: 30 }}
+              onClick={() => {
+                extendRequest();
+              }}
             />
           </Tooltip>
         </>
       ),
     },
   ];
-  const data = [
-    {
-      key: '1',
-      name: 'Phòng trọ giá dân',
-      date: '10/10/2020',
-      address: 'Xuân Đỉnh, Cầu Giấy',
-      tags: ['Chưa cho thuê'],
-      view: '100',
-      like: '50',
-    },
-    {
-      key: '2',
-      name: 'Phòng trọ giá dân',
-      date: '10/10/2020',
-      address: 'Xuân Đỉnh, Cầu Giấy',
-      tags: ['Đã cho thuê'],
-      view: '100',
-      like: '50',
-    },
-    {
-      key: '3',
-      name: 'Phòng trọ giá dân',
-      date: '10/10/2020',
-      address: 'Xuân Đỉnh, Cầu Giấy',
-      tags: ['Chưa cho thuê'],
-      view: '100',
-      like: '50',
-    },
-    {
-      key: '4',
-      name: 'Phòng trọ giá dân',
-      date: '10/10/2020',
-      address: 'Xuân Đỉnh, Cầu Giấy',
-      tags: ['Chưa cho thuê'],
-      view: '100',
-      like: '50',
-    },
-    {
-      key: '5',
-      name: 'Phòng trọ giá dân',
-      date: '10/10/2020',
-      address: 'Xuân Đỉnh, Cầu Giấy',
-      tags: ['Đã cho thuê'],
-      view: '100',
-      like: '50',
-    },
-  ];
-  function confirmDelete() {
+
+  const confirmDelete = (id: any) => {
     Modal.confirm({
       title: 'Xóa bài viết',
       icon: <ExclamationCircleOutlined />,
       content: 'Bạn sẽ xóa bài viết?',
       okText: 'OK',
       cancelText: 'Không',
-      onOk: () => {},
+      onOk: () => {
+        deletePost(id, () => {
+          getExpiredPost(setExpiredPost);
+        });
+      },
     });
-  }
+  };
+
   return (
     <div className='expired-post'>
       <Row justify='center' style={{ marginBottom: 20 }} className=''>
@@ -157,7 +138,7 @@ export const ExpiredPost: React.FC = () => {
       </Row>
       <Table
         columns={columns}
-        dataSource={data}
+        dataSource={expiredPost}
         bordered
         pagination={{ position: ['bottomCenter'], pageSize: 5 }}
       ></Table>

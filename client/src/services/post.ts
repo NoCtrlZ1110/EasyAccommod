@@ -1,4 +1,3 @@
-import { Province } from './../models/PostDetailModel';
 // http://localhost:21021/api/services/app/MstProvince/GetProvince
 import { toast } from 'react-toastify';
 import { API_URL } from '../config';
@@ -277,6 +276,70 @@ export const commentPost = (id: any, text: string, callback?: any) => {
     });
 };
 
+export const likePost = (id: any, callback?: any) => {
+  return API.post(
+    API_URL + 'services/app/Apartment/LikeNewsApartment',
+    {
+      apartmentId: id,
+    },
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('✅ Like post thành công');
+        if (callback) {
+          callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+export const addPostToFavorite = (id: any, callback?: any) => {
+  return API.post(
+    API_URL + 'services/app/Apartment/MarkIsFavorite',
+    {
+      apartmentId: id,
+    },
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('💗 Đã thêm bài viết vào danh sách yêu thích');
+        if (callback) {
+          callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+export const markRent = (id: any, callback?: any) => {
+  return API.post(
+    API_URL +
+      'services/app/Apartment/MarkIsRented?status=true&apartmentId=' +
+      id,
+    {},
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('Đã chuyển trạng thái bài viết sang đã cho thuê');
+        if (callback) {
+          callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+
 // api/services/app/Apartment/GetListComment?apartmentId=11&MaxResultCount=22
 
 export const getPostComment = (id: any, setComments: any) => {
@@ -316,7 +379,7 @@ export const deletePostComment = (id: any, callback?: any) => {
 
 // http://localhost:21021/api/services/app/Apartment/GetListAppartment?Title=111&ProvinceId=111&DistrictId=11&ApartmentTypeId=111&StayWithOwner=true&UnitPriceId=11&PriceFrom=111&PriceTo=11&AreaFrom=111&AreaTo=11&SkipCount=111&MaxResultCount=111
 
-interface FilterSearch {
+export interface FilterSearch {
   Title?: any;
   ProvinceId?: any;
   DistrictId?: any;
@@ -329,7 +392,11 @@ interface FilterSearch {
   SkipCount?: any;
 }
 
-export const searchPost = (filter: FilterSearch) => {
+export const searchPost = (
+  filter: FilterSearch,
+  setSearchResult?: any,
+  isHome?: any
+) => {
   let filterQuery = '';
   if (filter?.Title) {
     filterQuery += `&Title=${filter?.Title}`;
@@ -372,7 +439,11 @@ export const searchPost = (filter: FilterSearch) => {
     .then((response) => {
       const data = response.data;
       if (data.success) {
-        toast.success('✅ Search done!');
+        const result = data.result.items;
+        if (!isHome) toast.success(`✅ Tìm thấy ${result.length} kết quả!`);
+        if (setSearchResult) {
+          setSearchResult(result);
+        }
       }
     })
     .catch((error) => {
