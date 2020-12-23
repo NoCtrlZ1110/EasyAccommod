@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import history from '../services/history';
 import { Router, Switch, Route } from 'react-router-dom';
 import { NotFound } from '../components/not_found/NotFound';
@@ -6,7 +6,7 @@ import Home from '../scenes/home/Home';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import { Login } from '../scenes/login/Login';
-import TEST from '../scenes/test';
+import { TEST } from '../scenes/test';
 import AccommodList from '../scenes/accommod/AccommodList';
 import { SignUp } from '../scenes/sign_up/SignUp';
 import { SearchPage } from '../scenes/search/Search';
@@ -15,12 +15,10 @@ import { HomeUser } from '../scenes/home_user/HomeUser';
 import { Post } from '../scenes/accommod/Post';
 import { ChangePass } from '../scenes/change_pass/ChangePass';
 import { Widget, addResponseMessage } from 'react-chat-widget';
-
-const handleNewUserMessage = (newMessage: any) => {
-  console.log(`New message incoming! ${newMessage}`);
-  // Now send the message throught the backend API
-  addResponseMessage(newMessage);
-};
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { firestore } from '../services/firebase';
+import { getUser } from '../services/auth';
+import firebase from 'firebase';
 
 const routes = [
   {
@@ -81,18 +79,38 @@ export function AppRouter(props: any) {
   const user = localStorage.getItem('user');
   const isLogged = localStorage.getItem('accessToken') !== null;
 
+  const messagesRef = firestore.collection('messages');
+  const query = messagesRef.orderBy('createAt').limit(25);
+  const [messages] = useCollectionData<any>(query, { idField: 'id' });
+
+  const sendMessage = async (message: string) => {
+    await messagesRef.add({
+      text: message,
+      createAt: firebase.firestore.FieldValue.serverTimestamp(),
+      userId: getUser()?.id,
+    });
+  };
+
+  const handleUserMessage = (newMessage: any) => {
+    sendMessage(newMessage);
+  };
+
+  useEffect(() => {
+    const text = messages?.slice(-1)[0]?.text;
+    const _id = messages?.slice(-1)[0]?.userId;
+    if (text && _id !== getUser()?.id) addResponseMessage(text);
+  }, [messages]);
+
   return (
     <>
       {isLogged && (
         <Widget
-          handleNewUserMessage={handleNewUserMessage}
+          handleNewUserMessage={handleUserMessage}
           profileAvatar={'/svgs/admin.svg'}
           title='Chat với admin'
           subtitle='Nhận sự trợ giúp nhanh chóng từ quản trị viên'
         />
       )}
-      <div id='sidebar-left' />
-      <div id='sidebar-right' />
       <Router history={history}>
         <Switch>
           {routes.map((route, i) => (
