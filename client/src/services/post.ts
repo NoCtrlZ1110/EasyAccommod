@@ -1,3 +1,4 @@
+import { Province } from './../models/PostDetailModel';
 // http://localhost:21021/api/services/app/MstProvince/GetProvince
 import { toast } from 'react-toastify';
 import { API_URL } from '../config';
@@ -6,7 +7,7 @@ import { getAccessToken } from './auth';
 import history from '../services/history';
 
 const handleError = (error: any) => {
-  const err = error.response?.data.error;
+  const err = error?.response?.data?.error;
   if (err) {
     toast.error(err.message + (err.details ? '\n' + err.details : ''));
   }
@@ -306,6 +307,72 @@ export const deletePostComment = (id: any, callback?: any) => {
         if (callback) {
           callback();
         }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+
+// http://localhost:21021/api/services/app/Apartment/GetListAppartment?Title=111&ProvinceId=111&DistrictId=11&ApartmentTypeId=111&StayWithOwner=true&UnitPriceId=11&PriceFrom=111&PriceTo=11&AreaFrom=111&AreaTo=11&SkipCount=111&MaxResultCount=111
+
+interface FilterSearch {
+  Title?: any;
+  ProvinceId?: any;
+  DistrictId?: any;
+  ApartmentTypeId?: any;
+  StayWithOwner?: any;
+  UnitPriceId?: any;
+  PriceFrom?: any;
+  AreaFrom?: any;
+  AreaTo?: any;
+  SkipCount?: any;
+}
+
+export const searchPost = (filter: FilterSearch) => {
+  let filterQuery = '';
+  if (filter?.Title) {
+    filterQuery += `&Title=${filter?.Title}`;
+  }
+  if (filter?.ProvinceId) {
+    filterQuery += `&ProvinceId=${filter?.ProvinceId}`;
+  }
+  if (filter?.DistrictId) {
+    filterQuery += `&DistrictId=${filter?.DistrictId}`;
+  }
+  if (filter?.ApartmentTypeId) {
+    filterQuery += `&ApartmentTypeId=${filter?.ApartmentTypeId}`;
+  }
+  if (filter?.StayWithOwner) {
+    filterQuery += `&StayWithOwner=${filter?.StayWithOwner}`;
+  }
+  if (filter?.UnitPriceId) {
+    filterQuery += `&UnitPriceId=${filter?.UnitPriceId}`;
+  }
+  if (filter?.PriceFrom) {
+    filterQuery += `&PriceFrom=${filter?.PriceFrom}`;
+  }
+  if (filter?.AreaFrom) {
+    filterQuery += `&AreaFrom=${filter?.AreaFrom}`;
+  }
+  if (filter?.AreaTo) {
+    filterQuery += `&AreaTo=${filter?.AreaTo}`;
+  }
+  if (filter?.SkipCount) {
+    filterQuery += `&AreaTo=${filter?.SkipCount}`;
+  }
+  API.get(
+    API_URL +
+      'services/app/Apartment/GetListAppartment?MaxResultCount=9999' +
+      filterQuery,
+    {
+      headers: { Authorization: 'Bearer ' + getAccessToken() },
+    }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('✅ Search done!');
       }
     })
     .catch((error) => {
