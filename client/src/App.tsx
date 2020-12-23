@@ -5,7 +5,8 @@ import { AppRouter } from './routes/AppRouter';
 import { ToastContainer, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-chat-widget/lib/styles.css';
-function App() {
+
+const App = () => {
   return (
     <>
       <ToastContainer
@@ -22,6 +23,6 @@ function App() {
       </DocumentTitle>
     </>
   );
-}
+};
 
 export default App;
