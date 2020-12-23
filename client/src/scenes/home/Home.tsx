@@ -4,6 +4,7 @@ import { enquireScreen } from 'enquire-js';
 import Banner from '../../components/banner/Banner';
 
 import '../../static/style.ts';
+import { HomeUser } from '../home_user/HomeUser';
 
 let isMobile: any;
 
@@ -14,6 +15,7 @@ enquireScreen((b: any) => {
 class Home extends React.PureComponent {
   state = {
     isMobile,
+    isLogged: false,
   };
   componentDidMount() {
     enquireScreen((b: any) => {
@@ -21,17 +23,20 @@ class Home extends React.PureComponent {
         isMobile: !!b,
       });
     });
+    this.setState({ isLogged: localStorage.getItem('accessToken') !== null });
   }
   render() {
-    return (
-      <DocumentTitle title='Easy Accommod'>
-        <div>
-          <div className='home-wrapper container'>
-            <Banner isMobile={this.state.isMobile} />
+    if (this.state.isLogged) return <HomeUser />;
+    else
+      return (
+        <DocumentTitle title='Easy Accommod'>
+          <div>
+            <div className='home-wrapper container'>
+              <Banner isMobile={this.state.isMobile} />
+            </div>
           </div>
-        </div>
-      </DocumentTitle>
-    );
+        </DocumentTitle>
+      );
   }
 }
 

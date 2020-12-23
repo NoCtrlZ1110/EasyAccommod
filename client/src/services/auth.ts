@@ -51,7 +51,8 @@ export const login = (
     })
     .catch((error) => {
       const err = error?.response?.data.error;
-      if ( err) { }
+      if (err) {
+      }
     });
 };
 
@@ -91,6 +92,32 @@ export const updateUser = (data: any) => {
         });
       }
       return response.data;
+    })
+    .catch((error) => {
+      const err = error.response.data.error;
+      toast.error(err.message + (err.details ? '\n' + err.details : ''));
+    });
+};
+
+export const changePassword = (
+  currentPassword: string,
+  newPassword: string
+) => {
+  return API.post(
+    API_URL + 'services/app/User/ChangePassword',
+    {
+      currentPassword: currentPassword,
+      newPassword: newPassword,
+    },
+
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('✅ Đổi mật khẩu thành công');
+        history.push('/profile');
+      }
     })
     .catch((error) => {
       const err = error.response.data.error;
