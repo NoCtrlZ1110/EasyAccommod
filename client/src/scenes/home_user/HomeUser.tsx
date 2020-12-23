@@ -1,161 +1,188 @@
-import {
-  Card,
-  Carousel,
-  Row,
-  Image,
-  Tooltip,
-  List,
-  Badge,
-  Divider,
-} from "antd";
-import React, { useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
-import { SearchBar } from "../../components/search_bar/SearchBar";
-import { LikeOutlined, CommentOutlined, PlusOutlined } from "@ant-design/icons";
-import Meta from "antd/lib/card/Meta";
+import { Card, Row, Tooltip, List, Divider, Avatar, Space, Col } from 'antd';
+import React, { useEffect, useState } from 'react';
 
-export const  HomeUser: React.FC = () => {
-  const imagePostList = [
-    "https://cdn.thongtinduan.com/uploads/posts/2019-07/1562040097_nhung-kien-thuc-co-ban-can-biet-truoc-khi-ki-hop-dong-thue-nha-tro2.jpg",
-    "https://vnn-imgs-f.vgcloud.vn/2018/12/13/15/nha-tro.jpg",
-    "https://cdn.thongtinduan.com/uploads/posts/2019-07/1562040097_nhung-kien-thuc-co-ban-can-biet-truoc-khi-ki-hop-dong-thue-nha-tro2.jpg",
-  ];
-  const carousel = useRef<any>();
-  const next = () => (carousel.current as any).next();
-  const prev = () => (carousel.current as any).prev();
-  const mostViewPostTitle = "Phòng trọ khép kín tại Xuân Thủy, Cầu Giấy";
-  const mostViewPostContent =
-    "Cần cho thuê phòng trọ homestay ngay tại ngõ 133 Xuân Thủy (đối diện) chợ Xanh. Phòng 2-3 giường tầng. Có phòng vip. Phòng rộng rãi, phù hợp cho hộ gia đình. Sinh viên đi làm thêm, balbab blab abla bla abla";
+import { SearchBar } from '../../components/search_bar/SearchBar';
+import { LikeOutlined, CommentOutlined, PlusOutlined } from '@ant-design/icons';
+import Meta from 'antd/lib/card/Meta';
+import { searchPost } from '../../services/post';
+import { Apartment } from '../../models/PostDetailModel';
+import { Link } from 'react-router-dom';
+import { StarOutlined, HomeOutlined } from '@ant-design/icons';
+
+export const HomeUser: React.FC = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    searchPost({}, setPosts, true);
+  }, []);
+
   const listSuggestPost = [];
   const listSuggestPostTitle = [
-    "Phòng trọ giá rẻ",
-    "Phòng cho nữ",
-    "Phòng cho nữ",
-    "Phòng trọ giá rẻ",
-    "Phòng cho nữ",
-    "Phòng trọ giá rẻ",
-    "Phòng trọ giá rẻ",
-    "Phòng trọ giá rẻ",
-    "Phòng trọ giá rẻ",
-    "Phòng cho nữ",
+    'Phòng trọ giá rẻ',
+    'Phòng cho nữ',
+    'Phòng cho nữ',
+    'Phòng trọ giá rẻ',
+    'Phòng cho nữ',
+    'Phòng trọ giá rẻ',
+    'Phòng trọ giá rẻ',
+    'Phòng trọ giá rẻ',
+    'Phòng trọ giá rẻ',
+    'Phòng cho nữ',
   ];
   const listPriceSuggestPost = [
     '1 Triệu',
-    '2 Triệu', 
+    '2 Triệu',
     '10 Triệu',
     '3.2 Triệu',
     '1 Triệu',
-    '2 Triệu', 
+    '2 Triệu',
     '1 Triệu',
     '2 Triệu',
     '1 Triệu',
-    '2 Triệu', 
-  ]
+    '2 Triệu',
+  ];
   for (let i = 0; i < 10; i++) {
     listSuggestPost.push({
-      href: "",
+      href: '',
       title: listPriceSuggestPost[i],
-      content: listSuggestPostTitle[i]
+      content: listSuggestPostTitle[i],
     });
   }
+
+  const IconText = ({ icon, text }: any) => (
+    <Space>
+      {React.createElement(icon)}
+      {text}
+    </Space>
+  );
+
   return (
-    <div className="home-user container">
-      <div className="home-user-search row text-center">
-        <div className="search-title col-3">Tìm kiếm tại đây</div>
-        <div className="col-9">
+    <div className='home-user container'>
+      <div className='home-user-search row text-center'>
+        <div className='col'>
           <SearchBar></SearchBar>
         </div>
       </div>
-      <Row justify="space-between" className="home-body">
-        <>
-          <Row justify="start" className="slide-card">
-            <div className="prev-icon" onClick={prev}>
-              <FontAwesomeIcon
-                className="prev-FontAwesomeIcon"
-                icon={faChevronLeft}
-                size="2x"
-                color="white"
-              />
-            </div>
-            <div className="slide-image">
-              <Carousel draggable ref={carousel} dotPosition="bottom">
-                {imagePostList.map((image) => (
-                  <div className="">
-                    <Badge.Ribbon text="Được xem nhiều nhất" color="red">
-                      <Image className="image-post" src={image} />
-                    </Badge.Ribbon>
-                  </div>
-                ))}
-              </Carousel>
-            </div>
-            <div className="next-icon" onClick={next}>
-              <FontAwesomeIcon
-                className="next-FontAwesomeIcon"
-                icon={faChevronRight}
-                size="2x"
-                color="white"
-              />
-            </div>
-            <p className="post-title">{mostViewPostTitle}</p>
-            <p className="post-content">
-              {mostViewPostContent}
-              <div
-                style={{
-                  textDecoration: "underline",
-                  fontStyle: "italic",
-                  marginLeft: 10,
-                  fontFamily: "Quicksand",
-                  color: "#3A6CF9",
-                  cursor: "pointer",
-                }}
-                onClick={() => {}}
-              >
-                Xem chi tiết
-              </div>
-            </p>
-          </Row>
-          <br />
-        </>
-        <Card className="suggest-post">
-          <Divider style={{ fontSize: 18, fontWeight: 500, cursor: "pointer" }}>
-            <div onClick={() => {}}>
-            Các bài viết tương tự
-            </div>
+      <Row justify='space-between' className='home-body'>
+        <Col>
+          <Card style={{ minWidth: 750 }}>
+            <Divider orientation='left'>Các bài viết nổi bật</Divider>
+            <List
+              itemLayout='vertical'
+              size='large'
+              pagination={{
+                pageSize: 3,
+                total: posts.length,
+              }}
+              dataSource={posts}
+              renderItem={(item: Apartment, index) => (
+                <List.Item
+                  key={item.title}
+                  actions={[
+                    <IconText
+                      icon={HomeOutlined}
+                      text={<>{item.roomArea} m&sup2;</>}
+                      key='list-vertical-star-o'
+                    />,
+                    <IconText
+                      icon={LikeOutlined}
+                      text={item.like}
+                      key='list-vertical-like-o'
+                    />,
+                    <IconText
+                      icon={StarOutlined}
+                      text={4.7}
+                      key='list-vertical-message'
+                    />,
+                  ]}
+                  extra={
+                    <>
+                      <div className='my-3'>
+                        <img
+                          width={272}
+                          height={150}
+                          alt='logo'
+                          src={
+                            index === 1
+                              ? 'https://cloud.mogi.vn/images/2020/11/09/368/2f98c1ec352f419db14344b46415b315.jpg'
+                              : index === 2
+                              ? 'https://bit.ly/2VCho0Q'
+                              : 'https://cloud.mogi.vn/images/2020/12/17/000/d2c2141b299449d9909bd71d32c914f6.jpg'
+                          }
+                          style={{ borderRadius: 10 }}
+                        />
+                      </div>
+                      <b
+                        className='ml-5'
+                        style={{ fontSize: 18, color: '#cf2d49' }}
+                      >
+                        {item.roomPrice
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' '}
+                        VNĐ / tháng
+                      </b>
+                    </>
+                  }
+                >
+                  <List.Item.Meta
+                    avatar={
+                      <Avatar
+                        src={
+                          'https://upload.wikimedia.org/wikipedia/commons/c/ca/VNU.logo.jpg'
+                        }
+                      />
+                    }
+                    title={
+                      <Link to={'/post/detail/' + item.id}>{item.title}</Link>
+                    }
+                    description={
+                      <span className=''>
+                        {item.district.name + ' - ' + item.province.name}
+                      </span>
+                    }
+                  />
+                  {item.detail}
+                  <div className='contact-info'>Liên hệ: {item.ownerPhone}</div>
+                  <br />
+                </List.Item>
+              )}
+            />
+          </Card>
+        </Col>
+        <Card className='suggest-post'>
+          <Divider style={{ fontSize: 18, fontWeight: 500, cursor: 'pointer' }}>
+            <div onClick={() => {}}>Các bài viết tương tự</div>
           </Divider>
           <List
             dataSource={listSuggestPost}
             pagination={{
               pageSize: 2,
               total: 10,
-              position: "bottom",
+              position: 'bottom',
             }}
             renderItem={(item) => (
               <List.Item>
                 <Card
-                  className="suggest-post-card"
+                  className='suggest-post-card'
                   cover={
                     <img
-                      alt="example"
-                      src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                      alt='example'
+                      src='https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
                     />
                   }
                   hoverable
                   actions={[
-                    <Tooltip title="20 Lượt thích" color="#F95559">
-                      <LikeOutlined key="like" />
+                    <Tooltip title='20 Lượt thích' color='#F95559'>
+                      <LikeOutlined key='like' />
                     </Tooltip>,
-                    <Tooltip title="30 bình luận" color="blue">
-                      <CommentOutlined key="cmt" />
+                    <Tooltip title='30 bình luận' color='blue'>
+                      <CommentOutlined key='cmt' />
                     </Tooltip>,
                     <Tooltip
-                      title="Thêm vào danh sách yêu thích"
-                      color="#F76B6E"
+                      title='Thêm vào danh sách yêu thích'
+                      color='#F76B6E'
                     >
-                      <PlusOutlined key="add-to-my-list" />
+                      <PlusOutlined key='add-to-my-list' />
                     </Tooltip>,
                   ]}
                   onClick={() => {}}

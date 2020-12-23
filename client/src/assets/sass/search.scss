@@ -37,9 +37,9 @@
 .ant-form-item-label {
   min-width: 150px !important;
 }
-
+.search-result{
 .list-post {
-  width: 60%;
+  width: 70%;
   margin-top: 20px;
   margin-bottom: 20px;
   .post-title {
@@ -62,7 +62,7 @@
 .search-right {
   margin-top: 45px;
   height: 100%;
-  width: 35%;
+  width: 20%;
   .room-place {
     width: 80%;
     border-radius: 10px;
@@ -87,6 +87,8 @@
   color: rosybrown;
 }
 .banner {
-    width: 80%;
+    // width: 80%;
     margin-left: 10%;
+    
+}
 }

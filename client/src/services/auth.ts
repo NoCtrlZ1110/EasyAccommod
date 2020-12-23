@@ -4,8 +4,10 @@ import API from './api';
 import history from './history';
 
 const handleError = (error: any) => {
-  const err = error.response.data.error;
-  toast.error(err.message + (err.details ? '\n' + err.details : ''));
+  const err = error?.response?.data?.error;
+  if (err) {
+    toast.error(err.message + (err.details ? '\n' + err.details : ''));
+  }
 };
 
 export const register = (values: any) => {

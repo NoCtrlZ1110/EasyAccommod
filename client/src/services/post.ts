@@ -6,7 +6,7 @@ import { getAccessToken } from './auth';
 import history from '../services/history';
 
 const handleError = (error: any) => {
-  const err = error.response?.data.error;
+  const err = error?.response?.data?.error;
   if (err) {
     toast.error(err.message + (err.details ? '\n' + err.details : ''));
   }
@@ -276,6 +276,70 @@ export const commentPost = (id: any, text: string, callback?: any) => {
     });
 };
 
+export const likePost = (id: any, callback?: any) => {
+  return API.post(
+    API_URL + 'services/app/Apartment/LikeNewsApartment',
+    {
+      apartmentId: id,
+    },
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('✅ Like post thành công');
+        if (callback) {
+          callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+export const addPostToFavorite = (id: any, callback?: any) => {
+  return API.post(
+    API_URL + 'services/app/Apartment/MarkIsFavorite',
+    {
+      apartmentId: id,
+    },
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('💗 Đã thêm bài viết vào danh sách yêu thích');
+        if (callback) {
+          callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+export const markRent = (id: any, callback?: any) => {
+  return API.post(
+    API_URL +
+      'services/app/Apartment/MarkIsRented?status=true&apartmentId=' +
+      id,
+    {},
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('Đã chuyển trạng thái bài viết sang đã cho thuê');
+        if (callback) {
+          callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+
 // api/services/app/Apartment/GetListComment?apartmentId=11&MaxResultCount=22
 
 export const getPostComment = (id: any, setComments: any) => {
@@ -305,6 +369,80 @@ export const deletePostComment = (id: any, callback?: any) => {
         toast.success('✅ Xoá comment thành công');
         if (callback) {
           callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+
+// http://localhost:21021/api/services/app/Apartment/GetListAppartment?Title=111&ProvinceId=111&DistrictId=11&ApartmentTypeId=111&StayWithOwner=true&UnitPriceId=11&PriceFrom=111&PriceTo=11&AreaFrom=111&AreaTo=11&SkipCount=111&MaxResultCount=111
+
+export interface FilterSearch {
+  Title?: any;
+  ProvinceId?: any;
+  DistrictId?: any;
+  ApartmentTypeId?: any;
+  StayWithOwner?: any;
+  UnitPriceId?: any;
+  PriceFrom?: any;
+  AreaFrom?: any;
+  AreaTo?: any;
+  SkipCount?: any;
+}
+
+export const searchPost = (
+  filter: FilterSearch,
+  setSearchResult?: any,
+  isHome?: any
+) => {
+  let filterQuery = '';
+  if (filter?.Title) {
+    filterQuery += `&Title=${filter?.Title}`;
+  }
+  if (filter?.ProvinceId) {
+    filterQuery += `&ProvinceId=${filter?.ProvinceId}`;
+  }
+  if (filter?.DistrictId) {
+    filterQuery += `&DistrictId=${filter?.DistrictId}`;
+  }
+  if (filter?.ApartmentTypeId) {
+    filterQuery += `&ApartmentTypeId=${filter?.ApartmentTypeId}`;
+  }
+  if (filter?.StayWithOwner) {
+    filterQuery += `&StayWithOwner=${filter?.StayWithOwner}`;
+  }
+  if (filter?.UnitPriceId) {
+    filterQuery += `&UnitPriceId=${filter?.UnitPriceId}`;
+  }
+  if (filter?.PriceFrom) {
+    filterQuery += `&PriceFrom=${filter?.PriceFrom}`;
+  }
+  if (filter?.AreaFrom) {
+    filterQuery += `&AreaFrom=${filter?.AreaFrom}`;
+  }
+  if (filter?.AreaTo) {
+    filterQuery += `&AreaTo=${filter?.AreaTo}`;
+  }
+  if (filter?.SkipCount) {
+    filterQuery += `&AreaTo=${filter?.SkipCount}`;
+  }
+  API.get(
+    API_URL +
+      'services/app/Apartment/GetListAppartment?MaxResultCount=9999' +
+      filterQuery,
+    {
+      headers: { Authorization: 'Bearer ' + getAccessToken() },
+    }
+  )
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        const result = data.result.items;
+        if (!isHome) toast.success(`✅ Tìm thấy ${result.length} kết quả!`);
+        if (setSearchResult) {
+          setSearchResult(result);
         }
       }
     })

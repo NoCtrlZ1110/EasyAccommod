@@ -21,11 +21,15 @@ import {
 import history from '../../services/history';
 import Search from 'antd/lib/input/Search';
 import LineChart from '../../components/chart/LineChart';
-import { deletePost, getAprrovedPost } from '../../services/post';
+import { deletePost, getAprrovedPost, markRent } from '../../services/post';
+import { Apartment } from '../../models/PostDetailModel';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 export const ActivePost: React.FC = () => {
   const [approvedPost, setApprovedPost] = useState([]);
-
+  const [fromDate, setFromDate] = useState<any>();
+  const [toDate, setToDate] = useState<any>();
   useEffect(() => {
     getAprrovedPost(setApprovedPost);
   }, []);
@@ -47,33 +51,9 @@ export const ActivePost: React.FC = () => {
 
   const dataView = [21, 22, 10, 28, 16, 21, 13, 33, 55, 35];
   const dataLike = [100, 50, 20, 70, 45, 67, 85, 53, 65, 53];
-  const dataTitle = [
-    'Phòng trọ giá rẻ',
-    'Phòng cho nữ',
-    'Phòng trọ giá rẻ',
-    'Phòng cho nữ',
-    'Phòng trọ giá rẻ',
-    'Phòng cho nữ',
-    'Phòng trọ giá rẻ',
-    'Phòng cho nữ',
-    'Phòng trọ giá rẻ',
-    'Phòng cho nữ',
-  ];
-  const dataPostIndex = [
-    'Bài viết số 1',
-    'Bài viết số 2',
-    'Bài viết số 3',
-    'Bài viết số 4',
-    'Bài viết số 5',
-    'Bài viết số 6',
-    'Bài viết số 7',
-    'Bài viết số 8',
-    'Bài viết số 9',
-    'Bài viết số 10',
-  ];
+
   const chartHeight = 400;
   const chartWidth = 750;
-  const listData = [];
   const columns = [
     {
       title: 'Tiêu đề bài viết',
@@ -151,24 +131,61 @@ export const ActivePost: React.FC = () => {
             <CheckCircleTwoTone
               twoToneColor='#52c41a'
               style={{ marginLeft: 30, color: 'red' }}
-              onClick={() => {}}
+              onClick={() => {
+                markRent(id);
+              }}
             />
           </Tooltip>
         </>
       ),
     },
   ];
-
-  for (let i = 0; i < 10; i++) {
-    listData.push({
-      href: '',
-      title: dataPostIndex[i],
-      content: dataTitle[i],
-    });
-  }
-
+  const onSearch = (value: string) => {
+    if (!(value.length > 0)) {
+      getAprrovedPost(setApprovedPost);
+    } else {
+      getAprrovedPost(setApprovedPost, {
+        title: value,
+        dateFrom: fromDate,
+        dateTo: toDate,
+      });
+    }
+  };
   return (
     <div className='active-post'>
+      <Divider>
+        <h3>Tất cả các bài viết</h3>
+      </Divider>
+      <div className='active-post'>
+        <div className='ml-auto d-flex'>
+          <DatePicker
+            placeholder='Từ'
+            style={{ marginRight: 20, minWidth: 200 }}
+            onChange={(date) => setToDate(moment(date).format('L'))}
+          />
+          <DatePicker
+            placeholder='Đến'
+            style={{ marginRight: 20, minWidth: 200 }}
+            onChange={(date) => setFromDate(moment(date).format('L'))}
+          />
+
+          <Search
+            style={{}}
+            placeholder='Tìm kiếm'
+            allowClear
+            enterButton='Tìm'
+            size='large'
+            onSearch={onSearch}
+          />
+        </div>
+        <Divider />
+        <Table
+          bordered
+          columns={columns}
+          dataSource={approvedPost}
+          pagination={{ pageSize: 5 }}
+        ></Table>
+      </div>
       <Row justify='space-around' style={{ margin: 20 }}>
         <Card className='like-view-chart text-center'>
           <div className='chart-title'>10 bài viết nổi bật nhất</div>
@@ -185,16 +202,18 @@ export const ActivePost: React.FC = () => {
               pageSize: 4,
               total: 10,
             }}
-            dataSource={listData}
-            renderItem={(item) => (
+            dataSource={approvedPost}
+            renderItem={(item: Apartment) => (
               <List.Item key={item.title} className='item-title'>
                 <List.Item.Meta
-                  title={<a href={item.href}>{item.title}</a>}
-                  description={item.content}
+                  title={
+                    <Link to={'/post/detail/' + item.id}>{item.title}</Link>
+                  }
+                  description={item.detail}
                 />
                 <Image
                   className='item-image'
-                  src='https://pbs.twimg.com/media/EiHnf16XYAIR-7D.jpg'
+                  src='https://cloud.mogi.vn/images/2020/11/16/273/dc7e966a4770454486dde923ab7311de.jpg'
                 ></Image>
               </List.Item>
             )}
@@ -202,34 +221,6 @@ export const ActivePost: React.FC = () => {
         </Card>
       </Row>
       <br />
-      <Divider>
-        <h3>Tất cả các bài viết</h3>
-      </Divider>
-      <div className='active-post'>
-        <Row justify='center' style={{ marginBottom: 20 }} className=''>
-          <Search
-            style={{ marginBottom: 20 }}
-            placeholder='Tìm kiếm'
-            allowClear
-            enterButton='Tìm'
-            size='large'
-            className='col-5'
-          />
-          <div className='col-5'>
-            <Row justify='space-around'>
-              <p style={{ fontSize: 16 }}>Ngày tạo</p>
-              <DatePicker placeholder='Từ ngày' />
-              <DatePicker placeholder='Đến ngày' />
-            </Row>
-          </div>
-        </Row>
-        <Table
-          bordered
-          columns={columns}
-          dataSource={approvedPost}
-          pagination={{ pageSize: 5 }}
-        ></Table>
-      </div>
     </div>
   );
 };
