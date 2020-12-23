@@ -1,43 +1,92 @@
-.search-bar{
+.search-bar {
+  .ant-input-affix-wrapper {
+    height: 55px;
+  }
 
-    .ant-input-affix-wrapper{
-        height: 55px;
+  .ant-input-group-addon {
+    z-index: 1;
+    background-color: unset;
+  }
+
+  .ant-input-affix-wrapper {
+    border-top: 3px solid #508f55;
+    border-bottom: 3px solid #508f55;
+    border-left: unset;
+    border-right: unset;
+    z-index: 0;
+  }
+
+  .ant-input {
+    margin-left: 10px;
+    font-size: large;
+  }
+
+  .filter-btn {
+    border: 3px solid #508f55;
+    border-right: unset;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    transform: translateX(10px);
+  }
+
+  .ant-input-search-button {
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+  }
+}
+.ant-form-item-label {
+  min-width: 150px !important;
+}
+
+.list-post {
+  width: 60%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .post-title {
+  font-size: 20px;
+  font-weight: 800;
+  animation: color-change 0.5s infinite;
+  @keyframes color-change {
+    0% {
+      color: red;
     }
-
-    .ant-input-group-addon{
-        z-index: 1;
-        background-color: unset;
+    50% {
+      color: rgb(108, 108, 233);
     }
-
-    .ant-input-affix-wrapper {
-        border-top: 3px solid #508f55;
-        border-bottom: 3px solid #508f55;
-        border-left: unset;
-        border-right: unset;
-        z-index: 0;
+    100% {
+      color: red;
     }
-
-    .ant-input{
-        margin-left: 10px;
-        font-size: large;
-    }
-
-    .filter-btn {
-        border: 3px solid #508f55;
-        border-right: unset;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
-        transform: translateX(10px);
-
-    }
-
-    .ant-input-search-button{
-        border-top-right-radius: 10px!important;
-        border-bottom-right-radius: 10px!important;
-    }
-
-   
-
-} 
-.ant-form-item-label{
-        min-width: 150px!important;}
+  }
+}
+}
+.search-right {
+  margin-top: 45px;
+  height: 100%;
+  width: 35%;
+  .room-place {
+    width: 80%;
+    border-radius: 10px;
+    margin: auto;
+  }
+  .ant-card-head {
+    min-height: 48px;
+    margin-bottom: -1px;
+    padding: 0 24px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    background: #65cee0;
+    border-bottom: 1px solid;
+    border-radius: 2px 2px 2px 2px;
+  }
+}
+.contact-info {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: left;
+  color: rosybrown;
+}
+.banner {
+    width: 80%;
+    margin-left: 10%;
+}
