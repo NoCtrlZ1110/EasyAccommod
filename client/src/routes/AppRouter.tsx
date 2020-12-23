@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import history from '../services/history';
 import {Route, Router, Switch} from 'react-router-dom';
 import {NotFound} from '../components/not_found/NotFound';
@@ -17,13 +17,15 @@ import { ChangePass } from '../scenes/change_pass/ChangePass';
 import { Widget, addResponseMessage } from 'react-chat-widget';
 import utils from "../admin/utils/utils";
 import ProtectedRoute from '../admin/components/Router/ProtectedRoute';
-
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { firestore } from '../services/firebase';
+import { getUser } from '../services/auth';
+import firebase from 'firebase';
 const handleNewUserMessage = (newMessage: any) => {
   console.log(`New message incoming! ${newMessage}`);
   // Now send the message throught the backend API
   addResponseMessage(newMessage);
 };
-
 const routes = [
   {
     path: '/login',
@@ -84,11 +86,33 @@ export function AppRouter(props: any) {
   const isLogged = localStorage.getItem('accessToken') !== null;
   const AppLayout = utils.getRoute('/admin').component;
   const UserLayout = utils.getRoute('/admin/user').component;
+
+  const messagesRef = firestore.collection('messages');
+  const query = messagesRef.orderBy('createAt').limit(25);
+  const [messages] = useCollectionData<any>(query, { idField: 'id' });
+
+  const sendMessage = async (message: string) => {
+    await messagesRef.add({
+      text: message,
+      createAt: firebase.firestore.FieldValue.serverTimestamp(),
+      userId: getUser()?.id,
+    });
+  };
+
+  const handleUserMessage = (newMessage: any) => {
+    sendMessage(newMessage);
+  };
+
+  useEffect(() => {
+    const text = messages?.slice(-1)[0]?.text;
+    const _id = messages?.slice(-1)[0]?.userId;
+    if (text && _id !== getUser()?.id) addResponseMessage(text);
+  }, [messages]);
   return (
     <>
       {isLogged && (
         <Widget
-          handleNewUserMessage={handleNewUserMessage}
+          handleNewUserMessage={handleUserMessage}
           profileAvatar={'/svgs/admin.svg'}
           title='Chat với admin'
           subtitle='Nhận sự trợ giúp nhanh chóng từ quản trị viên'
