@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f893d43-9612-407c-9ea1-64d9683e6edf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/ApartmentAppService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/UET.EasyAccommod.Application/Sales/ApartmentAppService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/AppRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/AppRouter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/accommod/PostDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/accommod/PostDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/create_post/CreatePost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/create_post/CreatePost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/profile_owner/ActivePost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/profile_owner/ActivePost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/profile_owner/PendingPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/profile_owner/PendingPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/post.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

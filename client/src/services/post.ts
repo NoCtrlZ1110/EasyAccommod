@@ -6,8 +6,10 @@ import { getAccessToken } from './auth';
 import history from '../services/history';
 
 const handleError = (error: any) => {
-  const err = error.response.data.error;
-  toast.error(err.message + (err.details ? '\n' + err.details : ''));
+  const err = error.response?.data.error;
+  if (err) {
+    toast.error(err.message + (err.details ? '\n' + err.details : ''));
+  }
 };
 
 export const getProvinces = (setProvinces: any) => {
@@ -87,10 +89,39 @@ export const submitPost = (data: any) => {
     });
 };
 
+// services/app/Apartment/SendNewsRate
+/* {
+  "apartmentId": 10,
+  "assessorId": 4,
+  "rate": 3,
+} */
+
+export const ratePost = (rate: any, apartmentId: any, callback?: any) => {
+  const data = {
+    rate,
+    apartmentId,
+  };
+  return API.post(API_URL + 'services/app/Apartment/SendNewsRate', data, {
+    headers: { Authorization: 'Bearer ' + getAccessToken() },
+  })
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        toast.success('✅ Đánh giá thành công!');
+        if (callback) {
+          callback();
+        }
+      }
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+
 // api/services/app/Apartment/GetListAppartmentOfOwner?Status=1&MaxResultCount=99
 // GetListAppartmentOfOwner?Title=tr%E1%BB%8D&DateFrom=1%2F1%2F2000&DateTo=1%2F1%2F2020&Status=1&SkipCount=0&MaxResultCount=99
-export const getPendingPost = (
-  setPendingPost: any,
+export const getPendingPosts = (
+  setPendingPosts: any,
   filter?: { title?: string; dateFrom?: any; dateTo?: any }
 ) => {
   let filterQuery = '';
@@ -111,7 +142,64 @@ export const getPendingPost = (
   )
     .then((response) => {
       const data = response.data.result.items;
-      setPendingPost(data);
+      setPendingPosts(data);
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+
+export const getAprrovedPost = (
+  setApprovedPost: any,
+  filter?: { title?: string; dateFrom?: any; dateTo?: any }
+) => {
+  let filterQuery = '';
+  if (filter?.title) {
+    filterQuery += `&Title=${filter?.title}`;
+  }
+  if (filter?.dateFrom) {
+    filterQuery += `&DateFrom=${filter?.dateFrom}`;
+  }
+  if (filter?.dateTo) {
+    filterQuery += `&DateTo=${filter?.dateTo}`;
+  }
+  return API.get(
+    API_URL +
+      'services/app/Apartment/GetListAppartmentOfOwner?Status=2&MaxResultCount=999' +
+      filterQuery,
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data.result.items;
+      setApprovedPost(data);
+    })
+    .catch((error) => {
+      handleError(error);
+    });
+};
+export const getExpiredPost = (
+  setExpriedPosts: any,
+  filter?: { title?: string; dateFrom?: any; dateTo?: any }
+) => {
+  let filterQuery = '';
+  if (filter?.title) {
+    filterQuery += `&Title=${filter?.title}`;
+  }
+  if (filter?.dateFrom) {
+    filterQuery += `&DateFrom=${filter?.dateFrom}`;
+  }
+  if (filter?.dateTo) {
+    filterQuery += `&DateTo=${filter?.dateTo}`;
+  }
+  return API.get(
+    API_URL +
+      'services/app/Apartment/GetListAppartmentOfOwner?Status=3&MaxResultCount=999' +
+      filterQuery,
+    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+  )
+    .then((response) => {
+      const data = response.data.result.items;
+      setExpriedPosts(data);
     })
     .catch((error) => {
       handleError(error);
@@ -139,7 +227,7 @@ export const deletePost = (id: any, callback?: any) => {
 
 // api/services/app/Apartment/GetApartmentDetail?ApartmentId=10
 
-export const getPostDetail = (id: any, setPostDetail: any) => {
+export const getPostDetail = (id: any, setPostDetail: any, callback?: any) => {
   return API.get(
     API_URL + 'services/app/Apartment/GetApartmentDetail?ApartmentId=' + id,
     { headers: { Authorization: 'Bearer ' + getAccessToken() } }
@@ -147,6 +235,9 @@ export const getPostDetail = (id: any, setPostDetail: any) => {
     .then((response) => {
       const data = response.data.result;
       setPostDetail(data);
+      if (callback) {
+        callback();
+      }
     })
     .catch((error) => {
       handleError(error);

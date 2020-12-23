@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import history from '../services/history';
 import {Route, Router, Switch} from 'react-router-dom';
 import {NotFound} from '../components/not_found/NotFound';
@@ -21,6 +21,7 @@ import ProtectedRoute from '../admin/components/Router/ProtectedRoute';
 const handleNewUserMessage = (newMessage: any) => {
   console.log(`New message incoming! ${newMessage}`);
   // Now send the message throught the backend API
+  addResponseMessage(newMessage);
 };
 
 const routes = [
