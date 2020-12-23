@@ -14,6 +14,7 @@ using UET.EasyAccommod.Sales.Dto.Create.Apartment;
 using UET.EasyAccommod.Sales.Dto.Create.Comment;
 using UET.EasyAccommod.Sales.Dto.Create.Like;
 using UET.EasyAccommod.Sales.Dto.Create.Rate;
+using UET.EasyAccommod.Sales.Dto.Create.Renter;
 using UET.EasyAccommod.Sales.Dto.Output;
 using UET.EasyAccommod.Sales.Dto.Output.IncludeDto;
 using UET.EasyAccommod.Users.Dto;
@@ -44,7 +45,9 @@ namespace UET.EasyAccommod
             configuration.CreateMap<EditUser, User>();
             configuration.CreateMap<ApartmentCommentCreateDto, ApartmentComment>();
             configuration.CreateMap<ApartmentRateCreateDto, ApartmentRate>();
-            configuration.CreateMap<ApartmentLike, LikeDto>();
+            configuration.CreateMap<LikeDto,ApartmentLike>();
+            configuration.CreateMap<RenterFavoriteCreateDto, RenterAttention>();
+            configuration.CreateMap<RenterAttention, ListAppartmentFavorite>();
         }
     }
 }
