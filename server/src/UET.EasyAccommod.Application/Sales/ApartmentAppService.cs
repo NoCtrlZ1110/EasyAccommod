@@ -37,7 +37,10 @@ namespace UET.EasyAccommod.Sales
         private readonly IRepository<ApartmentRate, long> _apartmentRateRepo;
         private readonly IRepository<ApartmentLike, long> _apartmentLikeRepo;
         private readonly IRepository<RenterAttention, long> _renterAttentionRepo;
+<<<<<<< HEAD
         private readonly IRepository<User, long> _userRepo;
+=======
+>>>>>>> 0a1b72b (update server)
 
         public ApartmentAppService(IRepository<Apartment, long> apartmentRepo,
                                    IRepository<ApartmentImage, long> apartmentImageRepo,
@@ -45,8 +48,12 @@ namespace UET.EasyAccommod.Sales
                                    IRepository<ApartmentComment, long> apartmentCommentRepo,
                                    IRepository<ApartmentRate, long> apartmentRateRepo,
                                    IRepository<ApartmentLike, long> apartmentLikeRepo,
+<<<<<<< HEAD
                                     IRepository<RenterAttention, long> renterAttentionRepo,
                                     IRepository<User, long> userRepo)
+=======
+                                    IRepository<RenterAttention, long> renterAttentionRepo)
+>>>>>>> 0a1b72b (update server)
         {
             _apartmentRepo = apartmentRepo;
             _apartmentImageRepo = apartmentImageRepo;
@@ -55,7 +62,10 @@ namespace UET.EasyAccommod.Sales
             _apartmentRateRepo = apartmentRateRepo;
             _apartmentLikeRepo = apartmentLikeRepo;
             _renterAttentionRepo = renterAttentionRepo;
+<<<<<<< HEAD
             _userRepo = userRepo;
+=======
+>>>>>>> 0a1b72b (update server)
         }
 
         [AbpAuthorize]
