@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import history from '../services/history';
 import {Route, Router, Switch} from 'react-router-dom';
 import {NotFound} from '../components/not_found/NotFound';
 import Home from '../scenes/home/Home';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
-import { Login } from '../scenes/login/Login';
+import {Login} from '../scenes/login/Login';
 import TEST from '../scenes/test';
 import AccommodList from '../scenes/accommod/AccommodList';
 import { SignUp } from '../scenes/sign_up/SignUp';
@@ -82,41 +82,16 @@ export function AppRouter(props: any) {
   const isLogged = localStorage.getItem('accessToken') !== null;
   const AppLayout = utils.getRoute('/admin').component;
   const UserLayout = utils.getRoute('/admin/user').component;
-
-  const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createAt').limit(25);
-  const [messages] = useCollectionData<any>(query, { idField: 'id' });
-
-  const sendMessage = async (message: string) => {
-    await messagesRef.add({
-      text: message,
-      createAt: firebase.firestore.FieldValue.serverTimestamp(),
-      userId: getUser()?.id,
-    });
-  };
-
-  const handleUserMessage = (newMessage: any) => {
-    sendMessage(newMessage);
-  };
-
-  useEffect(() => {
-    const text = messages?.slice(-1)[0]?.text;
-    const _id = messages?.slice(-1)[0]?.userId;
-    if (text && _id !== getUser()?.id) addResponseMessage(text);
-  }, [messages]);
-
   return (
     <>
       {isLogged && (
         <Widget
-          handleNewUserMessage={handleUserMessage}
+          handleNewUserMessage={handleNewUserMessage}
           profileAvatar={'/svgs/admin.svg'}
           title='Chat với admin'
           subtitle='Nhận sự trợ giúp nhanh chóng từ quản trị viên'
         />
       )}
-      <div id='sidebar-left' />
-      <div id='sidebar-right' />
       <Router history={history}>
         <Switch>
           <Route path={'/admin'}>

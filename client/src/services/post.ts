@@ -227,7 +227,7 @@ export const deletePost = (id: any, callback?: any) => {
 
 // api/services/app/Apartment/GetApartmentDetail?ApartmentId=10
 
-export const getPostDetail = (id: any, setPostDetail: any, callback?: any) => {
+export const getPostDetail = (id: any, setPostDetail: any) => {
   return API.get(
     API_URL + 'services/app/Apartment/GetApartmentDetail?ApartmentId=' + id,
     { headers: { Authorization: 'Bearer ' + getAccessToken() } }
