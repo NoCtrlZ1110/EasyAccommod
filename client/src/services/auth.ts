@@ -11,23 +11,23 @@ const handleError = (error: any) => {
 };
 
 export const register = (values: any) => {
-    return API.post(API_URL + 'services/app/User/Create', values)
-        .then((response) => {
-            const data = response.data;
-            if (data.success) {
-                if (values.roleNames[0] === 'Renter')
-                    toast.success('✅ Đăng ký thành công, đăng nhập ngay!');
-                else
-                    toast.success(
-                        '✅ Gửi yêu cầu đăng ký thành công, hãy chờ người kiểm duyệt phê duyệt tài khoản của bạn!'
-                    );
-                history.push('/login');
-            }
-        })
-        .catch((error) => {
-            const err = error.response.data.error;
-            toast.error(err.message + (err.details ? '\n' + err.details : ''));
-        });
+  return API.post(API_URL + 'services/app/User/Create', values)
+    .then((response) => {
+      const data = response.data;
+      if (data.success) {
+        if (values.roleNames[0] === 'Renter')
+          toast.success('✅ Đăng ký thành công, đăng nhập ngay!');
+        else
+          toast.success(
+            '✅ Gửi yêu cầu đăng ký thành công, hãy chờ người kiểm duyệt phê duyệt tài khoản của bạn!'
+          );
+        history.push('/login');
+      }
+    })
+    .catch((error) => { 
+      const err = error.response.data.error;
+      toast.error(err.message + (err.details ? '\n' + err.details : ''));
+    });
 };
 
 export const login = (
