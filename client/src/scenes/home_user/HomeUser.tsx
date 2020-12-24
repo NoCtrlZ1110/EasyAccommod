@@ -8,9 +8,12 @@ import { searchPost } from '../../services/post';
 import { Apartment } from '../../models/PostDetailModel';
 import { Link } from 'react-router-dom';
 import { StarOutlined, HomeOutlined } from '@ant-design/icons';
+import { useMediaQuery } from 'react-responsive';
 
 export const HomeUser: React.FC = () => {
   const [posts, setPosts] = useState([]);
+
+  const responsive = useMediaQuery({ query: '(max-width: 900px)' });
 
   useEffect(() => {
     searchPost({}, setPosts, true);
@@ -65,7 +68,11 @@ export const HomeUser: React.FC = () => {
       </div>
       <Row justify='space-between' className='home-body'>
         <Col>
-          <Card style={{ minWidth: 750 }}>
+          <Card
+            style={{
+              width: responsive ? 400 : 750,
+            }}
+          >
             <Divider orientation='left'>Các bài viết nổi bật</Divider>
             <List
               itemLayout='vertical'
@@ -149,50 +156,54 @@ export const HomeUser: React.FC = () => {
             />
           </Card>
         </Col>
-        <Card className='suggest-post'>
-          <Divider style={{ fontSize: 18, fontWeight: 500, cursor: 'pointer' }}>
-            <div onClick={() => {}}>Các bài viết tương tự</div>
-          </Divider>
-          <List
-            dataSource={listSuggestPost}
-            pagination={{
-              pageSize: 2,
-              total: 10,
-              position: 'bottom',
-            }}
-            renderItem={(item) => (
-              <List.Item>
-                <Card
-                  className='suggest-post-card'
-                  cover={
-                    <img
-                      alt='example'
-                      src='https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
-                    />
-                  }
-                  hoverable
-                  actions={[
-                    <Tooltip title='20 Lượt thích' color='#F95559'>
-                      <LikeOutlined key='like' />
-                    </Tooltip>,
-                    <Tooltip title='30 bình luận' color='blue'>
-                      <CommentOutlined key='cmt' />
-                    </Tooltip>,
-                    <Tooltip
-                      title='Thêm vào danh sách yêu thích'
-                      color='#F76B6E'
-                    >
-                      <PlusOutlined key='add-to-my-list' />
-                    </Tooltip>,
-                  ]}
-                  onClick={() => {}}
-                >
-                  <Meta title={item.title} description={item.content} />
-                </Card>
-              </List.Item>
-            )}
-          />
-        </Card>
+        {!responsive && (
+          <Card className='suggest-post'>
+            <Divider
+              style={{ fontSize: 18, fontWeight: 500, cursor: 'pointer' }}
+            >
+              <div onClick={() => {}}>Các bài viết tương tự</div>
+            </Divider>
+            <List
+              dataSource={listSuggestPost}
+              pagination={{
+                pageSize: 2,
+                total: 10,
+                position: 'bottom',
+              }}
+              renderItem={(item) => (
+                <List.Item>
+                  <Card
+                    className='suggest-post-card'
+                    cover={
+                      <img
+                        alt='example'
+                        src='https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
+                      />
+                    }
+                    hoverable
+                    actions={[
+                      <Tooltip title='20 Lượt thích' color='#F95559'>
+                        <LikeOutlined key='like' />
+                      </Tooltip>,
+                      <Tooltip title='30 bình luận' color='blue'>
+                        <CommentOutlined key='cmt' />
+                      </Tooltip>,
+                      <Tooltip
+                        title='Thêm vào danh sách yêu thích'
+                        color='#F76B6E'
+                      >
+                        <PlusOutlined key='add-to-my-list' />
+                      </Tooltip>,
+                    ]}
+                    onClick={() => {}}
+                  >
+                    <Meta title={item.title} description={item.content} />
+                  </Card>
+                </List.Item>
+              )}
+            />
+          </Card>
+        )}
       </Row>
     </div>
   );

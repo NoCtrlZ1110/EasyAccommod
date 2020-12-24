@@ -198,6 +198,8 @@ export const PostDetail: React.FC = () => {
         </Card>
       </Row>
       <Divider />
+      <p className='container'>{postDetail?.detail}</p>
+      <Divider />
       <Descriptions className='details' layout='vertical' bordered>
         <Descriptions.Item label='Tỉnh thành / thành phố'>
           {postDetail?.province.name}

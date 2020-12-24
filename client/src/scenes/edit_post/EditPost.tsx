@@ -88,6 +88,7 @@ export const EditPost: React.FC = () => {
 
   useEffect(() => {
     getDistricts(postInfo?.provinceId as number, setDistricts);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
 
   useEffect(() => {
