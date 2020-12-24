@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import history from '../services/history';
-import {Route, Router, Switch} from 'react-router-dom';
-import {NotFound} from '../components/not_found/NotFound';
+import { Router, Switch, Route } from 'react-router-dom';
+import { NotFound } from '../components/not_found/NotFound';
 import Home from '../scenes/home/Home';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
-import {Login} from '../scenes/login/Login';
+import { Login } from '../scenes/login/Login';
+import { TEST } from '../scenes/test';
 import AccommodList from '../scenes/accommod/AccommodList';
 import { SignUp } from '../scenes/sign_up/SignUp';
 import { SearchPage } from '../scenes/search/Search';
@@ -43,6 +44,11 @@ const routes = [
     private: true,
   },
   {
+    path: '/test',
+    component: TEST,
+    private: true,
+  },
+  {
     path: '/profile',
     component: Profile,
     private: true,
@@ -74,66 +80,90 @@ const routes = [
 export function AppRouter(props: any) {
   const user = localStorage.getItem('user');
   const isLogged = localStorage.getItem('accessToken') !== null;
+
+  const messagesRef = firestore.collection('messages');
+  const query = messagesRef.orderBy('createAt').limit(25);
+  const [messages] = useCollectionData<any>(query, { idField: 'id' });
+
   const AppLayout = utils.getRoute('/admin').component;
   const UserLayout = utils.getRoute('/admin/user').component;
+
+  const sendMessage = async (message: string) => {
+    await messagesRef.add({
+      text: message,
+      createAt: firebase.firestore.FieldValue.serverTimestamp(),
+      userId: getUser()?.id,
+    });
+  };
+
+  const handleUserMessage = (newMessage: any) => {
+    sendMessage(newMessage);
+  };
+
+  useEffect(() => {
+    const text = messages?.slice(-1)[0]?.text;
+    const _id = messages?.slice(-1)[0]?.userId;
+    if (text && _id !== getUser()?.id) addResponseMessage(text);
+  }, [messages]);
+
   return (
-    <>
-      {isLogged && (
-        <Widget
-          handleNewUserMessage={handleNewUserMessage}
-          profileAvatar={'/svgs/admin.svg'}
-          title='Chat với admin'
-          subtitle='Nhận sự trợ giúp nhanh chóng từ quản trị viên'
-        />
-      )}
-      <Router history={history}>
-        <Switch>
-          <Route path={'/admin'}>
-            <Switch>
-              <Route path="/admin/user" render={(props: any) => <UserLayout {...props} />}/>
-              <ProtectedRoute path="/admin" render={(props: any) => <AppLayout {...props} exact/>}/>
-            </Switch>
-          </Route>
-          {routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} accessToken={user} />
-          ))}
-        </Switch>
-      </Router>
-    </>
+      <>
+        {isLogged && (
+            <Widget
+                handleNewUserMessage={handleUserMessage}
+                profileAvatar={'/svgs/admin.svg'}
+                title='Chat với admin'
+                subtitle='Nhận sự trợ giúp nhanh chóng từ quản trị viên'
+            />
+        )}
+        <Router history={history}>
+          <Switch>
+            <Route path={'/admin'}>
+              <Switch>
+                <Route path="/admin/user" render={(props: any) => <UserLayout {...props} />}/>
+                <ProtectedRoute path="/admin" render={(props: any) => <AppLayout {...props} exact/>}/>
+              </Switch>
+            </Route>
+            {routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route} accessToken={user} />
+            ))}
+          </Switch>
+        </Router>
+      </>
   );
 }
 
 export function RouteWithSubRoutes(route: any) {
   return (
-    <Route
-      path={route.path}
-      render={(props: any) => {
-        if (route.private) {
-          if (route.accessToken) {
-            return (
-              <>
-                <Header />
-                <div className='wrapper'>
-                  <route.component {...props} routes={route.routes} />
-                </div>
-                <Footer />
-              </>
-            );
-          } else {
-            history.push('/login');
-          }
-        } else
-          return (
-            // pass the sub-routes down to keep nesting
-            <>
-              <Header />
-              <div className='wrapper'>
-                <route.component {...props} routes={route.routes} />
-              </div>
-              <Footer />
-            </>
-          );
-      }}
-    />
+      <Route
+          path={route.path}
+          render={(props: any) => {
+            if (route.private) {
+              if (route.accessToken) {
+                return (
+                    <>
+                      <Header />
+                      <div className='wrapper'>
+                        <route.component {...props} routes={route.routes} />
+                      </div>
+                      <Footer />
+                    </>
+                );
+              } else {
+                history.push('/login');
+              }
+            } else
+              return (
+                  // pass the sub-routes down to keep nesting
+                  <>
+                    <Header />
+                    <div className='wrapper'>
+                      <route.component {...props} routes={route.routes} />
+                    </div>
+                    <Footer />
+                  </>
+              );
+          }}
+      />
   );
 }

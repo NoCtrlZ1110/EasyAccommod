@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2db7b1fc-b307-448a-9e25-2af880f5b724" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/chat.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/profile_owner/Chat.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/sass/react.style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/sass/react.style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/home_user/HomeUser.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/home_user/HomeUser.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/profile_owner/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/profile_owner/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/profile_owner/ProfileRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/profile_owner/ProfileRouter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/AppRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/AppRouter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/post.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,5 +43,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

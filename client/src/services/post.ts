@@ -227,23 +227,23 @@ export const deletePost = (id: any, callback?: any) => {
 
 // api/services/app/Apartment/GetApartmentDetail?ApartmentId=10
 
-export const getPostDetail = (id: any, setPostDetail: any) => {
+export const getPostDetail = (id: any, setPostDetail: any, callback?: any) => {
   return API.get(
-    API_URL + 'services/app/Apartment/GetApartmentDetail?ApartmentId=' + id,
-    { headers: { Authorization: 'Bearer ' + getAccessToken() } }
+      API_URL + 'services/app/Apartment/GetApartmentDetail?ApartmentId=' + id,
+      { headers: { Authorization: 'Bearer ' + getAccessToken() } }
   )
-    .then((response) => {
-      const data = response.data.result;
-      setPostDetail(data);
-      if (callback) {
-        callback();
-      }
-    })
-    .catch((error) => {
-      handleError(error);
-      toast.error('Bài viết không tồn tại!');
-      history.push('/');
-    });
+      .then((response) => {
+        const data = response.data.result;
+        setPostDetail(data);
+        if (callback) {
+          callback();
+        }
+      })
+      .catch((error) => {
+        handleError(error);
+        toast.error('Bài viết không tồn tại!');
+        history.push('/');
+      });
 };
 
 // /api/services/app/Apartment/CreateOrEditNewsComment
