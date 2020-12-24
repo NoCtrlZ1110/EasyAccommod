@@ -24,7 +24,7 @@ export const register = (values: any) => {
         history.push('/login');
       }
     })
-    .catch((error) => {
+    .catch((error) => { 
       const err = error.response.data.error;
       toast.error(err.message + (err.details ? '\n' + err.details : ''));
     });
