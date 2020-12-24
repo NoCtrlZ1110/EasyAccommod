@@ -13,6 +13,7 @@ using System.Net.Http;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web.Http;
+using UET.EasyAccommod.Authorization.Users;
 using UET.EasyAccommod.Helpers;
 using UET.EasyAccommod.Sales.Dto.Create;
 using UET.EasyAccommod.Sales.Dto.Create.Apartment;
@@ -20,6 +21,7 @@ using UET.EasyAccommod.Sales.Dto.Create.Comment;
 using UET.EasyAccommod.Sales.Dto.Create.Image;
 using UET.EasyAccommod.Sales.Dto.Create.Like;
 using UET.EasyAccommod.Sales.Dto.Create.Rate;
+using UET.EasyAccommod.Sales.Dto.Create.Renter;
 using UET.EasyAccommod.Sales.Dto.Input;
 using UET.EasyAccommod.Sales.Dto.Output;
 using UET.EasyAccommod.Sales.Dto.Output.IncludeDto;
@@ -144,13 +146,13 @@ namespace UET.EasyAccommod.Sales
             return al.Count() != 0;
         }
         [AbpAuthorize]
-        public async Task ApproveNews(long apartmentId, int status)
+        public async Task ApproveNews(ApproveNewsInput input)
         {
             try
             {
-                var apartment = await _apartmentRepo.GetAll().Include(a => a.TimeShown).FirstOrDefaultAsync(a => a.Id == apartmentId);
-                apartment.IsApprove = (int?)status;
-                switch (status)
+                var apartment = await _apartmentRepo.GetAll().Include(a => a.TimeShown).FirstOrDefaultAsync(a => a.Id == input.apartmentId);
+                apartment.IsApprove = (int?)input.status;
+                switch (input.status)
                 {
                     case 1:
                         apartment.ExpirationDate = DateTime.Now.AddDays(Int32.Parse(apartment.TimeShown.Description));

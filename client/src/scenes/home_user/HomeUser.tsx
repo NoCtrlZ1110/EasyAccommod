@@ -68,7 +68,11 @@ export const HomeUser: React.FC = () => {
       </div>
       <Row justify='space-between' className='home-body'>
         <Col>
-          <Card style={{ minWidth: responsive ? 400 : 750 }}>
+          <Card
+            style={{
+              width: responsive ? 400 : 750,
+            }}
+          >
             <Divider orientation='left'>Các bài viết nổi bật</Divider>
             <List
               itemLayout='vertical'

@@ -1,4 +1,3 @@
-
 import { routers } from '../components/Router/router.config';
 
 class Utils {
@@ -44,7 +43,11 @@ class Utils {
             continue;
           }
           srcType = Array.isArray(src) ? 'array' : typeof src;
-          if (deep && copy && ((copyIsArray = Array.isArray(copy)) || typeof copy === 'object')) {
+          if (
+            deep &&
+            copy &&
+            ((copyIsArray = Array.isArray(copy)) || typeof copy === 'object')
+          ) {
             if (copyIsArray) {
               copyIsArray = false;
               clone = src && srcType === 'array' ? src : [];
@@ -63,17 +66,17 @@ class Utils {
   }
 
   getPageTitle = (pathname: string) => {
-    const route = routers.filter(route => route.path === pathname);
-    const localizedAppName = ('AppName');
+    const route = routers.filter((route) => route.path === pathname);
+    const localizedAppName = 'Easy Accommod Managerment';
     if (!route || route.length === 0) {
       return localizedAppName;
     }
 
-    return (route[0].title) + ' | ' + localizedAppName;
+    return route[0].title + ' | ' + localizedAppName;
   };
 
   getRoute = (path: string): any => {
-    return routers.filter(route => route.path === path)[0];
+    return routers.filter((route) => route.path === path)[0];
   };
 }
 
