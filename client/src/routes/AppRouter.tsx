@@ -19,6 +19,8 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { firestore } from '../services/firebase';
 import { getUser } from '../services/auth';
 import firebase from 'firebase';
+import ProtectedRoute from '../admin/components/Router/ProtectedRoute';
+import utils from "../admin/utils/utils";
 
 const routes = [
   {
@@ -83,6 +85,9 @@ export function AppRouter(props: any) {
   const query = messagesRef.orderBy('createAt').limit(25);
   const [messages] = useCollectionData<any>(query, { idField: 'id' });
 
+  const AppLayout = utils.getRoute('/admin').component;
+  const UserLayout = utils.getRoute('/admin/user').component;
+
   const sendMessage = async (message: string) => {
     await messagesRef.add({
       text: message,
@@ -102,57 +107,63 @@ export function AppRouter(props: any) {
   }, [messages]);
 
   return (
-    <>
-      {isLogged && (
-        <Widget
-          handleNewUserMessage={handleUserMessage}
-          profileAvatar={'/svgs/admin.svg'}
-          title='Chat với admin'
-          subtitle='Nhận sự trợ giúp nhanh chóng từ quản trị viên'
-        />
-      )}
-      <Router history={history}>
-        <Switch>
-          {routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} accessToken={user} />
-          ))}
-        </Switch>
-      </Router>
-    </>
+      <>
+        {isLogged && (
+            <Widget
+                handleNewUserMessage={handleUserMessage}
+                profileAvatar={'/svgs/admin.svg'}
+                title='Chat với admin'
+                subtitle='Nhận sự trợ giúp nhanh chóng từ quản trị viên'
+            />
+        )}
+        <Router history={history}>
+          <Switch>
+            <Route path={'/admin'}>
+              <Switch>
+                <Route path="/admin/user" render={(props: any) => <UserLayout {...props} />}/>
+                <ProtectedRoute path="/admin" render={(props: any) => <AppLayout {...props} exact/>}/>
+              </Switch>
+            </Route>
+            {routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route} accessToken={user} />
+            ))}
+          </Switch>
+        </Router>
+      </>
   );
 }
 
 export function RouteWithSubRoutes(route: any) {
   return (
-    <Route
-      path={route.path}
-      render={(props: any) => {
-        if (route.private) {
-          if (route.accessToken) {
-            return (
-              <>
-                <Header />
-                <div className='wrapper'>
-                  <route.component {...props} routes={route.routes} />
-                </div>
-                <Footer />
-              </>
-            );
-          } else {
-            history.push('/login');
-          }
-        } else
-          return (
-            // pass the sub-routes down to keep nesting
-            <>
-              <Header />
-              <div className='wrapper'>
-                <route.component {...props} routes={route.routes} />
-              </div>
-              <Footer />
-            </>
-          );
-      }}
-    />
+      <Route
+          path={route.path}
+          render={(props: any) => {
+            if (route.private) {
+              if (route.accessToken) {
+                return (
+                    <>
+                      <Header />
+                      <div className='wrapper'>
+                        <route.component {...props} routes={route.routes} />
+                      </div>
+                      <Footer />
+                    </>
+                );
+              } else {
+                history.push('/login');
+              }
+            } else
+              return (
+                  // pass the sub-routes down to keep nesting
+                  <>
+                    <Header />
+                    <div className='wrapper'>
+                      <route.component {...props} routes={route.routes} />
+                    </div>
+                    <Footer />
+                  </>
+              );
+          }}
+      />
   );
 }

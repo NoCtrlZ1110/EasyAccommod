@@ -20,7 +20,6 @@ using UET.EasyAccommod.Sales.Dto.Create.Comment;
 using UET.EasyAccommod.Sales.Dto.Create.Image;
 using UET.EasyAccommod.Sales.Dto.Create.Like;
 using UET.EasyAccommod.Sales.Dto.Create.Rate;
-using UET.EasyAccommod.Sales.Dto.Create.Renter;
 using UET.EasyAccommod.Sales.Dto.Input;
 using UET.EasyAccommod.Sales.Dto.Output;
 using UET.EasyAccommod.Sales.Dto.Output.IncludeDto;
@@ -36,14 +35,15 @@ namespace UET.EasyAccommod.Sales
         private readonly IRepository<ApartmentRate, long> _apartmentRateRepo;
         private readonly IRepository<ApartmentLike, long> _apartmentLikeRepo;
         private readonly IRepository<RenterAttention, long> _renterAttentionRepo;
-
+        private readonly IRepository<User, long> _userRepo;
         public ApartmentAppService(IRepository<Apartment, long> apartmentRepo,
                                    IRepository<ApartmentImage, long> apartmentImageRepo,
                                    IRepository<ApartmentPublicPlace, long> apartmentPublicPlaceRepo,
                                    IRepository<ApartmentComment, long> apartmentCommentRepo,
                                    IRepository<ApartmentRate, long> apartmentRateRepo,
                                    IRepository<ApartmentLike, long> apartmentLikeRepo,
-                                    IRepository<RenterAttention, long> renterAttentionRepo)
+                                    IRepository<RenterAttention, long> renterAttentionRepo,
+                                    IRepository<User, long> userRepo)
         {
             _apartmentRepo = apartmentRepo;
             _apartmentImageRepo = apartmentImageRepo;
@@ -52,6 +52,7 @@ namespace UET.EasyAccommod.Sales
             _apartmentRateRepo = apartmentRateRepo;
             _apartmentLikeRepo = apartmentLikeRepo;
             _renterAttentionRepo = renterAttentionRepo;
+            _userRepo = userRepo;
         }
 
         [AbpAuthorize]
@@ -468,7 +469,16 @@ namespace UET.EasyAccommod.Sales
             }
             return url;
         }
+        public DashboardOutput GetDashboard()
+        {
+            DashboardOutput output = new DashboardOutput();
 
+            output.TotalUser = _userRepo.GetAll().Count();
+            output.TotalNewUser = _userRepo.GetAll().Where(u => u.IsActive == false).Count();
+            output.TotalNews = _apartmentRepo.GetAll().Count();
+            output.TotalNewNews = _apartmentRepo.GetAll().Where(a => a.IsApprove == 0).Count();
+            return output;
+        }
         private async Task<bool> SaveImage(IFormFile file, string fileName)
         {
 
@@ -496,5 +506,19 @@ namespace UET.EasyAccommod.Sales
 
             }
         }
+    }
+
+    public class DashboardOutput
+    {
+        public long TotalUser { get; set; }
+        public long TotalNewUser { get; set; }
+        public long TotalNews { get; set; }
+        public long TotalNewNews { get; set; }
+    }
+
+    public class ApproveNewsInput
+    {
+        public long apartmentId { get; set; }
+        public int status { get; set; }
     }
 }
