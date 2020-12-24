@@ -6,7 +6,6 @@ import Home from '../scenes/home/Home';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import {Login} from '../scenes/login/Login';
-import TEST from '../scenes/test';
 import AccommodList from '../scenes/accommod/AccommodList';
 import { SignUp } from '../scenes/sign_up/SignUp';
 import { SearchPage } from '../scenes/search/Search';
@@ -41,11 +40,6 @@ const routes = [
   {
     path: '/post',
     component: Post,
-    private: true,
-  },
-  {
-    path: '/test',
-    component: TEST,
     private: true,
   },
   {
