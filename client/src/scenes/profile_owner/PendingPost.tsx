@@ -95,7 +95,11 @@ export const PendingPost: React.FC = () => {
                 history.push('/post/detail/' + id);
               }}
             />
-            <EditTwoTone onClick={() => {}} />
+            <EditTwoTone
+              onClick={() => {
+                history.push('/post/edit/' + id);
+              }}
+            />
             <DeleteOutlined
               style={{ color: 'red' }}
               onClick={() => confirmDelete(id)}

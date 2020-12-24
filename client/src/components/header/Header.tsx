@@ -47,8 +47,8 @@ class Header extends React.Component {
               <Link to='/home'>Trang chủ</Link>
             </Menu.Item>
             {!this.state.isOwner && (
-              <Menu.Item key='accommod'>
-                <Link to='/accommod'>
+              <Menu.Item key='search'>
+                <Link to='/search'>
                   <span>Tìm trọ</span>
                 </Link>
               </Menu.Item>

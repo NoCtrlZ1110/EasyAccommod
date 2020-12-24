@@ -44,19 +44,9 @@
   margin-bottom: 20px;
   .post-title {
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 500;
   animation: color-change 0.5s infinite;
-  @keyframes color-change {
-    0% {
-      color: red;
-    }
-    50% {
-      color: rgb(108, 108, 233);
-    }
-    100% {
-      color: red;
-    }
-  }
+  
 }
 }
 .search-right {
